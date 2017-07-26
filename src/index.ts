@@ -1,3 +1,2 @@
-export { TickTockService } from './services';
-export { TickTockComponent } from './components';
-export { TickTockModule } from './tick-tock.module';
+export { NzbService } from './nzb.service';
+export { NzbModule } from './nzb.module';
