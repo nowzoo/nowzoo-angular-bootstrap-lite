@@ -1,5 +1,5 @@
 {
-  "name": "angular-library-seed",
+  "name": "nowzoo-angular-bootstrap-lite",
   "version": "0.0.1",
   "description": "A lightweight implementation of Bootstrap 4 for Angular 4.",
   "main": "./dist/index.umd.js",
@@ -9,17 +9,15 @@
   "keywords": [
     "angular",
     "angular4",
-    "aot",
+	"bootstrap",
+	"bootstrap 4",
     "aot-compatible",
     "aot-compilation",
     "library",
-    "ng",
-	"bootstrap"
-	"bootstrap 4"
-    "typescript"
+    "ng"
   ],
   "author": {
-    "name": "Christopher Carson",
+    "name": "Christopher Carson"
   },
   "repository": {
     "type": "git",
