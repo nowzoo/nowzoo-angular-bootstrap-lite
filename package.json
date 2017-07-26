@@ -1,7 +1,7 @@
 {
   "name": "angular-library-seed",
-  "version": "0.0.19",
-  "description": "Angular library seed",
+  "version": "0.0.1",
+  "description": "A lightweight implementation of Bootstrap 4 for Angular 4.",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -14,23 +14,21 @@
     "aot-compilation",
     "library",
     "ng",
-    "seed",
-    "starter",
-    "tick-tock",
+	"bootstrap"
+	"bootstrap 4"
     "typescript"
   ],
   "author": {
-    "name": "Oleksii Trekhleb",
-    "url": "https://www.linkedin.com/in/trekhleb/"
+    "name": "Christopher Carson",
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/trekhleb/angular-library-seed.git"
+    "url": "https://github.com/nowzoo/nowzoo-angular-bootstrap-lite.git"
   },
   "bugs": {
-    "url": "https://github.com/trekhleb/angular-library-seed/issues"
+    "url": "https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/issues"
   },
-  "homepage": "https://github.com/trekhleb/angular-library-seed#readme",
+  "homepage": "https://github.com/nowzoo/nowzoo-angular-bootstrap-lite#readme",
   "scripts": {
     "build": "npm run build:esm && npm run build:umd",
     "build:esm": "gulp inline-templates && npm run ngcompile",
