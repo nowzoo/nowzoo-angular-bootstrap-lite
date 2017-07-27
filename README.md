@@ -8,22 +8,25 @@ add and subtract elements from the DOM:
 - Popovers
 
 <strong>Important: depends on Bootstrap, Tether and slim jQuery.</strong>
-Rather than recreating Bootstrap components from scratch in native Angular, the library
-uses Bootstrap javascript and its dependencies.
+Rather than recreating Bootstrap components from scratch in native Angular, we
+use Bootstrap javascript and its dependencies.
 
-This is a fundamentally different approach
-from other Angular/Bootstrap libraries. Namely, it's not "pure" Angular. But a
-bit of impurity for the sake of a smaller codebase, a smaller set of dependencies,
-and a better, more consistent UX might be OK.
+This is a fundamentally different approach from other Angular/Bootstrap libraries.
+Namely, it's not "pure" Angular. We have decided a bit of impurity for the sake of
+a smaller codebase and consistency is OK.
 
 (Want purity? Look here https://github.com/valor-software/ngx-bootstrap or here https://github.com/ng-bootstrap/ng-bootstrap.)
 
 
 What's included:
 
-- a service to pop a modal containing a Component, TemplateRef, or string
-- a service to pop a tooltip containing a Component, TemplateRef, or string
-- a service to pop a popover containing a Component, TemplateRef, or string
+- Modals:
+   - `NzbModalService`: display a modal based on a Component type, TemplateRef, or string
+- Tooltips &amp; Popovers:
+   - `NzbPopupService`: display a tooltip or popover based on a Component type, TemplateRef, or string
+   - `nzbTooltip` directive
+   - `nzbPopover` directive
+
 
 ### Quick start
 
