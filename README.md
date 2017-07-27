@@ -39,19 +39,16 @@ Include jQuery slim, Tether and Bootstrap in your build. For Angular CLI add the
 entries to the `"scripts"` array in `angular-cli.json`:
 ```json
 {
-	...
-	"apps": [
-		{
-			...
-			"scripts": [
-				...
-			    "node_modules/jquery/dist/jquery.slim.min.js",
-				"node_modules/tether/dist/js/tether.min.js",
-				"node_modules/bootstrap/dist/js/bootstrap.min.js"
-			]
+  "apps": [
+	{
+	  "scripts": [
+		"node_modules/jquery/dist/jquery.slim.min.js",
+		"node_modules/tether/dist/js/tether.min.js",
+		"node_modules/bootstrap/dist/js/bootstrap.min.js"
+	  ]
 
-		}
-	]
+	}
+  ]
 }
 
 ```
