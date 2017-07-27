@@ -12,8 +12,8 @@ Rather than recreating Bootstrap components from scratch in native Angular, we
 use Bootstrap javascript and its dependencies.
 
 This is a fundamentally different approach from other Angular/Bootstrap libraries.
-Namely, it's not "pure" Angular. We have decided a bit of impurity for the sake of
-a smaller codebase and consistency is OK.
+Namely, it's not "pure" Angular. We've decided a bit of impurity for the sake of
+a smaller codebase and consistency with Bootstrap is ok.
 
 (Want purity? Look here https://github.com/valor-software/ngx-bootstrap or here https://github.com/ng-bootstrap/ng-bootstrap.)
 
@@ -30,6 +30,28 @@ What's included:
 
 ### Quick start
 
+Install the library...
 ```sh
-npm i
+npm i nowzoo-angular-bootstrap-lite --save
+```
+
+Include jQuery slim, Tether and Bootstrap in your build. For Angular CLI add the following
+entries to the `"scripts"` array in `angular-cli.json`:
+```json
+{
+	...
+	"apps": [
+		{
+			...
+			"scripts": [
+				...
+			    "node_modules/jquery/dist/jquery.slim.min.js",
+				"node_modules/tether/dist/js/tether.min.js",
+				"node_modules/bootstrap/dist/js/bootstrap.min.js"
+			]
+
+		}
+	]
+}
+
 ```
