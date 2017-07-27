@@ -9,14 +9,11 @@ add and subtract elements from the DOM:
 
 <strong>Important: depends on Bootstrap, Tether and slim jQuery.</strong>
 Rather than recreating Bootstrap components from scratch in native Angular, we
-use Bootstrap javascript and its dependencies.
+use Bootstrap javascript and its dependencies.This is a fundamentally different
+approach from other Angular/Bootstrap libraries. Namely, it's not "pure" Angular.
+We've went for a bit of impurity for the sake of a smaller codebase and consistency with Bootstrap.
 
-This is a fundamentally different approach from other Angular/Bootstrap libraries.
-Namely, it's not "pure" Angular. We've decided a bit of impurity for the sake of
-a smaller codebase and consistency with Bootstrap is ok.
-
-(Want purity? Look here https://github.com/valor-software/ngx-bootstrap or here https://github.com/ng-bootstrap/ng-bootstrap.)
-
+(Want Angular purity? Look here https://github.com/valor-software/ngx-bootstrap or here https://github.com/ng-bootstrap/ng-bootstrap.)
 
 What's included:
 
@@ -30,13 +27,13 @@ What's included:
 
 ### Quick start
 
-Install the library...
+Install the library. This will also install Bootstrap and its dependencies.
 ```sh
 npm i nowzoo-angular-bootstrap-lite --save
 ```
 
-Include jQuery slim, Tether and Bootstrap in your build. For Angular CLI add the following
-entries to the `"scripts"` array in `angular-cli.json`:
+Include jQuery slim, Tether and Bootstrap in your build. For an Angular CLI project
+add the following entries to the `"scripts"` array in `angular-cli.json`:
 ```json
 {
   "apps": [
@@ -50,5 +47,4 @@ entries to the `"scripts"` array in `angular-cli.json`:
 	}
   ]
 }
-
 ```
