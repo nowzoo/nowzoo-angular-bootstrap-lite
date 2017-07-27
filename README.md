@@ -1,15 +1,30 @@
 # Angular Bootstrap Lite
-A lightweight implementation of Bootstrap 4 for Angular 4.
 
-This library is an Angular wrapper for those Bootstrap 4 components that require
-potentially heavy manipulation of the DOM:
+This library is an Angular wrapper for Bootstrap components that require
+adding to and subtracting from the DOM:
 
 - Modals
 - Tooltips
 - Popovers
 
+<strong>Important: depends on Bootstrap, Tether and slim jQuery.</strong>
 Rather than recreating Bootstrap components from scratch in native Angular, the library
 uses Bootstrap javascript and its dependencies. This is a fundamentally different approach
 from other Angular/Bootstrap libraries. Namely, it's not "pure" Angular. But a
-bit of impurity for the sake of a smaller codebase and better UX might be OK. Pure Angular
-alternatives can be found here https://github.com/valor-software/ngx-bootstrap and here https://github.com/ng-bootstrap/ng-bootstrap.
+bit of impurity for the sake of a smaller codebase, a smaller set of dependencies,
+and a better, more consistent UX might be OK.
+
+(Want purity? Look here https://github.com/valor-software/ngx-bootstrap or here https://github.com/ng-bootstrap/ng-bootstrap.)
+
+
+What's included:
+
+- a service to pop a modal containing a Component, TemplateRef, or string
+- a service to pop a tooltip containing a Component, TemplateRef, or string
+- a service to pop a popover containing a Component, TemplateRef, or string
+
+### Quick start
+
+```sh
+npm i
+```
