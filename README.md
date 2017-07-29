@@ -48,3 +48,4 @@ add the following entries to the `"scripts"` array in `angular-cli.json`:
   ]
 }
 ```
+The required scripts will be added to your scripts bundle.  The total size is about 146 kB.
