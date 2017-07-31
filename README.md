@@ -15,21 +15,14 @@ We've went for a bit of impurity for the sake of a smaller codebase and consiste
 
 (Want Angular purity? Look here https://github.com/valor-software/ngx-bootstrap or here https://github.com/ng-bootstrap/ng-bootstrap.)
 
-What's included:
 
-- Modals:
-   - `NzbModalService`: display a modal based on a Component type, TemplateRef, or string
-- Tooltips &amp; Popovers:
-   - `NzbPopupService`: display a tooltip or popover based on a Component type, TemplateRef, or string
-   - `nzbTooltip` directive
-   - `nzbPopover` directive
 
 
 ### Quick start
 
-Install the library. This will also install Bootstrap and its dependencies.
+Install the library, Bootstrap 4, Tether, and jQuery
 ```sh
-npm i nowzoo-angular-bootstrap-lite --save
+npm i --save nowzoo-angular-bootstrap-lite bootstrap@^4.0.0-alpha.6 jquery tether
 ```
 
 Include jQuery slim, Tether and Bootstrap in your build. For an Angular CLI project
@@ -39,13 +32,43 @@ add the following entries to the `"scripts"` array in `angular-cli.json`:
   "apps": [
 	{
 	  "scripts": [
-		"node_modules/jquery/dist/jquery.slim.min.js",
-		"node_modules/tether/dist/js/tether.min.js",
-		"node_modules/bootstrap/dist/js/bootstrap.min.js"
+		"../node_modules/jquery/dist/jquery.slim.min.js",
+  		"../node_modules/tether/dist/js/tether.min.js",
+  		"../node_modules/bootstrap/dist/js/bootstrap.min.js"
 	  ]
 
 	}
   ]
 }
 ```
-The required scripts will be added to your scripts bundle.  The total size is about 146 kB.
+This will add the dependencies to your scripts bundle.  The total size is about 146 kB.
+For other build systems, consult the documentation to see how to add scripts.
+
+Import the `NzbModule` module into your app module...
+
+```ts
+// app.module.ts
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { NzbModule } from 'nowzoo-angular-bootstrap-lite';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+	declarations: [
+		AppComponent,
+	],
+	imports: [
+		BrowserModule,
+		NzbModule,
+
+	],
+	providers: [],
+	bootstrap: [
+		AppComponent
+	]
+})
+export class AppModule { }
+```
