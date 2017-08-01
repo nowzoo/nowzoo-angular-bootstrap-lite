@@ -20,12 +20,12 @@ We've went for a bit of impurity for the sake of a smaller codebase and consiste
 
 ### Quick start
 
-Step 1: Install the library, Bootstrap 4, Tether, and jQuery
+**Step 1:** Install the library, Bootstrap 4, Tether, and jQuery
 ```sh
 npm i --save nowzoo-angular-bootstrap-lite bootstrap@^4.0.0-alpha.6 jquery tether
 ```
 
-Step 2: Include jQuery slim, Tether and Bootstrap in your build. For an Angular CLI project
+**Step 2:** Include jQuery slim, Tether and Bootstrap in your build. For an Angular CLI project
 add the following entries to the `apps[0].scripts` array in `angular-cli.json`:
 ```
 "../node_modules/jquery/dist/jquery.slim.min.js",
@@ -35,14 +35,14 @@ add the following entries to the `apps[0].scripts` array in `angular-cli.json`:
 This will add the dependencies to your scripts bundle.  The total size is about 146 kB.
 For other build systems, consult the documentation to see how to add external scripts.
 
-Step 3: Add the Bootstrap 4 styles. How you do this depends on your build; the fast way is to add the following tag to the `<head>` in `index.html`:
+**Step 3:** Add the Bootstrap 4 styles. How you do this depends on your build; the fast way is to add the following tag to the `<head>` in `index.html`:
 ```html
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 ```
 
-*Note:* Make sure the structure of `index.html` conforms the advice given for the [Bootstrap 4 starter template](https://v4-alpha.getbootstrap.com/getting-started/introduction/#starter-template).
+*Note:* Make sure `index.html` conforms the advice given for the [Bootstrap 4 starter template](https://v4-alpha.getbootstrap.com/getting-started/introduction/#starter-template).
 
-Step 4: Import `NzbModule` into your app module...
+**Step 4:** Import `NzbModule` into your app module...
 
 ```ts
 // app.module.ts
@@ -57,3 +57,24 @@ import { NzbModule } from 'nowzoo-angular-bootstrap-lite';
 })
 export class AppModule { }
 ```
+
+**Step 5:** Use the services and directives to create modals, popovers and tooltips.  Example link tktk.
+
+
+### Modals API
+
+`NzbService.createModal(): NzbModal` Creates a modal instance.
+
+
+#### NzbModal
+Represents a modal instance, with a variety of public methods and properties to examine and manipulate the modal's state.
+
+`show(content: any, options?: any): void` Shows the modal with the given content and options. `content` can be a component type, a `TemplateRef` or a plain string.
+
+##### "Hide" Methods
+
+There are two methods to hide a modal, `close` and `dismiss`. `close` should be used to indicate that the user has successfully completed whatever you wanted her to do in the modal; `dismiss` should be used to indicate the the user has cancelled out.
+
+`close(data?: any): void`
+
+`dismiss(reason?: any): void`

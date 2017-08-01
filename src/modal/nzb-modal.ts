@@ -71,11 +71,11 @@ export class NzbModal {
 	}
 
 
-	show(content: any, options: any) {
+	show(content: any, options: any): void {
 		this._show(content, options);
 	}
 
-	close(data: any) {
+	close(data?: any): void {
 		const result = new NzbModalResult();
 		result.dismissed = false;
 		result.data = data;
@@ -83,7 +83,7 @@ export class NzbModal {
 		this.hide();
 	}
 
-	dismiss(reason: any) {
+	dismiss(reason?: any): void {
 		const result = new NzbModalResult();
 		result.dismissed = true;
 		result.data = reason;
