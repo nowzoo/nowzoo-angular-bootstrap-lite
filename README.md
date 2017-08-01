@@ -26,7 +26,7 @@ npm i --save nowzoo-angular-bootstrap-lite bootstrap@^4.0.0-alpha.6 jquery tethe
 ```
 
 Include jQuery slim, Tether and Bootstrap in your build. For an Angular CLI project
-add the following entries to the `"scripts"` array in `angular-cli.json`:
+add the following entries to the `apps[0].scripts` array in `angular-cli.json`:
 ```json
 {
   "apps": [
