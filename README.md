@@ -18,7 +18,7 @@ We've went for a bit of impurity for the sake of a smaller codebase and consiste
 
 
 
-### Quick start
+## Quick start
 
 **Step 1:** Install the library, Bootstrap 4, Tether, and jQuery
 ```sh
@@ -61,20 +61,26 @@ export class AppModule { }
 **Step 5:** Use the services and directives to create modals, popovers and tooltips.  Example link tktk.
 
 
-### Modals API
+## Modals API
 
 `NzbService.createModal(): NzbModal` Creates a modal instance.
 
 
-#### NzbModal
+### NzbModal
 Represents a modal instance, with a variety of public methods and properties to examine and manipulate the modal's state.
 
 `show(content: any, options?: any): void` Shows the modal with the given content and options. `content` can be a component type, a `TemplateRef` or a plain string.
 
-##### "Hide" Methods
+#### "Hide" Methods
 
-There are two methods to hide a modal, `close` and `dismiss`. `close` should be used to indicate that the user has successfully completed whatever you wanted her to do in the modal; `dismiss` should be used to indicate the the user has cancelled out.
+There are two methods to hide a modal, `close` and `dismiss`. `close` should be used to indicate that the user has successfully completed whatever you wanted her to do in the modal; `dismiss` should be used to indicate she has cancelled out.
 
 `close(data?: any): void`
 
 `dismiss(reason?: any): void`
+
+#### Opened/Closed Promises
+
+`opened(): Promise<any>` Resolves when the modal has been completely shown, that is, when all the Bootstrap animations have completed.
+
+`closed(): Promise<NzbModalResult>` Resolves when the modal has been completely hidden. See `NzbModalResult` below.
