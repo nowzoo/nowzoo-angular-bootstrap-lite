@@ -89,4 +89,21 @@ Represents a modal instance, with a variety of public methods and properties to 
 - `onHide: EventEmitter<any>`  Emits the raw `hide.bs.modal` event.
 - `onHidden: EventEmitter<any>` Emits the raw `hidden.bs.modal` event.
 - `status: BehaviorSubject<NzbModalStatus>` The modal's status
-- `result: NzbModalResult | null` The modal's result
+- `result: NzbModalResult | null` The modal's result.
+
+### NzbModalOptions
+
+These options can be passed to modal instances when you open them. You can also define your own defaults on the component or application level by providing a custom value or class, e.g.: `{provide: NzbModalOptions, useValue: {animation: false}}`.
+
+*Inherited Bootstrap Options* See https://v4-alpha.getbootstrap.com/components/modal/#options
+
+- `backdrop: boolean | 'static'`  Default: `true`
+- `keyboard: boolean`  Default: `true`
+- `focus: boolean`  Default: `true`
+
+Note that we don't have a `show` option -- modals are shown via `NzbModal.show`
+
+*Animation and Size*
+
+- `animation: boolean`  Default: `true`
+- `size: null | 'sm' | 'lg'`  Default: `null`
