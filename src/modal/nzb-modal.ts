@@ -36,10 +36,10 @@ export class NzbModal {
 	onHidden: EventEmitter<any>;
 
 	// status...
-	status: BehaviorSubject<NzbModalStatus>;
+	private status: BehaviorSubject<NzbModalStatus>;
 
 	// result...
-	result: NzbModalResult | null;
+	private result: NzbModalResult | null = null;
 
 
 	private renderer: Renderer2;
@@ -117,6 +117,13 @@ export class NzbModal {
 		this.remove();
 	}
 
+
+	getContentComponentRef(): ComponentRef<any> | null {
+		if (this.dynamicContent && this.dynamicContent.componentRef) {
+			return this.dynamicContent.componentRef;
+		}
+		return null;
+	}
 
 
 	private _show(content: any, options: any) {

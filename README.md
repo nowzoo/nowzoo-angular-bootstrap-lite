@@ -63,24 +63,30 @@ export class AppModule { }
 
 ## Modals API
 
-`NzbService.createModal(): NzbModal` Creates a modal instance.
+### NzbService.createModal
+
+- `createModal(): NzbModal` Creates a modal instance.
 
 
 ### NzbModal
 Represents a modal instance, with a variety of public methods and properties to examine and manipulate the modal's state.
 
-`show(content: any, options?: any): void` Shows the modal with the given content and options. `content` can be a component type, a `TemplateRef` or a plain string.
+*Methods*
 
-#### "Hide" Methods
+- `show(content: any, options?: any): void` Shows the modal with the given content and options.
+- `close(data?: any): void` Hide the modal when the user has "successfully" accomplished whatever task the modal set.
+- `dismiss(reason?: any): void` Hide the modal when the user has "cancelled out."
+- `opened(): Promise<any>` Resolves when the modal has been completely shown, that is, when all the Bootstrap animations have completed.
+- `closed(): Promise<NzbModalResult>` Resolves when the modal has been completely hidden. See `NzbModalResult` below.
+- `destroy(): void` Gracefully closes the modal (if open) and cleans up. Use this when the component that created the modal is itself destroyed (e.g. on a router change.)
+- `getContentComponentRef(): ComponentRef<any> | null` If the modal has been shown with a component type, returns the ComponentRef. Otherwise returns null.
 
-There are two methods to hide a modal, `close` and `dismiss`. `close` should be used to indicate that the user has successfully completed whatever you wanted her to do in the modal; `dismiss` should be used to indicate she has cancelled out.
 
-`close(data?: any): void`
+*Properties*
 
-`dismiss(reason?: any): void`
-
-#### Opened/Closed Promises
-
-`opened(): Promise<any>` Resolves when the modal has been completely shown, that is, when all the Bootstrap animations have completed.
-
-`closed(): Promise<NzbModalResult>` Resolves when the modal has been completely hidden. See `NzbModalResult` below.
+- `onShow: EventEmitter<any>` Emits the raw `show.bs.modal` event.
+- `onShown: EventEmitter<any>` Emits the raw `shown.bs.modal` event.
+- `onHide: EventEmitter<any>`  Emits the raw `hide.bs.modal` event.
+- `onHidden: EventEmitter<any>` Emits the raw `hidden.bs.modal` event.
+- `status: BehaviorSubject<NzbModalStatus>` The modal's status
+- `result: NzbModalResult | null` The modal's result
