@@ -44,31 +44,18 @@ add the following entries to the `"scripts"` array in `angular-cli.json`:
 This will add the dependencies to your scripts bundle.  The total size is about 146 kB.
 For other build systems, consult the documentation to see how to add scripts.
 
-Import the `NzbModule` module into your app module...
+Import `NzbModule` into your app module...
 
 ```ts
 // app.module.ts
-
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
 import { NzbModule } from 'nowzoo-angular-bootstrap-lite';
 
-import { AppComponent } from './app.component';
-
 @NgModule({
-	declarations: [
-		AppComponent,
-	],
 	imports: [
-		BrowserModule,
-		NzbModule,
-
+		// other modules...
+		NzbModule
 	],
-	providers: [],
-	bootstrap: [
-		AppComponent
-	]
+	// etc...
 })
 export class AppModule { }
 ```
