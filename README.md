@@ -107,3 +107,9 @@ Note that we don't have a `show` option -- modals are shown via `NzbModal.show`
 
 - `animation: boolean`  Default: `true`
 - `size: null | 'sm' | 'lg'`  Default: `null`
+
+*ariaLabelledById*
+
+- `ariaLabelledById: string | null` Default: `null` This handles correctly setting the
+`aria-labelledby` attribute on the top level `.modal` div. If not set, we'll look for an
+element with the class `.modal-title`. If that element has an id, we'll use the id; otherwise we'll set and use a unique id. 
