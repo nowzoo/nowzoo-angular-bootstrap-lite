@@ -27,19 +27,10 @@ npm i --save nowzoo-angular-bootstrap-lite bootstrap@^4.0.0-alpha.6 jquery tethe
 
 Include jQuery slim, Tether and Bootstrap in your build. For an Angular CLI project
 add the following entries to the `apps[0].scripts` array in `angular-cli.json`:
-```json
-{
-  "apps": [
-	{
-	  "scripts": [
-		"../node_modules/jquery/dist/jquery.slim.min.js",
-  		"../node_modules/tether/dist/js/tether.min.js",
-  		"../node_modules/bootstrap/dist/js/bootstrap.min.js"
-	  ]
-
-	}
-  ]
-}
+```
+"../node_modules/jquery/dist/jquery.slim.min.js",
+"../node_modules/tether/dist/js/tether.min.js",
+"../node_modules/bootstrap/dist/js/bootstrap.min.js"
 ```
 This will add the dependencies to your scripts bundle.  The total size is about 146 kB.
 For other build systems, consult the documentation to see how to add scripts.
