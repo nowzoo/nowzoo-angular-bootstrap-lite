@@ -40,7 +40,7 @@ Step 3: Add the Bootstrap 4 styles. How you do this depends on your build; the f
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 ```
 
-Importantly, make sure the structure of `index.html` conforms the advice given for the (Bootstrap 4 starter template)[https://v4-alpha.getbootstrap.com/getting-started/introduction/#starter-template].
+*Note:* Make sure the structure of `index.html` conforms the advice given for the [Bootstrap 4 starter template](https://v4-alpha.getbootstrap.com/getting-started/introduction/#starter-template).
 
 Step 4: Import `NzbModule` into your app module...
 
