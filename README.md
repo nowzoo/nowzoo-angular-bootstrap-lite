@@ -93,7 +93,11 @@ whatever you pass.
 
 - `data`: The data the modal collected.
 
-- `dismiss(reason?: any): void` Hide the modal when the user has "cancelled out."
+`dismiss(): void`
+
+Use this method to hide the modal when the user has "cancelled out."  The modal's `result.dismissed` will be set to true, and `result.data` will be null.
+
+
 - `opened(): Promise<any>` Resolves when the modal has been completely shown, that is, when all the Bootstrap animations have completed.
 - `closed(): Promise<NzbModalResult>` Resolves when the modal has been completely hidden. See `NzbModalResult` below.
 - `destroy(): void` Gracefully closes the modal (if open) and cleans up. Use this when the component that created the modal is itself destroyed (e.g. on a router change.)
