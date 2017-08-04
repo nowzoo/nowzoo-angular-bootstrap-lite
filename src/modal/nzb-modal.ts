@@ -195,9 +195,9 @@ export class NzbModal {
 
 	/**
 	 * A promise that resolves once when the modal is opened, i.e. after all the Bootstrap animations complete.
-	 * @return {Promise<any>} Resolves with nothing.
+	 * @return {Promise<void>} 
 	 */
-	opened(): Promise<any> {
+	opened(): Promise<void> {
 		const p: Promise<any> = new Promise((resolve: any) => {
 			const sub: Subscription = this.status
 				.filter(val => val === NzbModalStatus.shown).subscribe(val => {

@@ -75,6 +75,8 @@ A modal instance, with a variety of public methods and properties to examine and
 
 *Methods*
 
+---
+
 `show(content: any, options?: any, ariaLabelledById?: string): void`
 
 Shows the modal.
@@ -100,9 +102,22 @@ whatever you pass.
 
 Use this method to hide the modal when the user has "cancelled out."  The modal's `result.dismissed` will be set to true, and `result.data` will be null.
 
+---
 
-- `opened(): Promise<any>` Resolves when the modal has been completely shown, that is, when all the Bootstrap animations have completed.
-- `closed(): Promise<NzbModalResult>` Resolves when the modal has been completely hidden. See `NzbModalResult` below.
+`opened(): Promise<void>`
+
+Returns a promise that resolves when the modal has been completely shown,
+that is, when all the Bootstrap animations have completed.
+
+---
+
+
+`closed(): Promise<NzbModalResult>`
+
+Returns a promise that resolves with a `NzbModalResult`
+when the modal has been completely hidden.
+
+---
 - `destroy(): void` Gracefully closes the modal (if open) and cleans up. Use this when the component that created the modal is itself destroyed (e.g. on a router change.)
 - `getContentComponentRef(): ComponentRef<any> | null` If the modal has been shown with a component type, returns the ComponentRef. Otherwise returns null.
 
