@@ -30,32 +30,117 @@ declare let jQuery: any;
 export class NzbModal {
 
 	// events...
+
+	/**
+	 * Passes on the native Bootstrap `show.bs.modal` event
+	 * @type {EventEmitter<any>}
+	 */
 	onShow: EventEmitter<any>;
+
+	/**
+	 * Passes on the native Bootstrap `shown.bs.modal` event
+	 * @type {EventEmitter<any>}
+	 */
 	onShown: EventEmitter<any>;
+
+	/**
+	 * Passes on the native Bootstrap `hide.bs.modal` event
+	 * @type {EventEmitter<any>}
+	 */
 	onHide: EventEmitter<any>;
+
+	/**
+	 * Passes on the native Bootstrap `hidden.bs.modal` event
+	 * @type {EventEmitter<any>}
+	 */
 	onHidden: EventEmitter<any>;
 
-	// status...
-	private status: BehaviorSubject<NzbModalStatus>;
-
-	// result...
-	private result: NzbModalResult | null = null;
-
-
+	/**
+	 * @private
+	 * @type {Renderer2}
+	 */
 	private renderer: Renderer2;
+
+	/**
+	 * @private
+	 * @type {NzbModalOptions}
+	 */
 	private defaultModalOptions: NzbModalOptions;
+
+	/**
+	 * @private
+	 * @type {ComponentFactoryResolver}
+	 */
 	private cfr: ComponentFactoryResolver;
+
+	/**
+	 * @private
+	 * @type {Injector}
+	 */
 	private injector: Injector;
+
+	/**
+	 * @private
+	 * @type {ApplicationRef}
+	 */
 	private appRef: ApplicationRef;
+
+	/**
+	 * @private
+	 * @type {NzbDynamicContentService}
+	 */
 	private contentService: NzbDynamicContentService;
 
 
+	/**
+	 * @private
+	 * @type {ComponentRef<NzbModalComponent> | null}
+	 */
 	private modalComponentRef: ComponentRef<NzbModalComponent> | null;
+
+	/**
+	 * @private
+	 * @type {NzbDynamicContent | null}
+	 */
 	private dynamicContent: NzbDynamicContent | null;
+
+	/**
+	 * @private
+	 * @type {NzbModalOptions}
+	 */
 	private options: NzbModalOptions;
 
+	/**
+	 * @private
+	 * @type {string | null}
+	 */
+	private ariaLabelledById: string | null = null;
+
+	/**
+	 * The status.
+	 * @private
+	 * @type {BehaviorSubject<NzbModalStatus>}
+	 */
+	private status: BehaviorSubject<NzbModalStatus>;
+
+	/**
+	 * The result.
+	 * @private
+	 * @type {NzbModalResult | null}
+	 */
+	private result: NzbModalResult | null = null;
 
 
+
+
+
+
+
+	/**
+	 * Don't use this constructor directly. Use NzbService.createModal instead.
+	 * @see 	NzbService
+	 * @param  {NzbService}  nzbService 		[description]
+	 */
 	constructor(private nzbService: NzbService) {
 		this.renderer = nzbService.renderer;
 		this.defaultModalOptions = nzbService.defaultModalOptions;
@@ -71,10 +156,21 @@ export class NzbModal {
 	}
 
 
-	show(content: any, options: any): void {
-		this._show(content, options);
+	/**
+	 * Shows the modal.
+	 * @param {any}    content          A component type, a `TemplateRef` or a string.
+	 * @param {any}    options          Optional. See `NzbModalOptions` for valid options.
+	 * @param {string} ariaLabelledById Optional. This is used to set the `aria-labelledby` attribute of the top-level modal div. If your modal template has a `.modal-title` element you can safely omit this -- the library will either use the existing id of the `.modal-title` or generate and use a unique id. You should use this parameter if you don't have a `.modal-title` or wish to use a different element.
+	 */
+	show(content: any, options?: any, ariaLabelledById?: string): void {
+		this._show(content, options, ariaLabelledById);
 	}
 
+	/**
+	 * Use this method to close the modal when the user "sucessfully" completes the modal.
+	 * The modal's `result.dismissed` will be false and `result.data` will be whatever you pass.
+	 * @param {any} data The data you want to pass.
+	 */
 	close(data?: any): void {
 		const result = new NzbModalResult();
 		result.dismissed = false;
@@ -83,6 +179,11 @@ export class NzbModal {
 		this.hide();
 	}
 
+	/**
+	 * Use this method to indicate the user has "cancelled out" of the modal.
+	 * The modal's `result.dismissed` will be true and `result.data` will be whatever you pass as the reason.
+	 * @param {any} reason [description]
+	 */
 	dismiss(reason?: any): void {
 		const result = new NzbModalResult();
 		result.dismissed = true;
@@ -91,6 +192,11 @@ export class NzbModal {
 		this.hide();
 	}
 
+
+	/**
+	 * A promise that resolves once when the modal is opened, i.e. after all the Bootstrap animations complete.
+	 * @return {Promise<any>} Resolves with nothing.
+	 */
 	opened(): Promise<any> {
 		const p: Promise<any> = new Promise((resolve: any) => {
 			const sub: Subscription = this.status
@@ -102,6 +208,10 @@ export class NzbModal {
 		return p;
 	}
 
+	/**
+	 * A promise that resolves once when the modal is hidden, i.e. after all the Bootstrap animations complete.
+	 * @return {Promise<NzbModalResult>} The result as previously set.
+	 */
 	closed(): Promise<NzbModalResult> {
 		const p: Promise<NzbModalResult> = new Promise((resolve: any) => {
 			const sub: Subscription = this.status
@@ -113,11 +223,28 @@ export class NzbModal {
 		return p;
 	}
 
-	destroy() {
-		this.remove();
+	/**
+	 * Use this method to ensure the modal is hidden gracefully
+	 * when the component that created it is destroyed,
+	 * e.g. on a route change.
+	 *
+	 */
+	destroy(): void {
+		let status = this.status.value;
+		if ( status === NzbModalStatus.shown || status === NzbModalStatus.showing || status === NzbModalStatus.initialized ){
+			this.dismiss();
+		} else {
+			this.remove();
+		}
+
 	}
 
 
+	/**
+	 * If you've opened the modal with a component type as content,
+	 * this will return the underlying ComponentRef.
+	 * @return {ComponentRef}
+	 */
 	getContentComponentRef(): ComponentRef<any> | null {
 		if (this.dynamicContent && this.dynamicContent.componentRef) {
 			return this.dynamicContent.componentRef;
@@ -126,10 +253,11 @@ export class NzbModal {
 	}
 
 
-	private _show(content: any, options: any) {
+	private _show(content: any, options?: any, ariaLabelledById?: string) {
 		const factory = this.cfr.resolveComponentFactory(NzbModalComponent);
+		this.ariaLabelledById = ariaLabelledById ? ariaLabelledById : null;
 		this.result = null;
-		this.options = this.getOptions(options);
+		this.options = this.initializeOptions(options);
 		this.dynamicContent = this.getContent(content);
 		this.modalComponentRef = factory.create(this.injector, this.dynamicContent.nodes);
 		const sub: Subscription = this.modalComponentRef.instance.initialized.subscribe(() => {
@@ -190,7 +318,7 @@ export class NzbModal {
 		);
 	}
 
-	private getOptions(raw: any): NzbModalOptions {
+	private initializeOptions(raw: any): NzbModalOptions {
 		const injected: any = typeof this.defaultModalOptions === 'object' ? this.defaultModalOptions : {};
 		const options: NzbModalOptions = new NzbModalOptions();
 		raw = typeof raw === 'object' ? raw : {};
@@ -231,22 +359,24 @@ export class NzbModal {
 			}
 		}
 
-		if (typeof raw.ariaLabelledById === 'string' && raw.ariaLabelledById.trim().length > 0) {
-			options.ariaLabelledById = raw.ariaLabelledById.trim();
-		} else {
-			options.ariaLabelledById = this.nzbService.getUniqueId('nzb-modal-label-');
-		}
+
 		return options;
 
 	}
 
 	private setAriaLabelledBy() {
+		let labelId;
 		if (! this.modalComponentRef) {
 			return;
 		}
 		const el = this.modalComponentRef.instance.modalElement.nativeElement;
 		const $el: any = jQuery(el);
-		let labelId = this.options.ariaLabelledById ? this.options.ariaLabelledById : 'nzb-modal-label';
+
+		if (typeof this.ariaLabelledById === 'string' && this.ariaLabelledById.trim().length > 0) {
+			labelId = this.ariaLabelledById.trim();
+		} else {
+			labelId = this.nzbService.getUniqueId('nzb-modal-label-');
+		}
 		let $label: any = jQuery('#' + labelId, $el);
 		if ($label.length > 0) {
 			this.renderer.setAttribute(el, 'aria-labelledby', labelId);

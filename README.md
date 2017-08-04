@@ -65,16 +65,30 @@ export class AppModule { }
 
 ### NzbService.createModal
 
-- `createModal(): NzbModal` Creates a modal instance.
+`createModal(): NzbModal`
+
+Creates a modal instance.
 
 
 ### NzbModal
-Represents a modal instance, with a variety of public methods and properties to examine and manipulate the modal's state.
+A modal instance, with a variety of public methods and properties to examine and manipulate the modal's state.
 
 *Methods*
 
-- `show(content: any, options?: any): void` Shows the modal with the given content and options.
-- `close(data?: any): void` Hide the modal when the user has "successfully" accomplished whatever task the modal set.
+`show(content: any, options?: any, ariaLabelledById?: string): void`
+
+Shows the modal.
+
+- `content`: A component type, a `TemplateRef` or a plain string.
+- `options`: See NzbOptions.
+- `ariaLabelledById`: This is used to set the `aria-labelledby` attribute of the top-level modal div. If your modal template has a `.modal-title` element you can safely omit this -- the library will either use the existing id of the `.modal-title` or generate and use a unique id. You should use this parameter if you don't have a `.modal-title` or wish to use a different element.
+
+
+`close(data?: any): void`
+
+Use this method to hide the modal when the user has "successfully" accomplished whatever task the modal set.
+
+
 - `dismiss(reason?: any): void` Hide the modal when the user has "cancelled out."
 - `opened(): Promise<any>` Resolves when the modal has been completely shown, that is, when all the Bootstrap animations have completed.
 - `closed(): Promise<NzbModalResult>` Resolves when the modal has been completely hidden. See `NzbModalResult` below.
@@ -112,4 +126,4 @@ Note that we don't have a `show` option -- modals are shown via `NzbModal.show`
 
 - `ariaLabelledById: string | null` Default: `null` This handles correctly setting the
 `aria-labelledby` attribute on the top level `.modal` div. If not set, we'll look for an
-element with the class `.modal-title`. If that element has an id, we'll use the id; otherwise we'll set and use a unique id. 
+element with the class `.modal-title`. If that element has an id, we'll use the id; otherwise we'll set and use a unique id.
