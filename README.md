@@ -83,6 +83,7 @@ Shows the modal.
 - `options`: See NzbOptions.
 - `ariaLabelledById`: This is used to set the `aria-labelledby` attribute of the top-level modal div. If your modal template has a `.modal-title` element you can safely omit this -- the library will either use the existing id of the `.modal-title` or generate and use a unique id. You should use this parameter if you don't have a `.modal-title` or wish to use a different element.
 
+---
 
 `close(data?: any): void`
 
@@ -92,6 +93,8 @@ The modal's `result.dismissed` will be set to false, and `result.data` will cont
 whatever you pass.
 
 - `data`: The data the modal collected.
+
+---
 
 `dismiss(): void`
 
