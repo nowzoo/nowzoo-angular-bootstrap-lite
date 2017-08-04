@@ -86,8 +86,12 @@ Shows the modal.
 
 `close(data?: any): void`
 
-Use this method to hide the modal when the user has "successfully" accomplished whatever task the modal set.
+Use this method to hide the modal when you want to indicate
+the user has "successfully" accomplished whatever task the modal set.
+The modal's `result.dismissed` will be set to false, and `result.data` will contain
+whatever you pass.
 
+- `data`: The data the modal collected.
 
 - `dismiss(reason?: any): void` Hide the modal when the user has "cancelled out."
 - `opened(): Promise<any>` Resolves when the modal has been completely shown, that is, when all the Bootstrap animations have completed.
