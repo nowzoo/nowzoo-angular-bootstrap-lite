@@ -89,15 +89,24 @@ These options can be passed to modal instances when you open them. You can also 
 - `keyboard: boolean`  Default: `true`
 - `focus: boolean`  Default: `true`
 
-Note that we don't have a `show` option -- modals are shown via `NzbModal.show`
-
 *Animation and Size*
 
 - `animation: boolean`  Default: `true`
 - `size: null | 'sm' | 'lg'`  Default: `null`
 
-*ariaLabelledById*
+Note that we don't have a `show` option -- modals are shown via `NzbModal.show`
 
-- `ariaLabelledById: string | null` Default: `null` This handles correctly setting the
-`aria-labelledby` attribute on the top level `.modal` div. If not set, we'll look for an
-element with the class `.modal-title`. If that element has an id, we'll use the id; otherwise we'll set and use a unique id.
+---
+
+## NzbModalStatus
+
+`enum NzbModalStatus`
+
+Possible values:
+
+- `NzbModalStatus.uninitialized`
+- `NzbModalStatus.initialized`
+- `NzbModalStatus.showing`
+- `NzbModalStatus.shown`
+- `NzbModalStatus.hiding`
+- `NzbModalStatus.hidden`
