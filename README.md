@@ -118,9 +118,18 @@ Returns a promise that resolves with a `NzbModalResult`
 when the modal has been completely hidden.
 
 ---
-- `destroy(): void` Gracefully closes the modal (if open) and cleans up. Use this when the component that created the modal is itself destroyed (e.g. on a router change.)
-- `getContentComponentRef(): ComponentRef<any> | null` If the modal has been shown with a component type, returns the ComponentRef. Otherwise returns null.
 
+`destroy(): void`
+
+Gracefully closes the modal (if open) and cleans up. Use this in `ngOnDestroy`.
+
+---
+
+`getContentComponentRef(): ComponentRef<any> | null`
+
+If the modal has been shown with a component type, returns the ComponentRef. Otherwise returns null.
+
+---
 
 *Properties*
 
@@ -130,6 +139,8 @@ when the modal has been completely hidden.
 - `onHidden: EventEmitter<any>` Emits the raw `hidden.bs.modal` event.
 - `status: BehaviorSubject<NzbModalStatus>` The modal's status
 - `result: NzbModalResult | null` The modal's result.
+
+---
 
 ### NzbModalOptions
 
