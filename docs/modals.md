@@ -1,6 +1,8 @@
 # Modals
 
 
+
+
 ## Modals API
 
 ### NzbService.createModal
@@ -20,7 +22,7 @@ A modal instance, with a variety of public methods and properties to examine and
 Shows the modal.
 
 - `content`: A component type, a `TemplateRef` or a plain string.
-- `options`: See NzbOptions.
+- `options`: See [NzbOptions](#nzbmodaloprions).
 - `ariaLabelledById`: This is used to set the `aria-labelledby` attribute of the top-level modal div. If your modal template has a `.modal-title` element you can safely omit this -- the library will either use the existing id of the `.modal-title` or generate and use a unique id. You should use this parameter if you don't have a `.modal-title` or wish to use a different element.
 
 ---
@@ -38,7 +40,8 @@ whatever you pass.
 
 `dismiss(): void`
 
-Use this method to hide the modal when the user has "cancelled out."  The modal's `result.dismissed` will be set to true, and `result.data` will be null.
+Use this method to hide the modal when the user has "cancelled out."  
+The modal's `result.dismissed` will be set to true, and `result.data` will be null.
 
 ---
 
@@ -66,7 +69,8 @@ Gracefully closes the modal (if open) and cleans up. Use this in `ngOnDestroy`.
 
 `getContentComponentRef(): ComponentRef<any> | null`
 
-If the modal has been shown with a component type, returns the ComponentRef. Otherwise returns null.
+If the modal has been shown with a component type, returns the underlying
+`ComponentRef`. Otherwise returns null.
 
 ---
 
