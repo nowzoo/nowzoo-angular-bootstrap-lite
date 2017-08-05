@@ -33,6 +33,7 @@ export class ModalDemoComponent implements OnInit, OnDestroy {
 	modal: NzbModal = null;
 	result: NzbModalResult = null;
 	options: NzbModalOptions;
+	
 	constructor(private nzbService: NzbService) { }
 
 	ngOnInit() {
