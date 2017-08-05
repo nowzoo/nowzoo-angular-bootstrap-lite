@@ -53,7 +53,7 @@ that is, when all the Bootstrap animations have completed.
 `closed(): Promise<NzbModalResult>`
 
 Returns a promise that resolves with a `NzbModalResult`
-when the modal has been completely hidden.
+when the modal has been completely hidden. See [NzbModalResult](#nzbmodalresult)
 
 ---
 
@@ -78,7 +78,7 @@ If the modal has been shown with a component type, returns the ComponentRef. Oth
 - `status: BehaviorSubject<NzbModalStatus>` The modal's status
 - `result: NzbModalResult | null` The modal's result.
 
----
+
 
 ### NzbModalOptions
 
@@ -97,7 +97,7 @@ These options can be passed to modal instances when you open them. You can also 
 
 Note that we don't have a `show` option -- modals are shown via `NzbModal.show`
 
----
+
 
 ### NzbModalStatus
 
@@ -111,11 +111,11 @@ Note that we don't have a `show` option -- modals are shown via `NzbModal.show`
 - `NzbModalStatus.hiding`
 - `NzbModalStatus.hidden`
 
----
+
 
 ### NzbModalResult
 
-This
+This represents the result of the user's interaction with the modal.
 
 - `dismissed: boolean`
 - `data: any`
