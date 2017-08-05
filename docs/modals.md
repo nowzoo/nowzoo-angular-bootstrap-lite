@@ -2,6 +2,8 @@
 
 ## Example
 
+The component that creates the modal...
+
 ```ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
@@ -10,6 +12,41 @@ import {
 	NzbModalOptions,
 	NzbModalResult
 } from 'nowzoo-angular-bootstrap-lite';
+
+// import your content component...
+import { ExampleModalContentComponent } from './example-modal-content.component';
+
+@Component({
+	selector: 'app-modal-demo-1',
+	template: `
+	<div class="form-group">
+		<button class="btn btn-primary" (click)="showModal()">Open Modal</button>
+	</div>
+	`
+})
+export class ModalDemo1Component implements OnInit, OnDestroy {
+	modal: NzbModal = null;
+	result: NzbModalResult = null;
+	options: NzbModalOptions;
+	constructor(
+		private nzbService: NzbService
+	) { }
+
+	ngOnInit() {
+		this.options = new NzbModalOptions();
+		this.modal = this.nzbService.createModal()
+	}
+	ngOnDestroy() {
+		this.modal.destroy();
+	}
+	showModal() {
+		this.modal.closed().then(result => {
+			this.result = result;
+		});
+		this.modal.show(ExampleModalContentComponent, this.options);
+	}
+
+}
 
 ```
 
