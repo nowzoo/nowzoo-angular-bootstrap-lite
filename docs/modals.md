@@ -1,7 +1,17 @@
 # Modals
 
+## Example
 
+```ts
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+	NzbService,
+	NzbModal,
+	NzbModalOptions,
+	NzbModalResult
+} from 'nowzoo-angular-bootstrap-lite';
 
+```
 
 ## Modals API
 
