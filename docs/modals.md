@@ -1,8 +1,8 @@
 # Modals
 
-## Example using a component as the modal content
+## Example using a component type as the modal content
 
-The modal content component...
+The component that we'll use as the modal content...
 
 ```ts
 // example-modal-content.component.ts
@@ -44,9 +44,9 @@ export class ExampleModalContentComponent {
 Make sure that you add this component to `entryComponents` in the module...
 
 ```ts
-// app.module.ts
-// other imports
+// app.module.ts...
 import { ExampleModalContentComponent } from './example-modal-content.component';
+//other imports...
 
 @NgModule({
 	//other stuff...
