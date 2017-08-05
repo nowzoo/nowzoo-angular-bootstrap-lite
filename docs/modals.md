@@ -41,11 +41,12 @@ export class ExampleModalContentComponent {
 
 ```
 
-Make sure that you add the component to `entryComponents` in the module...
+Make sure that you add this component to `entryComponents` in the module...
 
 ```ts
+// app.module.ts
 // other imports
-import { ExampleModalContentComponent } from './modals/modal-demo-1/example-modal-content.component';
+import { ExampleModalContentComponent } from './example-modal-content.component';
 
 @NgModule({
 	//other stuff...
