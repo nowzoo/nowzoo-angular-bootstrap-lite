@@ -5,6 +5,7 @@
 The component that creates the modal...
 
 ```ts
+// modal-demo.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
 	NzbService,
@@ -17,14 +18,18 @@ import {
 import { ExampleModalContentComponent } from './example-modal-content.component';
 
 @Component({
-	selector: 'app-modal-demo-1',
+	selector: 'app-modal-demo',
 	template: `
 	<div class="form-group">
 		<button class="btn btn-primary" (click)="showModal()">Open Modal</button>
 	</div>
+	<div class="form-group">
+		<strong>Result:</strong>
+		<pre>{{result | json}}</pre>
+	</div>
 	`
 })
-export class ModalDemo1Component implements OnInit, OnDestroy {
+export class ModalDemoComponent implements OnInit, OnDestroy {
 	modal: NzbModal = null;
 	result: NzbModalResult = null;
 	options: NzbModalOptions;
@@ -34,15 +39,19 @@ export class ModalDemo1Component implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.options = new NzbModalOptions();
-		this.modal = this.nzbService.createModal()
+		this.modal = this.nzbService.createModal();
 	}
 	ngOnDestroy() {
+		// make sure the modal goes away
+		// gracefully if this component is destroyed
 		this.modal.destroy();
 	}
 	showModal() {
+		// set up a promise to collect the result...
 		this.modal.closed().then(result => {
 			this.result = result;
 		});
+		// show the modal with our content component...
 		this.modal.show(ExampleModalContentComponent, this.options);
 	}
 
