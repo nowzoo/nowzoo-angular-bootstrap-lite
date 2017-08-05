@@ -7,6 +7,7 @@ import {
 	ElementRef,
 	EventEmitter
 } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { NzbModalOptions } from './nzb-modal-options';

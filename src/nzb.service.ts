@@ -5,7 +5,6 @@ import {
 	ComponentFactoryResolver,
 	Injector
 } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
 
 import { NzbDynamicContentService } from './dynamic-content/nzb-dynamic-content.service';
 import { NzbModalOptions } from './modal/nzb-modal-options';
