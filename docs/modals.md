@@ -1,16 +1,19 @@
-# Modals API
+# Modals
 
-## NzbService.createModal
+
+## Modals API
+
+### NzbService.createModal
 
 `createModal(): NzbModal`
 
 Creates a modal instance.
 
 
-## NzbModal
+### NzbModal
 A modal instance, with a variety of public methods and properties to examine and manipulate the modal's state.
 
-*Methods*
+#### Methods
 
 ---
 
@@ -68,7 +71,7 @@ If the modal has been shown with a component type, returns the ComponentRef. Oth
 
 ---
 
-*Properties*
+#### Properties
 
 - `onShow: EventEmitter<any>` Emits the raw `show.bs.modal` event.
 - `onShown: EventEmitter<any>` Emits the raw `shown.bs.modal` event.
@@ -79,7 +82,7 @@ If the modal has been shown with a component type, returns the ComponentRef. Oth
 
 ---
 
-## NzbModalOptions
+### NzbModalOptions
 
 These options can be passed to modal instances when you open them. You can also define your own defaults on the component or application level by providing a custom value or class, e.g.: `{provide: NzbModalOptions, useValue: {animation: false}}`.
 
@@ -98,11 +101,10 @@ Note that we don't have a `show` option -- modals are shown via `NzbModal.show`
 
 ---
 
-## NzbModalStatus
+### NzbModalStatus
 
 `enum NzbModalStatus`
 
-Possible values:
 
 - `NzbModalStatus.uninitialized`
 - `NzbModalStatus.initialized`
@@ -110,3 +112,12 @@ Possible values:
 - `NzbModalStatus.shown`
 - `NzbModalStatus.hiding`
 - `NzbModalStatus.hidden`
+
+---
+
+### NzbModalResult
+
+This
+
+- `dismissed: boolean`
+- `data: any`
