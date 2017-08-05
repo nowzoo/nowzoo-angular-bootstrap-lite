@@ -52,8 +52,9 @@ that is, when all the Bootstrap animations have completed.
 
 `closed(): Promise<NzbModalResult>`
 
-Returns a promise that resolves with a `NzbModalResult`
-when the modal has been completely hidden. See [NzbModalResult](#nzbmodalresult)
+Returns a promise that resolves with the modal's
+[`NzbModalResult`](#nzbmodalresult)
+when the modal has been completely hidden.
 
 ---
 
