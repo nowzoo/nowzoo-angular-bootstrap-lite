@@ -15,8 +15,6 @@ A modal instance, with a variety of public methods and properties to examine and
 
 #### Methods
 
----
-
 `show(content: any, options?: any, ariaLabelledById?: string): void`
 
 Shows the modal.
