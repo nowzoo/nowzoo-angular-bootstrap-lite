@@ -1,6 +1,59 @@
 # Modals
 
-## Example
+## Example using a component as the modal content
+
+The modal content component...
+
+```ts
+// example-modal-content.component.ts
+import { Component } from '@angular/core';
+import { NzbModal } from 'nowzoo-angular-bootstrap-lite';
+
+@Component({
+	selector: 'app-example-modal-content',
+	template: `
+	<div class="modal-header">
+		<h5 class="modal-title">Enter Your Name</h5>
+		<button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<div class="form-group">
+			<label for="example-modal-content-name">Name</label>
+			<input type="text" [(ngModel)]="name" class="form-control">
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary"
+			(click)="modal.dismiss()">Cancel</button>
+		<button type="button" class="btn btn-primary"
+			(click)="modal.close(name)">Save</button>
+	</div>
+	`
+})
+export class ExampleModalContentComponent {
+	name: string;
+
+	// The NzbModal instance is injected here
+	constructor(public modal: NzbModal) { }
+}
+
+```
+
+Make sure that you add the component to `entryComponents` in the module...
+
+```ts
+// other imports
+import { ExampleModalContentComponent } from './modals/modal-demo-1/example-modal-content.component';
+
+@NgModule({
+	//other stuff...
+	entryComponents: [ ExampleModalContentComponent ]
+})
+export class AppModule { }
+
+```
 
 The component that creates the modal...
 
@@ -33,7 +86,7 @@ export class ModalDemoComponent implements OnInit, OnDestroy {
 	modal: NzbModal = null;
 	result: NzbModalResult = null;
 	options: NzbModalOptions;
-	
+
 	constructor(private nzbService: NzbService) { }
 
 	ngOnInit() {
@@ -57,6 +110,8 @@ export class ModalDemoComponent implements OnInit, OnDestroy {
 }
 
 ```
+
+
 
 ## Modals API
 
