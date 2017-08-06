@@ -153,6 +153,7 @@ export class NzbModal {
 		this.onHide = new EventEmitter();
 		this.onHidden = new EventEmitter();
 		this.status = new BehaviorSubject(NzbModalStatus.uninitialized);
+		this.status.subscribe(val => console.log(val));
 	}
 
 
@@ -195,7 +196,7 @@ export class NzbModal {
 
 	/**
 	 * A promise that resolves once when the modal is opened, i.e. after all the Bootstrap animations complete.
-	 * @return {Promise<void>} 
+	 * @return {Promise<void>}
 	 */
 	opened(): Promise<void> {
 		const p: Promise<any> = new Promise((resolve: any) => {
@@ -282,6 +283,7 @@ export class NzbModal {
 		this.setAriaLabelledBy();
 		this.initializeClasses();
 		this.initializeEvents();
+		this.status.next(NzbModalStatus.initialized);
 		$el.modal(options);
 	}
 
