@@ -12,6 +12,8 @@ import {
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/filter';
 
 
 import { NzbDynamicContent } from '../dynamic-content/nzb-dynamic-content';
@@ -128,7 +130,7 @@ export class NzbModal {
 	 * @private
 	 * @type {NzbModalResult | null}
 	 */
-	private result: NzbModalResult | null = null;
+	private result: BehaviorSubject<NzbModalResult | null>;
 
 
 
@@ -153,7 +155,7 @@ export class NzbModal {
 		this.onHide = new EventEmitter();
 		this.onHidden = new EventEmitter();
 		this.status = new BehaviorSubject(NzbModalStatus.uninitialized);
-		this.status.subscribe(val => console.log(val));
+		this.result = new BehaviorSubject(null);
 	}
 
 
@@ -176,21 +178,35 @@ export class NzbModal {
 		const result = new NzbModalResult();
 		result.dismissed = false;
 		result.data = data;
-		this.result = result;
+		this.result.next(result);
 		this.hide();
 	}
 
 	/**
 	 * Use this method to indicate the user has "cancelled out" of the modal.
-	 * The modal's `result.dismissed` will be true and `result.data` will be whatever you pass as the reason.
-	 * @param {any} reason [description]
+	 * The modal's `result.dismissed` will be true and `result.data` will be null.
 	 */
-	dismiss(reason?: any): void {
+	dismiss(): void {
 		const result = new NzbModalResult();
 		result.dismissed = true;
-		result.data = reason;
-		this.result = result;
+		result.data = null;
+		this.result.next(result);
 		this.hide();
+	}
+
+	/**
+	 * A promise that resolves when the modal has been initialized but not yet shown.
+	 * @return {Promise<void>} [description]
+	 */
+	initialized(): Promise<void> {
+		const p: Promise<any> = new Promise((resolve: any) => {
+			const sub: Subscription = this.status
+				.filter(val => val === NzbModalStatus.initialized).subscribe(val => {
+					sub.unsubscribe();
+					resolve();
+				});
+		});
+		return p;
 	}
 
 
@@ -217,18 +233,20 @@ export class NzbModal {
 		const p: Promise<NzbModalResult> = new Promise((resolve: any) => {
 			const sub: Subscription = this.status
 				.filter(val => val === NzbModalStatus.hidden).subscribe(val => {
+					let result = this.result.value;
+					if (! this.result.value){
+						this.result.next(new NzbModalResult())
+					}
 					sub.unsubscribe();
-					resolve(this.result ? this.result : new NzbModalResult());
+					resolve(this.result.value);
 				});
 		});
 		return p;
 	}
 
 	/**
-	 * Use this method to ensure the modal is hidden gracefully
-	 * when the component that created it is destroyed,
-	 * e.g. on a route change.
-	 *
+	 * Use this method in ngOnDestroy to ensure the modal is hidden gracefully
+	 * when the component that created it is destroyed, e.g. on a route change.
 	 */
 	destroy(): void {
 		let status = this.status.value;
@@ -237,8 +255,9 @@ export class NzbModal {
 		} else {
 			this.remove();
 		}
-
 	}
+
+
 
 
 	/**
@@ -253,11 +272,27 @@ export class NzbModal {
 		return null;
 	}
 
+	/**
+	 * Get an observable of the modal status
+	 * @return {Observable<NzbModalStatus>}
+	 */
+	getStatusObservable(): Observable<NzbModalStatus> {
+		return this.status.asObservable();
+	}
+
+	/**
+	 * Get an observable of the modal result
+	 * @return {Observable<NzbModalResult|null>}
+	 */
+	getResultObservable(): Observable<NzbModalResult|null> {
+		return this.result.asObservable();
+	}
+
 
 	private _show(content: any, options?: any, ariaLabelledById?: string) {
 		const factory = this.cfr.resolveComponentFactory(NzbModalComponent);
 		this.ariaLabelledById = ariaLabelledById ? ariaLabelledById : null;
-		this.result = null;
+		this.result.next(null);
 		this.options = this.initializeOptions(options);
 		this.dynamicContent = this.getContent(content);
 		this.modalComponentRef = factory.create(this.injector, this.dynamicContent.nodes);
@@ -284,7 +319,10 @@ export class NzbModal {
 		this.initializeClasses();
 		this.initializeEvents();
 		this.status.next(NzbModalStatus.initialized);
-		$el.modal(options);
+		setTimeout(() => {
+			$el.modal(options);
+		})
+
 	}
 
 

@@ -9,6 +9,7 @@ const globals = {
 	'rxjs/Observable': 'Rx',
     'rxjs/Observer': 'Rx',
 	'rxjs/add/operator/map': 'Rx',
+	'rxjs/add/operator/filter': 'Rx',
 };
 export default {
     entry: './dist/modules/nowzoo-angular-bootstrap-lite.es5.js',
