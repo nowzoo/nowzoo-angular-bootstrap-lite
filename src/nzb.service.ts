@@ -23,7 +23,7 @@ export class NzbService {
 		public appRef: ApplicationRef,
 		public rendererFactory: RendererFactory2,
 		public contentService: NzbDynamicContentService,
-		public defaultModalOptions: NzbModalOptions
+		public defaultModalOptions: NzbModalOptions,
 	) {
 		this.renderer = this.rendererFactory.createRenderer(null, null);
 		this.elementCounter = 0;

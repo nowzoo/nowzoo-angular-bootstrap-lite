@@ -17,9 +17,8 @@ import 'rxjs/add/operator/filter';
 
 
 import { NzbDynamicContent } from '../dynamic-content/nzb-dynamic-content';
-import { NzbDynamicContentComponent } from '../dynamic-content/nzb-dynamic-content.component';
-import { NzbModalComponent } from './nzb-modal.component';
 import { NzbDynamicContentService } from '../dynamic-content/nzb-dynamic-content.service';
+import { NzbModalComponent } from './nzb-modal.component';
 import { NzbModalOptions } from './nzb-modal-options';
 import { NzbModalResult } from './nzb-modal-result';
 import { NzbService } from '../nzb.service';
@@ -427,7 +426,7 @@ export class NzbModal {
 			if ($label.attr('id') && $label.attr('id').length > 0) {
 				labelId = $label.attr('id');
 			} else {
-				this.renderer.setAttribute($label.get(0), 'aria-labelledby', labelId);
+				this.renderer.setAttribute($label.get(0), 'id', labelId);
 			}
 			this.renderer.setAttribute(el, 'aria-labelledby', labelId);
 		}

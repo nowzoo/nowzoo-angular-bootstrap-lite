@@ -8,8 +8,13 @@ import { NzbDynamicContentComponent } from './dynamic-content/nzb-dynamic-conten
 import { NzbModalOptions } from './modal/nzb-modal-options';
 import { NzbModalComponent } from './modal/nzb-modal.component';
 
-import { NzbTooltipOptions } from './tooltip/nzb-tooltip-options';
-import { NzbTooltipDirective } from './tooltip/nzb-tooltip.directive';
+import { NzbPopoverDirective } from './popup/nzb-popover.directive';
+import { NzbPopoverOptions } from './popup/nzb-popover-options.class';
+
+import { NzbTooltipDirective } from './popup/nzb-tooltip.directive';
+import { NzbTooltipOptions } from './popup/nzb-tooltip-options.class';
+
+
 
 @NgModule({
 	imports: [
@@ -18,13 +23,15 @@ import { NzbTooltipDirective } from './tooltip/nzb-tooltip.directive';
 	declarations: [
 		NzbDynamicContentComponent,
 		NzbModalComponent,
-		NzbTooltipDirective
+		NzbTooltipDirective,
+		NzbPopoverDirective
 
 	],
 	exports: [
 		NzbDynamicContentComponent,
 		NzbModalComponent,
-		NzbTooltipDirective
+		NzbTooltipDirective,
+		NzbPopoverDirective
 	],
 	entryComponents: [
 		NzbDynamicContentComponent,
@@ -34,7 +41,8 @@ import { NzbTooltipDirective } from './tooltip/nzb-tooltip.directive';
 		NzbService,
 		NzbDynamicContentService,
 		NzbModalOptions,
-		NzbTooltipOptions
+		NzbTooltipOptions,
+		NzbPopoverOptions
 	]
 })
 export class NzbModule {}

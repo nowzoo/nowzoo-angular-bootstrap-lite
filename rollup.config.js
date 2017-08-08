@@ -7,8 +7,6 @@ const globals = {
 	'rxjs/BehaviorSubject': 'Rx',
 	'rxjs/Subscription': 'Rx',
 	'rxjs/Observable': 'Rx',
-    'rxjs/Observer': 'Rx',
-	'rxjs/add/operator/map': 'Rx',
 	'rxjs/add/operator/filter': 'Rx',
 };
 export default {

@@ -7,10 +7,13 @@ export { NzbModalOptions } from './modal/nzb-modal-options';
 export { NzbModalResult } from './modal/nzb-modal-result';
 export { NzbModalComponent } from './modal/nzb-modal.component';
 
-export { NzbDelay, NzbPlacementCallback } from './common/popup-types';
 
-export { NzbTooltipOptions } from './tooltip/nzb-tooltip-options';
-export { NzbTooltipDirective } from './tooltip/nzb-tooltip.directive';
+export { NzbPopupOptions } from './popup/nzb-popup-options.class';
+export { NzbPopoverOptions } from './popup/nzb-popover-options.class';
+export { NzbTooltipOptions } from './popup/nzb-tooltip-options.class';
+export { NzbPopupDelay, NzbPopupPlacementCallback } from './popup/nzb-popup.types';
+export { NzbTooltipDirective } from './popup/nzb-tooltip.directive';
+export { NzbPopoverDirective } from './popup/nzb-popover.directive';
 
 
 export { NzbDynamicContent } from './dynamic-content/nzb-dynamic-content';
