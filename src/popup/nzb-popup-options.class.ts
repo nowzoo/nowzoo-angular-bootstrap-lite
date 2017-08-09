@@ -6,7 +6,7 @@ import {
 import { NzbPopupDelay, NzbPopupPlacementCallback } from './nzb-popup.types'
 
 export class NzbPopupOptions {
-	animation?: boolean								= false;
+	animation?: boolean								= true;
 	container?: string|false						= false;
 	delay?: number|NzbPopupDelay					= 0;
 	html?: boolean									= false;

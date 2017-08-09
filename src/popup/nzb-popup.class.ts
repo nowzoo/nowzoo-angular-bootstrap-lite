@@ -71,7 +71,11 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 	 */
 	protected statusSubject: BehaviorSubject<NzbPopupStatus>;
 
-	get status(): Observable<NzbPopupStatus>{
+	get status(): NzbPopupStatus{
+		return this.statusSubject.value;
+	}
+
+	get statusObservable(): Observable<NzbPopupStatus>{
 		return this.statusSubject.asObservable()
 	}
 
@@ -106,6 +110,14 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 		this.options = this.bootstrapComponentName === 'tooltip' ?
 			new NzbTooltipOptions() : new NzbPopoverOptions();
 		this.options.normalize(merged);
+
+		const $el = jQuery(this.element.nativeElement);
+		const bsPopup = $el.data('bs.' + this.bootstrapComponentName);
+		if (! bsPopup){
+			return;
+		}
+		bsPopup.config.placement = this.options.placement;
+		bsPopup.config.animation = this.options.animation;
 
 	}
 
@@ -160,14 +172,16 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 			return this.options.trigger;
 		}
 
-		f = this.renderer.listen(this.element.nativeElement, 'click', () => {
+		f = this.renderer.listen(this.element.nativeElement, 'click', (event: any) => {
 			const shown = this.statusSubject.value === NzbPopupStatus.shown;
 			const hidden = this.statusSubject.value === NzbPopupStatus.hidden;
 			if (shown){
-				return this.hide();
+				this.hide();
+				return
 			}
 			if (hidden){
-				return this.show();
+				this.show();
+				return
 			}
 
 		})
@@ -239,6 +253,11 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 		this.contentComponentRef = this.createDynamicContentComponent();
 	}
 
+
+	
+
+
+
 	ngAfterViewInit() {
 		setTimeout(() => {
 			this.updateOptions();
@@ -305,26 +324,32 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 	}
 
 	ngOnChanges() {
+		this.updateOptions();
 		this.updateComponents();
 	}
 
 
-	show() {
+	show(): Promise<void> {
+		const p = this.shown();
 		const $el = jQuery(this.element.nativeElement);
 		if ('popover' === this.bootstrapComponentName){
 			$el.popover('show');
 		} else {
 			$el.tooltip('show');
 		}
+		return p;
+
 	}
 
-	hide() {
+	hide(): Promise<void> {
+		const p = this.hidden();
 		const $el = jQuery(this.element.nativeElement);
 		if ('popover' === this.bootstrapComponentName){
 			$el.popover('hide');
 		} else {
 			$el.tooltip('hide');
 		}
+		return p;
 	}
 
 	/**
