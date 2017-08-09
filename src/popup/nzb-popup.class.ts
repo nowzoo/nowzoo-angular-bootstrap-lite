@@ -64,6 +64,9 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 
 
 
+
+
+
 	/**
 	 * The status.
 	 * @protected
@@ -74,6 +77,8 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 	get status(): NzbPopupStatus{
 		return this.statusSubject.value;
 	}
+
+
 
 	get statusObservable(): Observable<NzbPopupStatus>{
 		return this.statusSubject.asObservable()
@@ -254,7 +259,7 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 	}
 
 
-	
+
 
 
 
@@ -380,6 +385,10 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 				});
 		});
 		return p;
+	}
+
+	getOptions() {
+		return Object.assign({}, this.options);
 	}
 
 
