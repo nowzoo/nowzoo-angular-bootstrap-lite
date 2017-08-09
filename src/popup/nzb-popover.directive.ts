@@ -37,10 +37,7 @@ export class NzbPopoverDirective extends NzbPopup  {
 	}
 
 
-	protected getContext(): any {
-		return {popover: this}
-	}
-
+	
 	protected getInstanceOptions(): any {
 		return this.nzbPopover;
 	}

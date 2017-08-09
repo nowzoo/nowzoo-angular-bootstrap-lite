@@ -34,10 +34,6 @@ export class NzbTooltipDirective extends NzbPopup  {
 		super('tooltip', cfr, injector, appRef, renderer, element, injectedOptions);
 	}
 
-	protected getContext(): any {
-		return {tooltip: this}
-	}
-
 
 	protected getInstanceOptions(): any {
 		return this.nzbTooltip;

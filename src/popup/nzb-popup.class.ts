@@ -104,7 +104,6 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 	}
 
 
-	protected abstract getContext(): any;
 	protected abstract getInstanceOptions(): any;
 
 
@@ -234,7 +233,7 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 	}
 	protected updateComponents() {
 		setTimeout(() => {
-			const context = this.getContext();
+			const context = {popup: this}
 			if (this.titleComponentRef){
 				this.titleComponentRef.instance.updateContent(this.options.title, context);
 			}
