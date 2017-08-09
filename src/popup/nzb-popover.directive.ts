@@ -23,7 +23,6 @@ import { NzbPopup } from './nzb-popup.class';
 export class NzbPopoverDirective extends NzbPopup  {
 	@Input() nzbPopover: any;
 
-	name: string = 'MMnjhkjhsjkhs';
 
 
 	constructor(

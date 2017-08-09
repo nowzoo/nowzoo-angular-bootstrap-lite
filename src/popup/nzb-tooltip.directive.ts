@@ -35,7 +35,7 @@ export class NzbTooltipDirective extends NzbPopup  {
 	}
 
 	protected getContext(): any {
-		return {popover: this}
+		return {tooltip: this}
 	}
 
 
