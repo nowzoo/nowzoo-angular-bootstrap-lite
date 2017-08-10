@@ -285,7 +285,6 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 
 			options = {
 				html: true,
-				title: this.titleComponentRef.location.nativeElement,
 				animation: this.options.animation,
 				container: this.options.container,
 				delay: this.options.delay,
@@ -296,6 +295,9 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 			}
 			if (trigger) {
 				options.trigger = trigger;
+			}
+			if (this.titleComponentRef){
+				options.title = this.titleComponentRef.location.nativeElement;
 			}
 			if ('popover' === this.bootstrapComponentName && this.contentComponentRef){
 				options.content = this.contentComponentRef.location.nativeElement;
