@@ -258,10 +258,6 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 	}
 
 
-
-
-
-
 	ngAfterViewInit() {
 		setTimeout(() => {
 			this.updateOptions();
@@ -278,10 +274,18 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 			this.renderer.setAttribute(this.element.nativeElement, 'data-title-popup', originalTitle)
 			this.renderer.removeAttribute(this.element.nativeElement, 'title');
 			this.initializeBootstrapEvents(this.element);
-			this.initTitleComponent();
-			if ('popover' === this.bootstrapComponentName){
-				this.initContentComponent();
+
+			if ('popover' === this.bootstrapComponentName && (this.options instanceof NzbPopoverOptions)) {
+				if (this.options.title) {
+					this.initTitleComponent();
+				}
+				if (this.options.content) {
+					this.initContentComponent();
+				}
+			} else {
+				this.initTitleComponent();
 			}
+
 			this.updateComponents();
 
 			options = {
