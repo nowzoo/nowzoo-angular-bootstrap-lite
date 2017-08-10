@@ -62,11 +62,6 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 	onHidden: EventEmitter<any>;
 
 
-
-
-
-
-
 	/**
 	 * The status.
 	 * @protected
@@ -302,7 +297,7 @@ export abstract class NzbPopup implements AfterViewInit, OnDestroy, OnChanges {
 			if (trigger) {
 				options.trigger = trigger;
 			}
-			if ('popover' === this.bootstrapComponentName){
+			if ('popover' === this.bootstrapComponentName && this.contentComponentRef){
 				options.content = this.contentComponentRef.location.nativeElement;
 				$el.popover(options);
 			} else {
