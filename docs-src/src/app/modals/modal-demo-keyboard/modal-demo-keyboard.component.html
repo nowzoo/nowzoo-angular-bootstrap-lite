@@ -1,0 +1,80 @@
+<h1 class="display-4">Modal Keyboard Option</h1>
+<hr>
+<div class="row example">
+  <div class="col-sm-6 col-md-4">
+
+    <p>
+      By default pressing the <code>esc</code> key will dismiss the modal.
+      To prevent this behavior, add <code>data-keyboard="false"</code> to the
+      <code>.modal</code> element.
+    </p>
+
+
+
+    <p>
+      <button class="btn btn-primary" (click)="defaultModal.show()">Default Behavior</button>
+    </p>
+    <p>
+      <button class="btn btn-primary" (click)="noEscModal.show()">Keyboard = false</button>
+    </p>
+
+    <p>
+      <a href="https://getbootstrap.com/docs/4.0/components/modal/#optional-sizes" target="bootstrapdocs">
+        <i class="fa fa-external-link fa-fw"></i>Bootstrap docs</a>
+    </p>
+
+
+    <ng-template nzbModal #defaultModal="nzbModal">
+      <!-- same as data-keyboard="true" -->
+      <div class="modal fade" tabindex="-1">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Default Keyboard Behavior</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Pressing the <code>esc</code> key will dismiss this modal.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template nzbModal #noEscModal="nzbModal">
+      <div class="modal fade" tabindex="-1" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Keyboard Behavior Disabled</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Pressing the <code>esc</code> key will not dismiss this modal.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+
+  </div>
+  <div class="col-sm-6 col-md-8">
+    <markdown-to-html [data]="example | language : 'html'"></markdown-to-html>
+  </div>
+
+</div>

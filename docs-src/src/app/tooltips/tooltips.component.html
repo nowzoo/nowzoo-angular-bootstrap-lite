@@ -1,0 +1,322 @@
+<h1 class="display-2">
+  Tooltips
+
+</h1>
+<hr>
+
+
+
+<p class="lead">
+  Lightweight
+  <a
+    href="https://getbootstrap.com/docs/4.0/components/tooltips/"
+    nzbTooltip
+    title="Bootstrap tooltip docs"
+    target="bsdocs">Bootstrap tooltips<i class="fa fa-fw fa-external-link"></i></a>
+    based on data- attributes and (optionally) <code>ng-template</code>.
+</p>
+
+<h2 class="display-4" id="api">API</h2>
+
+<div class="row example">
+  <div class="col-lg-6">
+    <h3 class="display-6"  id="api-options">Options</h3>
+    <ul>
+      <li>
+        <code>title</code>
+        <ul>
+          <li>
+            Use the <code>title</code> or <code>data-title</code> attributes
+            (<a routerLink="." fragment="example-title-attr">example</a>.)
+          </li>
+          <li>
+            Use <code>[nzbTooltipTitle]="myTemplate"</code> to specify a template
+            (<a routerLink="." fragment="example-nzbTooltipTitle">example</a>.)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <code>placement</code>
+        <ul>
+          <li>
+            Use <code>data-title</code>.
+          </li>
+          <li>
+            Use <code>[nzbTooltipPlacement]="myPlacementFunc"</code> to specify a function
+            (<a routerLink="." fragment="example-nzbTooltipPlacement">example</a>.)
+          </li>
+        </ul>
+      </li>
+      <li>
+        All the other
+        <a href="https://getbootstrap.com/docs/4.0/components/tooltips/#options"
+        nzbTooltip
+        title="tooltip option docs"
+        target="bsdocs">Bootstrap tooltip options<i class="fa fa-fw fa-external-link"></i></a>
+        (except <code>selector</code>) are supported
+        via <code>data-</code> attributes
+          (<a routerLink="." fragment="example-data-attr">example</a>.)
+        <ul>
+          <li><code>data-animation</code></li>
+          <li><code>data-container</code></li>
+          <li><code>data-delay</code></li>
+          <li><code>data-html</code></li>
+          <li><code>data-trigger</code></li>
+          <li><code>data-offset</code></li>
+          <li><code>data-fallbackTrigger</code></li>
+        </ul>
+
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-6">
+    <h3 class="display-6"  id="api-methods">Methods</h3>
+    <p>
+      The directive wraps all Bootstrap
+      <a href="https://getbootstrap.com/docs/4.0/components/tooltips/#methods"
+      nzbTooltip
+      title="tooltip method docs"
+      target="bsdocs">tooltip methods<i class="fa fa-fw fa-external-link"></i></a> except for
+      <code>dispose()</code> (the directive takes care of disposing of the tooltip.)
+
+    <ul>
+      <li>
+        <code>show()</code>
+      </li>
+      <li>
+        <code>hide()</code>
+      </li>
+      <li>
+        <code>toggle()</code>
+        <a routerLink="." fragment="example-show-hide-toggle">show/hide/toggle example</a>
+      </li>
+      <li>
+        <code>enable()</code>
+      </li>
+      <li>
+        <code>disable()</code>
+      </li>
+      <li>
+        <code>toggleEnabled()</code> <a routerLink="." fragment="example-enable">enable/disable/toggleEnabled example</a>
+      </li>
+      <li>
+        <code>update()</code>
+      </li>
+
+    </ul>
+
+    <p>
+      The directive also exposes the following public API:
+    </p>
+    <ul>
+      <li>
+        Observables (<a routerLink="." fragment="example-observables">example</a>)
+        <ul>
+          <li>
+            <code>getEvents(): Observable&lt;Event&gt;</code> An observable of the
+              <a href="https://getbootstrap.com/docs/4.0/components/tooltips/#events"
+              nzbTooltip
+              title="tooltip event docs"
+              target="bsdocs">native tooltip events<i class="fa fa-fw fa-external-link"></i></a>.
+          </li>
+          <li>
+            <code>getStatus(): Observable&lt;string&gt;</code>
+            An observable of <code>'show'|'inserted'|'shown'|'hide'|'hidden'</code>.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <code>getPopupData(): any</code> Returns the data from the underlying Bootstrap component.
+        (<a routerLink="." fragment="example-getPopupData">example</a>)
+      </li>
+    </ul>
+
+
+  </div>
+</div>
+
+
+
+
+<h2 class="display-4" id="examples">Examples</h2>
+
+<h3 class="display-6" id="example-title-attr">Example: Use the title attribute</h3>
+
+<div class="row example">
+  <div class="col-lg-6">
+    <p>
+      The directive can handle the simplest use case (e.g. adding a tooltip with a static title)
+      using <code>nzbTooltip title="..."</code>.
+    </p>
+    <app-tooltip-demo-0></app-tooltip-demo-0>
+  </div>
+
+  <div class="col-lg-6">
+    <app-gist-embed [gistId]="gistId" file="tooltip-demo-0.component.ts"></app-gist-embed>
+  </div>
+
+</div>
+
+<h3 class="display-6" id="example-nzbTooltipTitle">Example: Use nzbTooltipTitle</h3>
+
+
+<div class="row example">
+  <div class="col-lg-6">
+    <p>
+      The directive can also handle more complex situations, by using <code>ng-template</code> to
+      define the tooltip's content (i.e. with variable interpolation,) and by wrapping
+      the Bootstrap tooltip API and events.
+    </p>
+
+
+
+    <p>
+      Use <code>[nzbTooltipTitle]="myFancyTip"</code> in the target element
+      to use the template at
+      <code>&lt;ng-template #myFancyTip&gt;...&lt;/ng-template&gt;</code>
+      as the tooltip. You can interpolate and <code>*ngIf</code> to your
+      heart's content within the template.
+    </p>
+
+
+
+    <p>
+      A couple of notes about using templates:
+    </p>
+
+
+    <ul>
+      <li>
+        The <code>title</code> attribute, if present,
+        will always override <code>[nzbTooltipTitle]</code>.
+        This is intentional. Don't use both in the same element.
+      </li>
+      <li>
+        If you use a template, the tooltip's <code>html</code>
+        property will be set to <code>true</code>.
+        This is intentional &mdash; Angular needs markup to do its stuff.
+        If you don't need to do logic or interpolate values in the tooltip,
+        just use the <code>title</code> attribute or a function.
+      </li>
+    </ul>
+    <app-tooltip-demo-1></app-tooltip-demo-1>
+  </div>
+
+  <div class="col-lg-6">
+    <app-gist-embed [gistId]="gistId" file="tooltip-demo-1.component.ts"></app-gist-embed>
+  </div>
+
+</div>
+
+<h3 class="display-6" id="example-nzbTooltipPlacement">Example: Using a function for <code>placement</code> </h3>
+
+<div class="row example">
+  <div class="col-lg-6">
+    <p>
+      Use <code>[nzbTooltipPlacement]="myFunc"</code> if you want to
+      do some fancy calculation to place the tooltip.
+    </p>
+    <app-tooltip-demo-2></app-tooltip-demo-2>
+  </div>
+
+  <div class="col-lg-6">
+    <app-gist-embed [gistId]="gistId" file="tooltip-demo-2.component.ts"></app-gist-embed>
+  </div>
+
+</div>
+
+<h3 class="display-6" id="example-data-attr">Example: Data Attributes </h3>
+
+<div class="row example">
+  <div class="col-lg-6">
+    <p>
+      The following example uses all the available <code>data-</code>
+      attributes. Click to trigger. (Note: The tooltip is offset 10px to the right intentionally.)
+    </p>
+    <app-tooltip-demo-3></app-tooltip-demo-3>
+  </div>
+
+  <div class="col-lg-6">
+    <app-gist-embed [gistId]="gistId" file="tooltip-demo-3.component.ts"></app-gist-embed>
+  </div>
+
+</div>
+
+<h3 class="display-6" id="example-show-hide-toggle">Example: <code>show()</code>/<code>hide()</code>/<code>toggle()</code> </h3>
+
+<div class="row example">
+  <div class="col-lg-6">
+    <p>
+      The following example is manually triggered.
+    </p>
+    <app-tooltip-demo-4></app-tooltip-demo-4>
+  </div>
+
+  <div class="col-lg-6">
+    <app-gist-embed [gistId]="gistId" file="tooltip-demo-4.component.ts"></app-gist-embed>
+  </div>
+
+</div>
+
+<h3 class="display-6" id="example-enable">Example: <code>enable()</code>/<code>disable()</code>/<code>toggleEnabled()</code> </h3>
+
+<div class="row example">
+  <div class="col-lg-6">
+
+    <app-tooltip-demo-5></app-tooltip-demo-5>
+  </div>
+
+  <div class="col-lg-6">
+    <app-gist-embed [gistId]="gistId" file="tooltip-demo-5.component.ts"></app-gist-embed>
+  </div>
+
+</div>
+
+<h3 class="display-6" id="example-observables">Example: Observables </h3>
+
+<div class="row example">
+  <div class="col-lg-6">
+    <p>
+      <code>tooltipInstance.getEvents()</code> returns an observable of the tooltip's
+      <a href="https://getbootstrap.com/docs/4.0/components/tooltips/#events"
+      nzbTooltip
+      title="tooltip events docs"
+      target="bsdocs">native Bootstrap events<i class="fa fa-fw fa-external-link"></i></a>.
+    </p>
+    <p>
+      <code>tooltipInstance.getStatus()</code> returns an observable of
+      <code>'show'|'inserted'|'shown'|'hide'|'hidden'</code>.
+    </p>
+
+
+    <app-tooltip-demo-6></app-tooltip-demo-6>
+  </div>
+
+  <div class="col-lg-6">
+    <app-gist-embed [gistId]="gistId" file="tooltip-demo-6.component.ts"></app-gist-embed>
+  </div>
+
+</div>
+
+<h3 class="display-6" id="example-getPopupData">Example: <code>getPopupData()</code> </h3>
+
+<div class="row example">
+  <div class="col-lg-6">
+    <p>
+      <code>tooltipInstance.getPopupData()</code>
+      returns the underlying Bootstrap component data.
+    </p>
+    <p>
+      For example, you can use this to add extra classes to the
+      tooltip (<code>getPopupData().tip</code>,) as in this example.
+    </p>
+
+
+    <app-tooltip-demo-7></app-tooltip-demo-7>
+  </div>
+
+  <div class="col-lg-6">
+    <app-gist-embed [gistId]="gistId" file="tooltip-demo-7.component.ts"></app-gist-embed>
+  </div>
+
+</div>

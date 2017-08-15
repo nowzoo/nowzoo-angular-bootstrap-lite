@@ -1,0 +1,112 @@
+<h1 class="display-4">Modal Backdrop</h1>
+<hr>
+<div class="row example">
+  <div class="col-sm-6 col-md-4">
+
+    <p>
+      By default the backdrop is shown , and clicking on it dismisses the modal.
+
+    </p>
+    <ul>
+
+      <li>
+        To hide the backdrop altogether, add <code>data-backdrop="false"</code> to the
+        <code>.modal</code> element.
+      </li>
+      <li>
+        To prevent clicks on the backdrop from dismissing the modal, add <code>data-backdrop="static"</code> to the
+        <code>.modal</code> element.
+      </li>
+    </ul>
+
+
+    <p>
+      <button class="btn btn-primary" (click)="defaultModal.show()">Modal With Backdrop</button>
+    </p>
+    <p>
+      <button class="btn btn-primary" (click)="noBackdropModal.show()">Modal Without Backdrop</button>
+    </p>
+    <p>
+      <button class="btn btn-primary" (click)="staticBackdropModal.show()">Modal With Static Backdrop</button>
+    </p>
+
+    <p>
+      <a href="https://getbootstrap.com/docs/4.0/components/modal/#options" target="bootstrapdocs">
+        <i class="fa fa-external-link fa-fw"></i>Bootstrap docs</a>
+    </p>
+
+    <ng-template nzbModal #defaultModal="nzbModal">
+      <!-- same as data-backdrop="true" -->
+      <div class="modal fade" tabindex="-1">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">With Backdrop</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                This modal has the default backdrop. Click on it to dismiss the modal.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template nzbModal #noBackdropModal="nzbModal">
+      <div class="modal fade" tabindex="-1" data-backdrop="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">No Backdrop</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                This modal does not have a backdrop.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template nzbModal #staticBackdropModal="nzbModal">
+      <div class="modal fade" tabindex="-1" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Static Backdrop</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                  This modal has a static backdrop. Clicking on it will not dismiss the modal.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="col-sm-6 col-md-8">
+    <markdown-to-html [data]="example | language : 'html'"></markdown-to-html>
+  </div>
+
+</div>

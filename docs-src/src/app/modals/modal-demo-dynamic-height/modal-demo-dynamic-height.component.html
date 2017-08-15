@@ -1,0 +1,65 @@
+<h1 class="display-4">Modal Dynamic Heights</h1>
+<hr>
+<div class="row example">
+  <div class="col-sm-6 col-md-4">
+
+    <p>
+      When the height of your modal's content changes, you should call
+      <code>myModal.handleUpdate()</code>. This will make sure Bootstrap
+      readjusts the modal's position.
+    </p>
+
+
+
+    <p>
+      <button class="btn btn-primary" (click)="exampleModal.show()">Show Example</button>
+    </p>
+
+
+    <p>
+      <a href="https://getbootstrap.com/docs/4.0/components/modal/#dynamic-heights" target="bootstrapdocs">
+        <i class="fa fa-external-link fa-fw"></i>Bootstrap docs</a>
+    </p>
+
+
+    <ng-template nzbModal #exampleModal="nzbModal">
+      <div class="modal fade" tabindex="-1">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal With Dynamic Height</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Paragraph count: {{paragraphs.length}}
+
+                <button class="btn btn-sm btn-success" (click)="add()">
+                  Add
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="subtract()">
+                  Subtract
+                </button>
+              </p>
+
+              <p *ngFor="let para of paragraphs">{{para}}</p>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+
+  </div>
+  <div class="col-sm-6 col-md-8">
+    <markdown-to-html [data]="example | language : 'typescript'"></markdown-to-html>
+  </div>
+
+</div>

@@ -10,6 +10,8 @@
         "test": "karma start",
         "pack-lib": "npm pack ./dist",
         "publish-lib": "npm publish ./dist",
+        "docs-serve": "cd ./docs-src && ng serve",
+        "docs": "cd ./docs-src && ng build -aot --target=production --base-href '/nowzoo-angular-bootstrap-lite' --deploy-url https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/ --output-path ../docs",
         "compodoc": "compodoc -p tsconfig.json --disablePrivateOrInternalSupport",
         "compodoc-serve": "compodoc -s -r 4040"
     },

@@ -1,0 +1,85 @@
+<h1 class="display-4">Modal Focus Option</h1>
+<hr>
+<div class="row example">
+  <div class="col-sm-6 col-md-4">
+
+    <p>
+      By default the modal will be focused once it is opened.
+      To prevent this behavior, add <code>data-focus="false"</code> to the
+      <code>.modal</code> element.
+    </p>
+
+
+
+    <p>
+      <button class="btn btn-primary" (click)="defaultModal.show()">Default Behavior</button>
+    </p>
+    <p>
+      <button class="btn btn-primary" (click)="noFocusModal.show()">Focus = false</button>
+    </p>
+
+    <div *ngIf="lastModalFocused" class="alert alert-warning">
+      Modal focused: {{lastModalFocused}}
+    </div>
+
+
+    <p>
+      <a href="https://getbootstrap.com/docs/4.0/components/modal/#options" target="bootstrapdocs">
+        <i class="fa fa-external-link fa-fw"></i>Bootstrap docs</a>
+    </p>
+
+
+    <ng-template nzbModal #defaultModal="nzbModal">
+      <!-- same as data-focus="true" -->
+      <div id="defaultModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Default Focus Behavior</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                This modal was focused when it was shown.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template nzbModal #noFocusModal="nzbModal">
+      <div id="noFocusModal" class="modal fade" tabindex="-1" data-focus="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Focus Behavior Disabled</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                This modal was not focused when it was shown. Click to focus it.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+
+  </div>
+  <div class="col-sm-6 col-md-8">
+    <markdown-to-html [data]="example | language : 'html'"></markdown-to-html>
+  </div>
+
+</div>
