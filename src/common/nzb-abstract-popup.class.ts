@@ -49,7 +49,7 @@ export abstract class NzbAbstractPopup implements AfterViewInit, OnDestroy {
 
 
 
-  private getEventName(type): string {
+  private getEventName(type: string): string {
     return type + '.bs.' + this.bsComponentName;
   }
 

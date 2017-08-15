@@ -63,7 +63,7 @@
         "trailing-comma": [
             false
         ],
-		"indent": [true, "tabs"],
+		"indent": [true, "spaces"],
 		"no-consecutive-blank-lines": false,
 		"object-literal-sort-keys": false
     }

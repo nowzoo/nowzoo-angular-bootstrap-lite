@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NzbDynamicContentComponent } from './common/nzb-dynamic-content.component';
 import { NzbTooltipDirective } from './tooltip/nzb-tooltip.directive';
 import { NzbPopoverDirective } from './popover/nzb-popover.directive';
+import { NzbModalDirective } from './modal/nzb-modal.directive';
 
 @NgModule({
   imports: [
@@ -11,14 +12,16 @@ import { NzbPopoverDirective } from './popover/nzb-popover.directive';
   declarations: [
     NzbDynamicContentComponent,
     NzbTooltipDirective,
-    NzbPopoverDirective
+    NzbPopoverDirective,
+    NzbModalDirective
   ],
   providers:[
 
   ],
   exports: [
     NzbTooltipDirective,
-    NzbPopoverDirective
+    NzbPopoverDirective,
+    NzbModalDirective
   ],
   entryComponents: [
     NzbDynamicContentComponent
