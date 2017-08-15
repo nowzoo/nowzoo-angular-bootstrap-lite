@@ -1,48 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
-import { NzbService } from './nzb.service';
-import { NzbDynamicContentService } from './dynamic-content/nzb-dynamic-content.service';
-import { NzbDynamicContentComponent } from './dynamic-content/nzb-dynamic-content.component';
-import { NzbModalOptions } from './modal/nzb-modal-options';
-import { NzbModalComponent } from './modal/nzb-modal.component';
-
-import { NzbPopoverDirective } from './popup/nzb-popover.directive';
-import { NzbPopoverOptions } from './popup/nzb-popover-options.class';
-
-import { NzbTooltipDirective } from './popup/nzb-tooltip.directive';
-import { NzbTooltipOptions } from './popup/nzb-tooltip-options.class';
-
-
+import { NzbDynamicContentComponent } from './common/nzb-dynamic-content.component';
+import { NzbTooltipDirective } from './tooltip/nzb-tooltip.directive';
+import { NzbPopoverDirective } from './popover/nzb-popover.directive';
 
 @NgModule({
-	imports: [
-		CommonModule
-	],
-	declarations: [
-		NzbDynamicContentComponent,
-		NzbModalComponent,
-		NzbTooltipDirective,
-		NzbPopoverDirective
+  imports: [
+    CommonModule
+  ],
+  declarations: [
+    NzbDynamicContentComponent,
+    NzbTooltipDirective,
+    NzbPopoverDirective
+  ],
+  providers:[
 
-	],
-	exports: [
-		NzbDynamicContentComponent,
-		NzbModalComponent,
-		NzbTooltipDirective,
-		NzbPopoverDirective
-	],
-	entryComponents: [
-		NzbDynamicContentComponent,
-		NzbModalComponent
-	],
-	providers: [
-		NzbService,
-		NzbDynamicContentService,
-		NzbModalOptions,
-		NzbTooltipOptions,
-		NzbPopoverOptions
-	]
+  ],
+  exports: [
+    NzbTooltipDirective,
+    NzbPopoverDirective
+  ],
+  entryComponents: [
+    NzbDynamicContentComponent
+  ]
 })
-export class NzbModule {}
+export class NzbModule { }
