@@ -1,0 +1,210 @@
+<h1 class="display-2">
+  Popovers
+</h1>
+<hr>
+
+
+
+<p class="lead">
+  <a
+    href="https://getbootstrap.com/docs/4.0/components/popovers/"
+    nzbTooltip
+    title="Bootstrap popover docs"
+    target="bsdocs">Bootstrap popovers<i class="fa fa-fw fa-external-link"></i></a>
+    based on data- attributes and (optionally) <code>ng-template</code>'s.
+</p>
+
+<h2 class="display-4" id="api">API</h2>
+
+<p>
+  <code>NzbPopoverDirective</code>
+  <a
+    class="btn btn-secondary btn-sm"
+    nzbTooltip
+    title="NzbPopoverDirective on GitHub"
+    href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/popover/nzb-popover.directive.ts"
+    target="gh">
+    <span class="sr-only">NzbPopoverDirective on GitHub</span>
+    <i class="fa fa-github"></i>
+  </a>
+
+  <code>extends NzbAbstractPopup</code>
+
+  <a
+    class="btn btn-secondary btn-sm"
+    nzbTooltip
+    title="NzbAbstractPopup on GitHub"
+    href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/common/nzb-abstract-popup.class.ts"
+    target="gh">
+    <span class="sr-only">NzbAbstractPopup on GitHub</span>
+    <i class="fa fa-github"></i>
+  </a>
+</p>
+
+<div class="row example">
+  <div class="col-lg-6">
+    <h3 class="display-6"  id="api-options">Options</h3>
+    <ul>
+      <li>
+        <code>title</code>
+        <ul>
+          <li>
+            Use the <code>title</code> or <code>data-title</code> attributes
+            (<a routerLink="." fragment="example-title-attr">example</a>.)
+          </li>
+          <li>
+            Use <code>[nzbPopoverTitle]="myTitleTemplate"</code> to specify a template
+            (<a routerLink="." fragment="example-nzbPopoverTitle">example</a>.)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <code>content</code>
+        <ul>
+          <li>
+            Use <code>data-content</code>.
+          </li>
+          <li>
+            Use <code>[nzbPopoverContent]="myContentTemplate"</code> to specify a template
+            (<a routerLink="." fragment="example-nzbPopoverContent">example</a>.)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <code>placement</code>
+        <ul>
+          <li>
+            Use <code>data-title</code>.
+          </li>
+          <li>
+            Use <code>[nzbPopoverPlacement]="myPlacementFunc"</code> to specify a function
+            (<a routerLink="." fragment="example-nzbPopoverPlacement">example</a>.)
+          </li>
+        </ul>
+      </li>
+      <li>
+        All the other
+        <a href="https://getbootstrap.com/docs/4.0/components/popovers/#options"
+        nzbTooltip
+        title="popover option docs"
+        target="bsdocs">Bootstrap popover options<i class="fa fa-fw fa-external-link"></i></a>
+        (except <code>selector</code>) are supported
+        via <code>data-</code> attributes
+          (<a routerLink="." fragment="example-data-attr">example</a>.)
+        <ul>
+          <li><code>data-animation</code></li>
+          <li><code>data-container</code></li>
+          <li><code>data-delay</code></li>
+          <li><code>data-html</code></li>
+          <li><code>data-trigger</code></li>
+          <li><code>data-offset</code></li>
+          <li><code>data-fallbackTrigger</code></li>
+        </ul>
+
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-6">
+    <h3 class="display-6"  id="api-methods">Methods</h3>
+    <p>
+      The directive wraps all Bootstrap
+      <a href="https://getbootstrap.com/docs/4.0/components/popovers/#methods"
+      nzbTooltip
+      title="popover method docs"
+      target="bsdocs">popover methods<i class="fa fa-fw fa-external-link"></i></a> except for
+      <code>dispose()</code> (the directive takes care of disposing of the popover.)
+
+    <ul>
+      <li>
+        <code>show()</code>
+      </li>
+      <li>
+        <code>hide()</code>
+      </li>
+      <li>
+        <code>toggle()</code>
+        <a routerLink="." fragment="example-show-hide-toggle">show/hide/toggle example</a>
+      </li>
+      <li>
+        <code>enable()</code>
+      </li>
+      <li>
+        <code>disable()</code>
+      </li>
+      <li>
+        <code>toggleEnabled()</code> <a routerLink="." fragment="example-enable">enable/disable/toggleEnabled example</a>
+      </li>
+      <li>
+        <code>update()</code>
+      </li>
+
+    </ul>
+
+    <p>
+      The directive also exposes the following public API:
+    </p>
+    <ul>
+      <li>
+        Observables (<a routerLink="." fragment="example-observables">example</a>)
+        <ul>
+          <li>
+            <code>getEvents(): Observable&lt;Event&gt;</code> An observable of the
+              <a href="https://getbootstrap.com/docs/4.0/components/popovers/#events"
+              nzbTooltip
+              title="popover event docs"
+              target="bsdocs">native popover events<i class="fa fa-fw fa-external-link"></i></a>.
+          </li>
+          <li>
+            <code>getStatus(): Observable&lt;string&gt;</code>
+            An observable of <code>'show'|'inserted'|'shown'|'hide'|'hidden'</code>.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <code>getPopupData(): any</code> Returns the data from the underlying Bootstrap component.
+        (<a routerLink="." fragment="example-getPopupData">example</a>)
+      </li>
+    </ul>
+
+
+  </div>
+</div>
+
+
+
+
+<h2 class="display-4" id="examples">Examples</h2>
+
+
+<h3 class="display-6">Using attributes for title and content</h3>
+<div class="row example" id="example-title-attr">
+  <div class="col-lg-6">
+
+    <p>
+      The directive can handle the simplest use case (e.g. adding a popover with a static title and content)
+      using <code>nzbPopover title="..." data-content="..."</code>.
+    </p>
+
+  </div>
+
+  <div class="col-lg-6">
+
+    <app-popover-demo-0></app-popover-demo-0>
+    <small>
+      <a data-toggle="collapse"
+        data-target="#popover-demo-0a"
+        role="button"
+        class="text-secondary"
+        aria-expanded="false"
+        aria-controls="popover-demo-0a">
+        <span *ngIf="collapse1.shown">Hide Code</span>
+        <span *ngIf="!collapse1.shown">Show Code</span>
+      </a>
+    </small>
+    <div nzbCollapse #collapse1="nzbCollapse" data-toggle="false"  id="popover-demo-0a">
+      <app-gist-embed [gistId]="gistId" file="popover-demo-0a.html"></app-gist-embed>
+    </div>
+
+  </div>
+
+</div>

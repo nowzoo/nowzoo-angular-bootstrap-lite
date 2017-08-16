@@ -24,7 +24,7 @@ export class NzbPopoverDirective extends NzbAbstractPopup  {
   @Input() nzbPopoverPlacement: ((tooltipEl: any, targetEl: any) => string) | null = null;
 
 
-  protected bsComponentName: string = 'tooltip';
+  protected bsComponentName: string = 'popover';
 
   constructor (
     elementRef: ElementRef,
@@ -40,7 +40,7 @@ export class NzbPopoverDirective extends NzbAbstractPopup  {
     return this.nzbPopoverTitle;
   }
   protected getInputContentTemplate(): TemplateRef<any> | null  {
-    return this.nzbPopoverTitle;
+    return this.nzbPopoverContent;
   }
   protected getInputPlacement(): ((tooltipEl: any, targetEl: any) => string) | null  {
     return this.nzbPopoverPlacement;

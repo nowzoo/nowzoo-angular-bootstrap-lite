@@ -1,6 +1,6 @@
 {
     "name": "nowzoo-angular-bootstrap-lite",
-    "version": "0.2.1",
+    "version": "0.2.4",
     "description": "A lightweight implementation of Bootstrap 4 for Angular 4.",
     "main": "./bundles/nowzoo-angular-bootstrap-lite.umd.js",
     "module": "./modules/nowzoo-angular-bootstrap-lite.es5.js",
@@ -37,7 +37,7 @@
         "bootstrap": "^4.0.0-alpha.6",
         "jquery": "^3.2.1",
         "rxjs": "^5.4.1",
-        "tether": "^1.4.0"
+        "popper.js": "^1.11.1"
     },
     "devDependencies": {
         "@angular/animations": "^4.0.0",
@@ -63,6 +63,7 @@
         "karma-sourcemap-loader": "0.3.7",
         "karma-spec-reporter": "0.0.31",
         "karma-webpack": "2.0.3",
+        "popper.js": "^1.11.1",
         "reflect-metadata": "0.1.10",
         "rollup": "0.43.0",
         "rollup-plugin-node-resolve": "3.0.0",
@@ -70,7 +71,6 @@
         "shelljs": "0.7.8",
         "sorcery": "0.10.0",
         "source-map-loader": "0.2.1",
-        "tether": "^1.4.0",
         "ts-loader": "2.1.0",
         "tslint": "5.4.3",
         "typescript": "2.3.4",

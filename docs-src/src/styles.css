@@ -7,3 +7,10 @@
 .danger .tooltip-inner {
   background-color: red;
 }
+a[role="button"] {
+  cursor: pointer;
+
+}
+a[role="button"]:hover {
+  text-decoration:underline;
+}

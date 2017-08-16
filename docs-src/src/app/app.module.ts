@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
 import { MomentModule } from 'angular2-moment';
 import { NzbModule } from 'nowzoo-angular-bootstrap-lite';
+import { NzbDevModule } from './nzb-dev/nzb-dev.module';
 
 
 import { AppComponent } from './app.component';
@@ -36,6 +37,9 @@ import { TooltipDemo4Component } from './tooltips/tooltip-demo-4/tooltip-demo-4.
 import { TooltipDemo5Component } from './tooltips/tooltip-demo-5/tooltip-demo-5.component';
 import { TooltipDemo6Component } from './tooltips/tooltip-demo-6/tooltip-demo-6.component';
 import { TooltipDemo7Component } from './tooltips/tooltip-demo-7/tooltip-demo-7.component';
+import { PopoversComponent } from './popovers/popovers.component';
+import { PopoverDemo0Component } from './popovers/popover-demo-0/popover-demo-0.component';
+import { PopoverDemo1Component } from './popovers/popover-demo-1/popover-demo-1.component';
 
 const routes = [
   {
@@ -62,6 +66,13 @@ const routes = [
     ]
   },
 
+  {
+    path: 'popovers',
+    children: [
+      {path: '', component: PopoversComponent}
+    ]
+  },
+
 
 
 
@@ -73,6 +84,8 @@ const routes = [
   declarations: [
     AppComponent,
     GistEmbedComponent,
+
+
 
     HomeComponent,
 
@@ -97,11 +110,15 @@ const routes = [
     TooltipDemo5Component,
     TooltipDemo6Component,
     TooltipDemo7Component,
+    PopoversComponent,
+    PopoverDemo0Component,
+    PopoverDemo1Component,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     MomentModule,
+    NzbDevModule,
     NzbModule,
     RouterModule.forRoot(routes),
     MarkdownToHtmlModule.forRoot()
