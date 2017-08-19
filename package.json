@@ -1,6 +1,6 @@
 {
     "name": "nowzoo-angular-bootstrap-lite",
-    "version": "0.2.4",
+    "version": "0.2.15",
     "description": "A lightweight implementation of Bootstrap 4 for Angular 4.",
     "main": "./bundles/nowzoo-angular-bootstrap-lite.umd.js",
     "module": "./modules/nowzoo-angular-bootstrap-lite.es5.js",

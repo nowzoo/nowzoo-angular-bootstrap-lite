@@ -6,7 +6,8 @@ import {
   ApplicationRef,
   ComponentFactoryResolver,
   ElementRef,
-  TemplateRef
+  TemplateRef,
+  NgZone
 } from '@angular/core';
 
 
@@ -31,9 +32,10 @@ export class NzbPopoverDirective extends NzbAbstractPopup  {
     renderer: Renderer2,
     viewContainer: ViewContainerRef,
     appRef: ApplicationRef,
-    cfr: ComponentFactoryResolver
+    cfr: ComponentFactoryResolver,
+    ngZone: NgZone
   ) {
-    super(elementRef, renderer, viewContainer, appRef, cfr);
+    super(elementRef, renderer, viewContainer, appRef, cfr, ngZone);
   }
 
   protected getInputTitleTemplate(): TemplateRef<any> | null  {

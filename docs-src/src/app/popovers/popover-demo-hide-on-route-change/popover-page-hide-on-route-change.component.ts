@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 @Component({
-  selector: 'app-popovers',
-  templateUrl: './popovers.component.html',
-  styleUrls: ['./popovers.component.css']
+  selector: 'app-popover-page-hide-on-route-change',
+  templateUrl: './popover-page-hide-on-route-change.component.html',
+  styleUrls: ['./popover-page-hide-on-route-change.component.scss']
 })
-export class PopoversComponent implements OnInit {
+export class PopoverPageHideOnRouteChangeComponent implements OnInit {
+
 
   gistFiles: any = {};
 
@@ -20,6 +22,4 @@ export class PopoversComponent implements OnInit {
      });
     this.gistFiles = this.route.snapshot.data['gistFiles'];
   }
-
-
 }

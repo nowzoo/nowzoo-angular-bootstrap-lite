@@ -1,0 +1,110 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../node_modules/font-awesome/scss/variables";
+
+.row.example{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.danger .tooltip-inner {
+  background-color: $brand-danger;
+}
+a[role="button"] {
+  cursor: pointer;
+
+}
+a[role="button"]:hover {
+  text-decoration:underline;
+}
+
+.permalinked {
+  display:flex;
+  align-items: center;
+}
+
+.permalinked a {
+  color: $gray-lighter;
+  display: block;
+  margin-left: .5em;
+  font-size: .8em;
+}
+
+.permalinked:hover a,  .permalinked a:hover, .permalinked a:active {
+  color: $gray-light;
+}
+
+.permalinked a:hover, .permalinked a:active {
+  color: $gray;
+}
+
+.popover.danger .popover-header {
+    color: #FFF;
+    background-color: $brand-danger;
+}
+.doc-callout {
+  border-left-width: 6px;
+  border-left-style: solid;
+  padding: 6px 0 6px 16px;
+  &.warning {
+    border-left-color: $brand-warning;
+  }
+  &.danger {
+    border-left-color: $brand-danger;
+  }
+  &.success {
+    border-left-color: $brand-success;
+  }
+  &.primary {
+    border-left-color: $brand-primary;
+  }
+  &.info {
+    border-left-color: $brand-info;
+  }
+
+}
+
+a.external,  a.external:hover{
+  &:after {
+    font-family: fontawesome;
+    font-size: .5em;
+    color: $gray;
+    text-decoration: none;
+    content: $fa-var-external-link;
+    vertical-align: super;
+    margin-left: .4em;
+  }
+}
+section {
+  padding: 1em 0;
+  margin: 1em 0;
+  border-bottom: 1px solid $gray-light;
+  section {
+    border-bottom: 1px solid $gray-lighter;
+    &:last-child{
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.xdemo {
+  border: 1px dotted $gray-light;
+  padding: 16px;
+  position: relative;
+  border-radius: 0 6px 6px 6px;
+  &:before{
+    position: absolute;
+    top:0;
+    left: -1px;
+    border-radius: 6px 6px 0 0;
+    transform: translateY(-100%);
+    display: inline-block;
+    content: "Demo";
+    font-size: 12px;
+    line-height: 12px;
+    padding: 6px;
+    background-color: $gray-light;
+    color: #FFF;
+  }
+}

@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, OnDestroy, ViewChild} from '@angular/core';
 
 @Component({
-  selector: 'app-popover-demo-1',
+  selector: 'app-popover-demo-templates',
   template: `
   <!-- templates example -->
   <p>
@@ -9,7 +9,8 @@ import { Component, AfterViewInit, OnDestroy, ViewChild} from '@angular/core';
       nzbPopover
       [nzbPopoverTitle]="titleTemplate"
       [nzbPopoverContent]="contentTemplate"
-      #popoverInstance="nzbPopover">Fancy Popover from Template</button>
+      data-placement="auto"
+      #popoverInstance="nzbPopover">Popover (ng-templates)</button>
   </p>
   <ng-template #titleTemplate >
     <div class="clearfix">
@@ -32,14 +33,14 @@ import { Component, AfterViewInit, OnDestroy, ViewChild} from '@angular/core';
 
   `
 })
-export class PopoverDemo1Component implements AfterViewInit, OnDestroy {
+export class PopoverDemoTemplatesComponent implements AfterViewInit, OnDestroy {
   @ViewChild('popoverInstance') popoverInstance: any;
   interval: any = null;
   seconds: number = 0;
   constructor() { }
 
   ngAfterViewInit() {
-    this.popoverInstance.getEvents().subscribe((nativeBsEvent: Event) => {
+    this.popoverInstance.events.subscribe((nativeBsEvent: Event) => {
       switch(nativeBsEvent.type){
         case 'show':
           this.seconds = 0;

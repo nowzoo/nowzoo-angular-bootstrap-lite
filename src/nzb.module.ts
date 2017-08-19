@@ -4,7 +4,7 @@ import { NzbDynamicContentComponent } from './common/nzb-dynamic-content.compone
 import { NzbTooltipDirective } from './tooltip/nzb-tooltip.directive';
 import { NzbPopoverDirective } from './popover/nzb-popover.directive';
 import { NzbModalDirective } from './modal/nzb-modal.directive';
-import { NzbCollapseDirective } from './modal/nzb-collapse.directive';
+import { NzbCollapseDirective } from './collapse/nzb-collapse.directive';
 
 @NgModule({
   imports: [

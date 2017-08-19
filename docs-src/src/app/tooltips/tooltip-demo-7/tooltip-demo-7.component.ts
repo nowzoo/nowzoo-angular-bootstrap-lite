@@ -25,7 +25,7 @@ export class TooltipDemo7Component  {
 
   tipClass: string;
   ngAfterViewInit(){
-    this.tooltipInstance.getStatus().subscribe(() => {
+    this.tooltipInstance.status.subscribe(() => {
       const data = this.tooltipInstance.getPopupData();
       if (data){
         this.tipClass = jQuery(data.tip).attr('class');

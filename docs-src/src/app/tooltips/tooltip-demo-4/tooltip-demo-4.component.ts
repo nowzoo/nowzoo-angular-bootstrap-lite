@@ -34,7 +34,7 @@ export class TooltipDemo4Component implements AfterViewInit, OnDestroy  {
   constructor() { }
 
   ngAfterViewInit() {
-    this.subscription = this.tooltipInstance.getStatus().subscribe(status => {
+    this.subscription = this.tooltipInstance.status.subscribe(status => {
       this.status = status;
     });
   }

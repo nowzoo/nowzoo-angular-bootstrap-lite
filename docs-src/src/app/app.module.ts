@@ -4,9 +4,13 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
 import { MomentModule } from 'angular2-moment';
+import {HttpClientModule} from '@angular/common/http';
+
 import { NzbModule } from 'nowzoo-angular-bootstrap-lite';
 import { NzbDevModule } from './nzb-dev/nzb-dev.module';
 
+
+import { GistService } from './gist.service';
 
 import { AppComponent } from './app.component';
 
@@ -38,8 +42,18 @@ import { TooltipDemo5Component } from './tooltips/tooltip-demo-5/tooltip-demo-5.
 import { TooltipDemo6Component } from './tooltips/tooltip-demo-6/tooltip-demo-6.component';
 import { TooltipDemo7Component } from './tooltips/tooltip-demo-7/tooltip-demo-7.component';
 import { PopoversComponent } from './popovers/popovers.component';
-import { PopoverDemo0Component } from './popovers/popover-demo-0/popover-demo-0.component';
-import { PopoverDemo1Component } from './popovers/popover-demo-1/popover-demo-1.component';
+import { PopoverDemoGetInstanceComponent } from './popovers/popover-demo-get-instance/popover-demo-get-instance.component';
+import { PermalinkedDirective } from './header/permalinked.directive';
+import { PopoverDemoDisableComponent } from './popovers/popover-demo-disable/popover-demo-disable.component';
+import { PopoverDemoShowHideComponent } from './popovers/popover-demo-show-hide/popover-demo-show-hide.component';
+import { PopoverDemoPlacementFuncComponent } from './popovers/popover-demo-placement-func/popover-demo-placement-func.component';
+import { PopoverDemoTemplatesComponent } from './popovers/popover-demo-templates/popover-demo-templates.component';
+import { PopoverDemoAttributesComponent } from './popovers/popover-demo-attributes/popover-demo-attributes.component';
+import { PopoverDemoAddClassComponent } from './popovers/popover-demo-add-class/popover-demo-add-class.component';
+import { PopoverDemoDismissOnClickOutsideComponent } from './popovers/popover-demo-dismiss-on-click-outside/popover-demo-dismiss-on-click-outside.component';
+import { PopoverDemoHideOnRouteChangeComponent } from './popovers/popover-demo-hide-on-route-change/popover-demo-hide-on-route-change.component';
+import { PopoverPageHideOnRouteChangeComponent } from './popovers/popover-demo-hide-on-route-change/popover-page-hide-on-route-change.component';
+import { PopoverDemoNoTitleComponent } from './popovers/popover-demo-no-title/popover-demo-no-title.component';
 
 const routes = [
   {
@@ -61,6 +75,7 @@ const routes = [
 
   {
     path: 'tooltips',
+
     children: [
       {path: '', component: TooltipsComponent}
     ]
@@ -68,7 +83,10 @@ const routes = [
 
   {
     path: 'popovers',
+    data: {gistId: '5afd85ea5ae5731112130269a4c5772c'},
+    resolve: {gistFiles: GistService},
     children: [
+      {path: 'go-away-nicely', component: PopoverPageHideOnRouteChangeComponent},
       {path: '', component: PopoversComponent}
     ]
   },
@@ -111,11 +129,23 @@ const routes = [
     TooltipDemo6Component,
     TooltipDemo7Component,
     PopoversComponent,
-    PopoverDemo0Component,
-    PopoverDemo1Component,
+    PopoverDemoGetInstanceComponent,
+    PermalinkedDirective,
+    PopoverDemoDisableComponent,
+    PopoverDemoShowHideComponent,
+    PopoverDemoPlacementFuncComponent,
+    PopoverDemoTemplatesComponent,
+    PopoverDemoAttributesComponent,
+    PopoverDemoAddClassComponent,
+    PopoverDemoDismissOnClickOutsideComponent,
+    PopoverDemoHideOnRouteChangeComponent,
+    PopoverPageHideOnRouteChangeComponent,
+    PopoverDemoNoTitleComponent,
+
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     MomentModule,
     NzbDevModule,
@@ -123,7 +153,7 @@ const routes = [
     RouterModule.forRoot(routes),
     MarkdownToHtmlModule.forRoot()
   ],
-  providers: [],
+  providers: [ GistService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

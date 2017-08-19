@@ -40,11 +40,11 @@ export class TooltipDemo6Component implements AfterViewInit, OnDestroy  {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.eventSub = this.tooltipInstance.getEvents().subscribe((event:any) => {
+      this.eventSub = this.tooltipInstance.events.subscribe((event:any) => {
         this.events.unshift(event);
         this.events = this.events.slice(0, 10);
       });
-      this.statusSub = this.tooltipInstance.getStatus().subscribe((status: string) => {
+      this.statusSub = this.tooltipInstance.status.subscribe((status: string) => {
         this.statii.unshift(status);
         this.statii = this.statii.slice(0, 10);
       });

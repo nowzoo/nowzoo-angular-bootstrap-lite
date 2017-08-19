@@ -9,56 +9,43 @@ import {
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+
 declare const jQuery: any;
+
+import { NzbAbstractBootstrap } from '../common/nzb-abstract-bootstrap.class';
+
 
 @Directive({
   selector: '[nzbCollapse]',
   exportAs: 'nzbCollapse'
 })
-export class NzbCollapseDirective implements AfterViewInit, OnDestroy {
+export class NzbCollapseDirective extends NzbAbstractBootstrap  implements AfterViewInit, OnDestroy {
 
-  private statusSubject: BehaviorSubject<string> = new BehaviorSubject('hidden');
-
+  protected bsComponentName: string = 'collapse';
   constructor(
-    private ngZone: NgZone,
-    private element: ElementRef
-  ) { }
+    elementRef: ElementRef,
+    ngZone: NgZone
+  ) {
+    super(elementRef, ngZone);
+  }
 
   ngAfterViewInit() {
     setTimeout(() => {
-      const $el = jQuery(this.element.nativeElement);
-      $el.on('show.bs.collapse shown.bs.collapse hide.bs.collapse hidden.bs.collapse', (event:Event) => {
-        this.ngZone.run(() => {
-          this.statusSubject.next(event.type);
-        });
+      const $el = jQuery(this.elementRef.nativeElement);
+      this.initBootsrapListeners($el);
+      this.ngZone.runOutsideAngular(() => {
+        $el.addClass('collapse');
+        $el.collapse({toggle: $el.data('toggle')});
       })
-      $el.addClass('collapse');
-      $el.collapse({toggle: $el.data('toggle')});
     })
+
   }
 
   ngOnDestroy() {
-    jQuery(this.element.nativeElement).off('show.bs.collapse shown.bs.collapse hide.bs.collapse hidden.bs.collapse');
-  }
+    setTimeout(() => {
+      this.destroyBootsrapListeners(jQuery(this.elementRef.nativeElement));
+    })
 
-  toggle(): void {
-    jQuery(this.element.nativeElement).collapse('toggle');
-  }
-  show(): void {
-    jQuery(this.element.nativeElement).collapse('show');
-  }
-  hide(): void {
-    jQuery(this.element.nativeElement).collapse('hide');
-  }
-
-  get status(): Observable<string> {
-    return this.statusSubject.asObservable();
-  }
-  get shown(): boolean {
-    return this.statusSubject.value === 'shown';
-  }
-  get hidden(): boolean {
-    return this.statusSubject.value === 'hidden';
   }
 
 }
