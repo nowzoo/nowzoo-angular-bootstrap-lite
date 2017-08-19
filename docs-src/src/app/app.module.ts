@@ -14,6 +14,7 @@ import { GistService } from './gist.service';
 
 import { AppComponent } from './app.component';
 
+import { PermalinkedDirective } from './header/permalinked.directive';
 
 import { GistEmbedComponent } from './gist-embed/gist-embed.component';
 
@@ -32,18 +33,9 @@ import { ModalDemoSizeComponent } from './modals/modal-demo-size/modal-demo-size
 import { ModalDemoPromisesComponent } from './modals/modal-demo-promises/modal-demo-promises.component';
 import { ModalDemoDynamicHeightComponent } from './modals/modal-demo-dynamic-height/modal-demo-dynamic-height.component';
 
-import { TooltipsComponent } from './tooltips/tooltips.component';
-import { TooltipDemo1Component } from './tooltips/tooltip-demo-1/tooltip-demo-1.component';
-import { TooltipDemo0Component } from './tooltips/tooltip-demo-0/tooltip-demo-0.component';
-import { TooltipDemo2Component } from './tooltips/tooltip-demo-2/tooltip-demo-2.component';
-import { TooltipDemo3Component } from './tooltips/tooltip-demo-3/tooltip-demo-3.component';
-import { TooltipDemo4Component } from './tooltips/tooltip-demo-4/tooltip-demo-4.component';
-import { TooltipDemo5Component } from './tooltips/tooltip-demo-5/tooltip-demo-5.component';
-import { TooltipDemo6Component } from './tooltips/tooltip-demo-6/tooltip-demo-6.component';
-import { TooltipDemo7Component } from './tooltips/tooltip-demo-7/tooltip-demo-7.component';
+
 import { PopoversComponent } from './popovers/popovers.component';
 import { PopoverDemoGetInstanceComponent } from './popovers/popover-demo-get-instance/popover-demo-get-instance.component';
-import { PermalinkedDirective } from './header/permalinked.directive';
 import { PopoverDemoDisableComponent } from './popovers/popover-demo-disable/popover-demo-disable.component';
 import { PopoverDemoShowHideComponent } from './popovers/popover-demo-show-hide/popover-demo-show-hide.component';
 import { PopoverDemoPlacementFuncComponent } from './popovers/popover-demo-placement-func/popover-demo-placement-func.component';
@@ -54,6 +46,18 @@ import { PopoverDemoDismissOnClickOutsideComponent } from './popovers/popover-de
 import { PopoverDemoHideOnRouteChangeComponent } from './popovers/popover-demo-hide-on-route-change/popover-demo-hide-on-route-change.component';
 import { PopoverPageHideOnRouteChangeComponent } from './popovers/popover-demo-hide-on-route-change/popover-page-hide-on-route-change.component';
 import { PopoverDemoNoTitleComponent } from './popovers/popover-demo-no-title/popover-demo-no-title.component';
+
+
+import { TooltipsComponent } from './tooltips/tooltips.component';
+import { TooltipDemoGetInstanceComponent } from './tooltips/tooltip-demo-get-instance/tooltip-demo-get-instance.component';
+import { TooltipDemoDisableComponent } from './tooltips/tooltip-demo-disable/tooltip-demo-disable.component';
+import { TooltipDemoShowHideComponent } from './tooltips/tooltip-demo-show-hide/tooltip-demo-show-hide.component';
+import { TooltipDemoPlacementFuncComponent } from './tooltips/tooltip-demo-placement-func/tooltip-demo-placement-func.component';
+import { TooltipDemoTemplatesComponent } from './tooltips/tooltip-demo-templates/tooltip-demo-templates.component';
+import { TooltipDemoAttributesComponent } from './tooltips/tooltip-demo-attributes/tooltip-demo-attributes.component';
+import { TooltipDemoAddClassComponent } from './tooltips/tooltip-demo-add-class/tooltip-demo-add-class.component';
+import { TooltipDemoHideOnRouteChangeComponent } from './tooltips/tooltip-demo-hide-on-route-change/tooltip-demo-hide-on-route-change.component';
+import { TooltipPageHideOnRouteChangeComponent } from './tooltips/tooltip-demo-hide-on-route-change/tooltip-page-hide-on-route-change.component';
 
 const routes = [
   {
@@ -75,7 +79,8 @@ const routes = [
 
   {
     path: 'tooltips',
-
+    data: {gistId: 'a093f7f69144b5380ac7be766f0bd7ef'},
+    resolve: {gistFiles: GistService},
     children: [
       {path: '', component: TooltipsComponent}
     ]
@@ -102,6 +107,7 @@ const routes = [
   declarations: [
     AppComponent,
     GistEmbedComponent,
+    PermalinkedDirective,
 
 
 
@@ -119,18 +125,9 @@ const routes = [
     ModalDemoPromisesComponent,
     ModalDemoDynamicHeightComponent,
 
-    TooltipsComponent,
-    TooltipDemo1Component,
-    TooltipDemo0Component,
-    TooltipDemo2Component,
-    TooltipDemo3Component,
-    TooltipDemo4Component,
-    TooltipDemo5Component,
-    TooltipDemo6Component,
-    TooltipDemo7Component,
+
     PopoversComponent,
     PopoverDemoGetInstanceComponent,
-    PermalinkedDirective,
     PopoverDemoDisableComponent,
     PopoverDemoShowHideComponent,
     PopoverDemoPlacementFuncComponent,
@@ -141,6 +138,18 @@ const routes = [
     PopoverDemoHideOnRouteChangeComponent,
     PopoverPageHideOnRouteChangeComponent,
     PopoverDemoNoTitleComponent,
+
+
+    TooltipsComponent,
+    TooltipDemoGetInstanceComponent,
+    TooltipDemoDisableComponent,
+    TooltipDemoShowHideComponent,
+    TooltipDemoPlacementFuncComponent,
+    TooltipDemoTemplatesComponent,
+    TooltipDemoAttributesComponent,
+    TooltipDemoAddClassComponent,
+    TooltipDemoHideOnRouteChangeComponent,
+    TooltipPageHideOnRouteChangeComponent,
 
   ],
   imports: [

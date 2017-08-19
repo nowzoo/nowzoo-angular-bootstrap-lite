@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TooltipsComponent } from './tooltips.component';
+import { TooltipsComponent } from './popovers.component';
 
 describe('TooltipsComponent', () => {
   let component: TooltipsComponent;

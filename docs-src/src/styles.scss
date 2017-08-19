@@ -78,7 +78,10 @@ a.external,  a.external:hover{
 section {
   padding: 1em 0;
   margin: 1em 0;
-  border-bottom: 1px solid $gray-light;
+  border-bottom: 1px dashed $gray-light;
+  &:last-child{
+    border-bottom: none;
+  }
   section {
     border-bottom: 1px solid $gray-lighter;
     &:last-child{
