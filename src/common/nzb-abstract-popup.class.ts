@@ -38,17 +38,20 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
 
 
   constructor (
-    elementRef: ElementRef,
+    private elementRef: ElementRef,
     private renderer: Renderer2,
     private viewContainer: ViewContainerRef,
     private appRef: ApplicationRef,
     private cfr: ComponentFactoryResolver,
     ngZone: NgZone
   ) {
-    super(elementRef, ngZone)
+    super(ngZone)
   }
 
 
+  protected runBsFunc(func: string): void {
+    super.runBsFunc(this.elementRef.nativeElement, func);
+  }
 
 
   protected getEventTypes(): string[] {
@@ -137,6 +140,16 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
 
   }
 
+  toggle(): void {
+    this.runBsFunc('toggle');
+  }
+  show(): void {
+    this.runBsFunc('show');
+  }
+  hide(): void {
+    this.runBsFunc( 'hide');
+  }
+
 
   enable() {
     this.ngZone.runOutsideAngular(() => {
@@ -173,8 +186,14 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
 
 
 
+
+
   get enabled(): boolean {
     return this.enabledSubject.value;
+  }
+
+  get boostrapComponentData(): any {
+    return jQuery(this.elementRef.nativeElement).data('bs.' + this.bsComponentName);
   }
 
 }

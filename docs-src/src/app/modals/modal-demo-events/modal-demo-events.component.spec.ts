@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalDemoPromisesComponent } from './modal-demo-promises.component';
+import { ModalDemoEventsComponent } from './modal-demo-events.component';
 
-describe('ModalDemoPromisesComponent', () => {
-  let component: ModalDemoPromisesComponent;
-  let fixture: ComponentFixture<ModalDemoPromisesComponent>;
+describe('ModalDemoEventsComponent', () => {
+  let component: ModalDemoEventsComponent;
+  let fixture: ComponentFixture<ModalDemoEventsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalDemoPromisesComponent ]
+      declarations: [ ModalDemoEventsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalDemoPromisesComponent);
+    fixture = TestBed.createComponent(ModalDemoEventsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -21,17 +21,6 @@ import { GistEmbedComponent } from './gist-embed/gist-embed.component';
 import { HomeComponent } from './home/home.component';
 
 
-import { ModalsComponent } from './modals/modals.component';
-import { ModalDemoShowComponent } from './modals/modal-demo-show/modal-demo-show.component';
-import { ModalDemoFixedComponent } from './modals/modal-demo-fixed/modal-demo-fixed.component';
-import { ModalDemoHideAutomaticallyComponent } from './modals/modal-demo-hide-automatically/modal-demo-hide-automatically.component';
-import { ModalDemoAnimationComponent } from './modals/modal-demo-animation/modal-demo-animation.component';
-import { ModalDemoBackdropComponent } from './modals/modal-demo-backdrop/modal-demo-backdrop.component';
-import { ModalDemoKeyboardComponent } from './modals/modal-demo-keyboard/modal-demo-keyboard.component';
-import { ModalDemoFocusComponent } from './modals/modal-demo-focus/modal-demo-focus.component';
-import { ModalDemoSizeComponent } from './modals/modal-demo-size/modal-demo-size.component';
-import { ModalDemoPromisesComponent } from './modals/modal-demo-promises/modal-demo-promises.component';
-import { ModalDemoDynamicHeightComponent } from './modals/modal-demo-dynamic-height/modal-demo-dynamic-height.component';
 
 
 import { PopoversComponent } from './popovers/popovers.component';
@@ -59,20 +48,23 @@ import { TooltipDemoAddClassComponent } from './tooltips/tooltip-demo-add-class/
 import { TooltipDemoHideOnRouteChangeComponent } from './tooltips/tooltip-demo-hide-on-route-change/tooltip-demo-hide-on-route-change.component';
 import { TooltipPageHideOnRouteChangeComponent } from './tooltips/tooltip-demo-hide-on-route-change/tooltip-page-hide-on-route-change.component';
 
+
+import { ModalsComponent } from './modals/modals.component';
+import { ModalDemoQuickstartComponent } from './modals/modal-demo-quickstart/modal-demo-quickstart.component';
+import { ModalDemoShowComponent } from './modals/modal-demo-show/modal-demo-show.component';
+import { ModalDemoHideComponent } from './modals/modal-demo-hide/modal-demo-hide.component';
+import { ModalDemoHandleUpdateComponent } from './modals/modal-demo-handle-update/modal-demo-handle-update.component';
+import { ModalDemoEventsComponent } from './modals/modal-demo-events/modal-demo-events.component';
+
+
+
 const routes = [
   {
     path: 'modals',
+    data: {gistId: '9a7fa3f1128dff5f353edf209ed07e35'},
+    resolve: {gistFiles: GistService},
     children: [
-      {path: 'demo-dynamic-height', component: ModalDemoDynamicHeightComponent},
-      {path: 'demo-show', component: ModalDemoShowComponent},
-      {path: 'demo-fixed', component: ModalDemoFixedComponent},
-      {path: 'demo-goes-away-nicely', component: ModalDemoHideAutomaticallyComponent},
-      {path: 'demo-animation', component: ModalDemoAnimationComponent},
-      {path: 'demo-backdrop', component: ModalDemoBackdropComponent},
-      {path: 'demo-keyboard', component: ModalDemoKeyboardComponent},
-      {path: 'demo-focus', component: ModalDemoFocusComponent},
-      {path: 'demo-size', component: ModalDemoSizeComponent},
-      {path: 'demo-promises', component: ModalDemoPromisesComponent},
+
       {path: '', component: ModalsComponent}
     ]
   },
@@ -82,6 +74,7 @@ const routes = [
     data: {gistId: 'a093f7f69144b5380ac7be766f0bd7ef'},
     resolve: {gistFiles: GistService},
     children: [
+      {path: 'go-away-nicely', component: TooltipPageHideOnRouteChangeComponent},
       {path: '', component: TooltipsComponent}
     ]
   },
@@ -113,17 +106,7 @@ const routes = [
 
     HomeComponent,
 
-    ModalDemoShowComponent,
-    ModalDemoFixedComponent,
-    ModalsComponent,
-    ModalDemoHideAutomaticallyComponent,
-    ModalDemoAnimationComponent,
-    ModalDemoBackdropComponent,
-    ModalDemoKeyboardComponent,
-    ModalDemoFocusComponent,
-    ModalDemoSizeComponent,
-    ModalDemoPromisesComponent,
-    ModalDemoDynamicHeightComponent,
+
 
 
     PopoversComponent,
@@ -150,6 +133,13 @@ const routes = [
     TooltipDemoAddClassComponent,
     TooltipDemoHideOnRouteChangeComponent,
     TooltipPageHideOnRouteChangeComponent,
+
+    ModalsComponent,
+    ModalDemoQuickstartComponent,
+    ModalDemoShowComponent,
+    ModalDemoHideComponent,
+    ModalDemoHandleUpdateComponent,
+    ModalDemoEventsComponent,
 
   ],
   imports: [

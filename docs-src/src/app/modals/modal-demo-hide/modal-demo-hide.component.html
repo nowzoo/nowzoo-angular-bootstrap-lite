@@ -1,31 +1,39 @@
 <p>
   <button class="btn btn-primary" (click)="showModal()">
-    Show Modal
+    Enter First Pet...
   </button>
 </p>
-<p *ngIf="hiddenMessage">
-  {{hiddenMessage}}
+<p>
+  <strong>Saved Value: </strong> {{saved}}
 </p>
+
 <ng-template nzbModal #modalInstance="nzbModal">
   <div class="modal fade" tabindex="-1">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal Demo</h5>
+          <h5 class="modal-title">First Pet</h5>
+          <!-- note the use of modalInstance.hide() -->
           <button type="button" class="close"
             (click)="modalInstance.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>
-            This is a modal.
-          </p>
+          <label for="modal-first-pet-name">
+            Name of your first pet
+          </label>
+          <input [(ngModel)]="entered" class="form-control">
         </div>
         <div class="modal-footer">
+          <!-- if the user clicks cancel, just modalInstance.hide() -->
           <button
             type="button" class="btn btn-secondary"
-            (click)="modalInstance.hide()">Close</button>
+            (click)="modalInstance.hide()">Cancel</button>
+          <!-- if the user clicks save, save() -->
+          <button
+            type="button" class="btn btn-success"
+            (click)="save()">Save</button>
         </div>
       </div>
     </div>

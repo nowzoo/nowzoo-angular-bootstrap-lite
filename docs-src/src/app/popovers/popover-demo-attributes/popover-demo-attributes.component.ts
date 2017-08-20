@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
     title="Static Title"
     data-placement="auto"
     data-content="Some static popover content.">
-    Simple Popover Example</button>
+    Popover Demo (Click)
+    </button>
   </p>`
 })
 export class PopoverDemoAttributesComponent {}

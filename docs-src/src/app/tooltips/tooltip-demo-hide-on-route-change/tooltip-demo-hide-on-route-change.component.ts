@@ -8,7 +8,7 @@ import { NzbTooltipDirective } from 'nowzoo-angular-bootstrap-lite';
     nzbTooltip
     #tooltipInstance="nzbTooltip"
     title="Tooltip goes away nicely">
-    Tooltip</button>
+    Tooltip Demo</button>
   </p>
   `
 })

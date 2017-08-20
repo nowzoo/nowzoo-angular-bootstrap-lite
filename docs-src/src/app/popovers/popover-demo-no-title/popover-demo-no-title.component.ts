@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     nzbPopover
     data-placement="auto"
     data-content="This popover does not have a title.">
-    Popover Without Title</button>
+    Popover Demo (Click)</button>
   </p>`
 })
 export class PopoverDemoNoTitleComponent {}

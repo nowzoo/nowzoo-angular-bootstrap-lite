@@ -15,7 +15,7 @@ import { NzbPopoverDirective } from 'nowzoo-angular-bootstrap-lite';
       title="Popover"
       [nzbPopoverContent]="popoverContent"
       data-placement="auto">
-      Popover
+      Popover Demo (Click)
     </button>
     <ng-template #popoverContent>
       This popover

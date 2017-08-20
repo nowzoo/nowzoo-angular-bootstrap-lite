@@ -10,7 +10,7 @@ import { Component, AfterViewInit, OnDestroy, ViewChild} from '@angular/core';
       [nzbPopoverTitle]="titleTemplate"
       [nzbPopoverContent]="contentTemplate"
       data-placement="auto"
-      #popoverInstance="nzbPopover">Popover (ng-templates)</button>
+      #popoverInstance="nzbPopover">Popover Demo (Click)</button>
   </p>
   <ng-template #titleTemplate >
     <div class="clearfix">

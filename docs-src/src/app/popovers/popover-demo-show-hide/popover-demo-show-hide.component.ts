@@ -10,7 +10,7 @@ import { Component} from '@angular/core';
         title="Show/Hide/Toggle Example"
         data-placement="top"
         data-content="This popover was shown programmatically."
-        data-trigger="manual">Manually Triggered Popover</button>
+        data-trigger="manual">Popover Demo (Manual)</button>
     </p>
     <p>
       <button class="btn btn-secondary btn-sm"

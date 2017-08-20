@@ -10,9 +10,9 @@ import { Component } from '@angular/core';
         title="Enable/Disable Demo"
         data-placement="auto"
         data-content="Hi there.">
-        Popover
-        <span *ngIf="popoverInstance.enabled">Enabled</span>
-        <span *ngIf="!popoverInstance.enabled">Disabled</span>
+        Popover Demo (Click)
+        <span *ngIf="popoverInstance.enabled">- Enabled</span>
+        <span *ngIf="!popoverInstance.enabled">- Disabled</span>
       </button>
     </p>
     <p>

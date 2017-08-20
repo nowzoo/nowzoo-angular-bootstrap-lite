@@ -1,16 +1,238 @@
-<h1 class="display-4">Modals</h1>
+<h1 class="display-2">
+  Modals
+</h1>
 <hr>
-<h4>Examples</h4>
 
-<ul>
-  <li><a routerLink="/modals/demo-animation">Enable/disable modal animation</a></li>
-  <li><a routerLink="/modals/demo-size">Setting the size</a></li>
-  <li><a routerLink="/modals/demo-backdrop">Setting the backdrop option</a></li>
-  <li><a routerLink="/modals/demo-keyboard">Setting the keyboard option</a></li>
-  <li><a routerLink="/modals/demo-focus">Setting the focus option</a></li>
-  <li><a routerLink="/modals/demo-promises">Shown/Hidden Promises</a></li>
-  <li><a routerLink="/modals/demo-dynamic-height">Dealing with dynamic heights</a></li>
-  <li><a routerLink="/modals/demo-show">Show a modal immediately (i.e. when a component is instantiated)</a></li>
-  <li><a routerLink="/modals/demo-fixed">Modal defined within an element with postion:fixed</a></li>
-  <li><a routerLink="/modals/demo-goes-away-nicely">Modals are gracefully hidden when the containing component is destroyed</a></li>
-</ul>
+
+<p class="lead">
+  Simple
+  <a
+    href="https://getbootstrap.com/docs/4.0/components/modal/"
+    nzbTooltip
+    title="Bootstrap modal docs"
+    target="bsdocs">Bootstrap modals<i class="fa fa-fw fa-external-link"></i></a>
+    with <code>ng-template</code>.
+</p>
+
+<!-- #quickstart -->
+<section>
+  <h2 class="display-4" id="quickstart" permalinked>Quick Start</h2>
+
+
+  <div class="row align-items-center">
+    <div class="col-sm-4">
+      <p>
+        Create an <code>ng-template</code> with the selector <code>nzbModal</code>.
+      </p>
+      <p>
+        Put Bootstrap modal markup inside this template.
+      </p>
+      <p>
+        Use <code>#modalInstance="nzbModal"</code> in the template tag to
+        grab a reference to the directive.
+      </p>
+
+    </div>
+    <div class="col-sm-8">
+      <markdown-to-html [data]="gistFiles['quickstart-template.html'] | language : 'html'"></markdown-to-html>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-sm-4">
+      <p>
+        Use <code>modalInstance.show()</code> to open the modal.
+      </p>
+      <app-modal-demo-quickstart></app-modal-demo-quickstart>
+    </div>
+    <div class="col-sm-8">
+      <markdown-to-html [data]="gistFiles['quickstart-button.html'] | language : 'html'"></markdown-to-html>
+    </div>
+  </div>
+
+</section>
+
+<!-- #api -->
+<section>
+  <h2 class="display-4" id="api" permalinked>API</h2>
+
+  <!--#show-->
+  <section>
+    <h3 class="display-6" id="show" permalinked><code>show(): Promise&lt;void&gt;</code></h3>
+
+    <p>
+      Shows the modal, returning a promise that resolves <em>when the modal is hidden.</em>
+    </p>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-show-demo" role="tab">Example</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-show-demo-ts" role="tab">Typescript</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-show-demo-html" role="tab">HTML</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-show-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              This example uses the Promise returned by <code>show()</code> to display
+              a message when the modal is hidden.
+            </p>
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-show></app-modal-demo-show>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="modal-show-demo-ts" role="tabpanel">
+        <markdown-to-html [data]="gistFiles['modal-demo-show.component.ts'] | language : 'typescript'"></markdown-to-html>
+      </div>
+      <div class="tab-pane fade" id="modal-show-demo-html" role="tabpanel">
+        <markdown-to-html [data]="gistFiles['modal-demo-show.component.html'] | language : 'html'"></markdown-to-html>
+      </div>
+    </div>
+
+  </section>
+
+  <!--#hide-->
+  <section>
+    <h3 class="display-6" id="hide" permalinked><code>hide(): Promise&lt;void&gt;</code></h3>
+
+    <p>
+      Hides the modal, returning a promise that resolves when the modal is
+      completely hidden (when the Bootstrap animations are done.)
+    </p>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-hide-demo" role="tab">Example</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-hide-demo-ts" role="tab">Typescript</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-hide-demo-html" role="tab">HTML</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-hide-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              This example asks for some input.
+              If the user clicks "Save", then the component
+              saves the input and uses <code>hide()</code> to close
+              the modal.
+            </p>
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-hide></app-modal-demo-hide>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="modal-hide-demo-ts" role="tabpanel">
+        <markdown-to-html [data]="gistFiles['modal-demo-hide.component.ts'] | language : 'typescript'"></markdown-to-html>
+      </div>
+      <div class="tab-pane fade" id="modal-hide-demo-html" role="tabpanel">
+        <markdown-to-html [data]="gistFiles['modal-demo-hide.component.html'] | language : 'html'"></markdown-to-html>
+      </div>
+    </div>
+
+  </section>
+
+  <!--#handle-update-->
+  <section>
+    <h3 class="display-6" id="handle-update" permalinked><code>handleUpdate(): void</code></h3>
+    <p>
+      A wrapper around the native Bootstrap <code>$().modal('handleUpdate')</code> method.
+      Use this when the height of the modal changes. This makes sure the modal is displayed
+      in the viewport correctly (i.e. that scrollbars do not suddenly appear.);
+    </p>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-handle-update-demo" role="tab">Example</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-handle-update-demo-ts" role="tab">Typescript</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-handle-update-demo-html" role="tab">HTML</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-handle-update-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              In this example the modal has variable length content.
+              When the number of paragraphs changes, we call <code>handleUpdate()</code>.
+            </p>
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-handle-update></app-modal-demo-handle-update>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="modal-handle-update-demo-ts" role="tabpanel">
+        <markdown-to-html [data]="gistFiles['modal-demo-handle-update.component.ts'] | language : 'typescript'"></markdown-to-html>
+      </div>
+      <div class="tab-pane fade" id="modal-handle-update-demo-html" role="tabpanel">
+        <markdown-to-html [data]="gistFiles['modal-demo-handle-update.component.html'] | language : 'html'"></markdown-to-html>
+      </div>
+    </div>
+
+  </section>
+
+  <!--#events-->
+  <section>
+    <h3 class="display-6" id="events" permalinked><code>events: Observable&lt;Event&gt;</code></h3>
+    <p>
+      An observable of the modal's native Bootstrap events.
+    </p>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-events-demo" role="tab">Example</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-events-demo-ts" role="tab">Typescript</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-events-demo-html" role="tab">HTML</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-events-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              In this example the modal has variable length content.
+              When the number of paragraphs changes, we call <code>handleUpdate()</code>.
+            </p>
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-events></app-modal-demo-events>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="modal-events-demo-ts" role="tabpanel">
+        <markdown-to-html [data]="gistFiles['modal-demo-events.component.ts'] | language : 'typescript'"></markdown-to-html>
+      </div>
+      <div class="tab-pane fade" id="modal-events-demo-html" role="tabpanel">
+        <markdown-to-html [data]="gistFiles['modal-demo-events.component.html'] | language : 'html'"></markdown-to-html>
+      </div>
+    </div>
+
+  </section>
+
+
+</section>

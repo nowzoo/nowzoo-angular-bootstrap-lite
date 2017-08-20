@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-modals',
   templateUrl: './modals.component.html',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalsComponent implements OnInit {
 
-  constructor() { }
+  gistFiles: any = {};
 
-  ngOnInit() {
+  constructor(
+    private route: ActivatedRoute,
+  ) { }
+
+  ngOnInit(): void {
+    this.route.fragment.subscribe ( f => {
+         const element = document.querySelector ( "#" + f )
+         if ( element ) element.scrollIntoView ( element )
+     });
+    this.gistFiles = this.route.snapshot.data['gistFiles'];
   }
 
 }

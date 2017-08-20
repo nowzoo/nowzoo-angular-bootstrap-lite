@@ -21,7 +21,6 @@ export abstract class NzbAbstractBootstrap  {
 
 
   constructor (
-    protected elementRef: ElementRef,
     protected ngZone: NgZone
   ) {}
 
@@ -59,23 +58,13 @@ export abstract class NzbAbstractBootstrap  {
     })
   }
 
-  protected runBsFunc(func: string): void {
+  protected runBsFunc(el: any, func: string): void {
     this.ngZone.runOutsideAngular(() => {
-      jQuery(this.elementRef.nativeElement)[this.bsComponentName](func);
+      jQuery(el)[this.bsComponentName](func);
       this.ngZone.run(() => {});
     })
   }
 
-
-  toggle(): void {
-    this.runBsFunc('toggle');
-  }
-  show(): void {
-    this.runBsFunc('show');
-  }
-  hide(): void {
-    this.runBsFunc('hide');
-  }
 
 
   get status(): Observable<string> {
@@ -92,23 +81,4 @@ export abstract class NzbAbstractBootstrap  {
   get hidden(): boolean {
     return this.statusSubject.value === 'hidden';
   }
-
-  get untilShown(): Promise<void> {
-    const p = new Promise<void>((resolve:any) => {
-      this.status.filter((val: string) => 'shown' === val).take(1).subscribe(resolve);
-    })
-    return p;
-  }
-  get untilHidden(): Promise<void> {
-    const p = new Promise<void>((resolve:any) => {
-      this.status.filter((val: string) => 'hidden' === val).take(1).subscribe(resolve);
-    })
-    return p;
-  }
-
-
-  get boostrapComponentData(): any {
-    return jQuery(this.elementRef.nativeElement).data('bs.' + this.bsComponentName);
-  }
-
 }

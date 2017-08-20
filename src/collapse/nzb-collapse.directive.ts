@@ -6,10 +6,6 @@ import {
   NgZone
 } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
-
 declare const jQuery: any;
 
 import { NzbAbstractBootstrap } from '../common/nzb-abstract-bootstrap.class';
@@ -23,10 +19,10 @@ export class NzbCollapseDirective extends NzbAbstractBootstrap  implements After
 
   protected bsComponentName: string = 'collapse';
   constructor(
-    elementRef: ElementRef,
+    private elementRef: ElementRef,
     ngZone: NgZone
   ) {
-    super(elementRef, ngZone);
+    super(ngZone);
   }
 
   ngAfterViewInit() {

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
     [nzbPopoverPlacement]="getPlacement"
     title="Placement Function"
     data-content="This popover was placed by a function.">
-    Placement via function</button>
+    Popover Demo (Click)</button>
   </p>
   `
 })
