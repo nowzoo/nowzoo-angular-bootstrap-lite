@@ -65,14 +65,18 @@ a[role="button"]:hover {
 }
 
 a.external,  a.external:hover{
+  position: relative;
+  padding-right: .6em;
   &:after {
+    display: block;
+    position: absolute;
     font-family: fontawesome;
     font-size: .5em;
     color: $gray;
-    text-decoration: none;
+    text-decoration: none !important;
     content: $fa-var-external-link;
-    vertical-align: super;
-    margin-left: .4em;
+    top: 0;
+    right: 0;
   }
 }
 section {
@@ -91,23 +95,21 @@ section {
   }
 }
 
-.xdemo {
-  border: 1px dotted $gray-light;
-  padding: 16px;
-  position: relative;
-  border-radius: 0 6px 6px 6px;
-  &:before{
-    position: absolute;
-    top:0;
-    left: -1px;
-    border-radius: 6px 6px 0 0;
-    transform: translateY(-100%);
-    display: inline-block;
-    content: "Demo";
-    font-size: 12px;
-    line-height: 12px;
-    padding: 6px;
-    background-color: $gray-light;
-    color: #FFF;
+
+
+.modal {
+  .show-if-modal-focused{
+    display: none;
+  }
+  .show-if-modal-not-focused{
+    display: block;
+  }
+  &:focus {
+    .show-if-modal-focused{
+      display: block;
+    }
+    .show-if-modal-not-focused{
+      display: none;
+    }
   }
 }

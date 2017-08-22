@@ -44,4 +44,20 @@ export class NzbCollapseDirective extends NzbAbstractBootstrap  implements After
 
   }
 
+  protected runBsFunc(f: string) {
+    return super.runBsFunc(jQuery(this.elementRef.nativeElement), f);
+  }
+
+  toggle() {
+    this.runBsFunc('toggle')
+  }
+
+  show() {
+    this.runBsFunc('show')
+  }
+
+  hide() {
+    this.runBsFunc('hide')
+  }
+
 }

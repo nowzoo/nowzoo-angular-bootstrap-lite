@@ -1,29 +1,23 @@
-<p>
-  <button class="btn btn-primary" (click)="modalInstance.show()">
-    Show Modal
-  </button>
+<p class="text-muted">
+  This is the child component (containing the modal template.)
 </p>
-<p><strong>Last 5 Events</strong></p>
-<ul>
-  <li *ngFor="let e of last5">
-    {{e.type}}.{{e.namespace}} at {{e.timeStamp | amDateFormat: 'H:mm:ss.SSSS'}}
-  </li>
-</ul>
-{{modalInstance.status | async}}
 <!-- the modal template -->
 <ng-template nzbModal #modalInstance="nzbModal">
   <div class="modal fade" tabindex="-1">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Events Example</h5>
+          <h5 class="modal-title">Modal Shown on Instantiation</h5>
           <button type="button" class="close"
             (click)="modalInstance.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-        This is some modal content.
+          <p>
+            I was shown immediately by the <code>ngAfterViewInit</code>
+            hook in the component that contains me.
+          </p>
         </div>
         <div class="modal-footer">
           <button
@@ -34,3 +28,10 @@
     </div>
   </div>
 </ng-template>
+
+<p>
+  <!-- the button -->
+  <button class="btn btn-primary" (click)="modalInstance.show()">
+    Show Modal
+  </button>
+</p>

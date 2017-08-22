@@ -8,7 +8,7 @@ export class ModalDemoHideComponent  {
   @ViewChild('modalInstance') modalInstance: NzbModalDirective;
 
   entered: string = '';
-  saved: string = 'Dublin the dog';
+  saved: string = '';
 
   constructor() { }
 

@@ -1,4 +1,4 @@
-<h1 class="display-2">
+<h1 class="display-2" id="top">
   Modals
 </h1>
 <hr>
@@ -6,48 +6,69 @@
 
 <p class="lead">
   Simple
-  <a
+  <a class="external"
     href="https://getbootstrap.com/docs/4.0/components/modal/"
     nzbTooltip
     title="Bootstrap modal docs"
-    target="bsdocs">Bootstrap modals<i class="fa fa-fw fa-external-link"></i></a>
+    target="bsdocs">Bootstrap modals</a>
     with <code>ng-template</code>.
 </p>
+
+
 
 <!-- #quickstart -->
 <section>
   <h2 class="display-4" id="quickstart" permalinked>Quick Start</h2>
 
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#modal-quickstart-demo" role="tab">Example</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#modal-quickstart-demo-ts" role="tab">Typescript</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#modal-quickstart-demo-html" role="tab">HTML</a>
+    </li>
+  </ul>
+  <div class="tab-content" style="margin-top: 1em">
+    <div class="tab-pane active fade show" id="modal-quickstart-demo" role="tabpanel">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>
+            Create an <code>ng-template</code> with the selector <code>nzbModal</code>.
+          </p>
+          <p>
+            Put Bootstrap modal markup inside this template.
+          </p>
+          <p>
+            Use <code>#modalInstance="nzbModal"</code> in the template tag to
+            grab a reference to the directive.
+          </p>
+          <app-gist-embed [gistId]="gistId" file="modal-demo-quickstart-snip-0.html"></app-gist-embed>
+          <p>
+            Use <code>modalInstance.show()</code> to open the modal...
+          </p>
+          <app-gist-embed [gistId]="gistId" file="modal-demo-quickstart-snip-1.html"></app-gist-embed>
 
-  <div class="row align-items-center">
-    <div class="col-sm-4">
-      <p>
-        Create an <code>ng-template</code> with the selector <code>nzbModal</code>.
-      </p>
-      <p>
-        Put Bootstrap modal markup inside this template.
-      </p>
-      <p>
-        Use <code>#modalInstance="nzbModal"</code> in the template tag to
-        grab a reference to the directive.
-      </p>
+
+        </div>
+        <div class="col-sm-6">
+          <app-modal-demo-quickstart></app-modal-demo-quickstart>
+        </div>
+      </div>
 
     </div>
-    <div class="col-sm-8">
-      <markdown-to-html [data]="gistFiles['quickstart-template.html'] | language : 'html'"></markdown-to-html>
+    <div class="tab-pane fade" id="modal-quickstart-demo-ts" role="tabpanel">
+      <app-gist-embed [gistId]="gistId" file="modal-demo-quickstart.component.ts"></app-gist-embed>
+    </div>
+    <div class="tab-pane fade" id="modal-quickstart-demo-html" role="tabpanel">
+      <app-gist-embed [gistId]="gistId" file="modal-demo-quickstart.component.html"></app-gist-embed>
     </div>
   </div>
-  <div class="row align-items-center">
-    <div class="col-sm-4">
-      <p>
-        Use <code>modalInstance.show()</code> to open the modal.
-      </p>
-      <app-modal-demo-quickstart></app-modal-demo-quickstart>
-    </div>
-    <div class="col-sm-8">
-      <markdown-to-html [data]="gistFiles['quickstart-button.html'] | language : 'html'"></markdown-to-html>
-    </div>
-  </div>
+
+
+
 
 </section>
 
@@ -57,10 +78,11 @@
 
   <!--#show-->
   <section>
-    <h3 class="display-6" id="show" permalinked><code>show(): Promise&lt;void&gt;</code></h3>
+    <div class="badge badge-pill badge-secondary pull-right">Method</div>
+    <h3 class="display-6" id="show" permalinked><code>show(): void</code></h3>
 
     <p>
-      Shows the modal, returning a promise that resolves <em>when the modal is hidden.</em>
+      Shows the modal.
     </p>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
@@ -78,8 +100,13 @@
         <div class="row">
           <div class="col-sm-6">
             <p>
-              This example uses the Promise returned by <code>show()</code> to display
-              a message when the modal is hidden.
+              The first button uses <code>(click)="modalInstance.show()"</code>
+              in the HTML template to show the modal.
+            </p>
+            <p>
+              You can almost as easily wrap the call to <code>show()</code> in
+              a component method. The second button uses this method.
+              (Note the use of <code>ViewChild</code> in the component to get the directive instance.)
             </p>
 
           </div>
@@ -90,10 +117,10 @@
 
       </div>
       <div class="tab-pane fade" id="modal-show-demo-ts" role="tabpanel">
-        <markdown-to-html [data]="gistFiles['modal-demo-show.component.ts'] | language : 'typescript'"></markdown-to-html>
+          <app-gist-embed [gistId]="gistId" file="modal-demo-show.component.ts"></app-gist-embed>
       </div>
       <div class="tab-pane fade" id="modal-show-demo-html" role="tabpanel">
-        <markdown-to-html [data]="gistFiles['modal-demo-show.component.html'] | language : 'html'"></markdown-to-html>
+        <app-gist-embed [gistId]="gistId" file="modal-demo-show.component.html"></app-gist-embed>
       </div>
     </div>
 
@@ -101,11 +128,14 @@
 
   <!--#hide-->
   <section>
-    <h3 class="display-6" id="hide" permalinked><code>hide(): Promise&lt;void&gt;</code></h3>
+    <div class="badge badge-pill badge-secondary pull-right">Method</div>
+    <h3 class="display-6" id="hide" permalinked><code>hide(): void</code></h3>
 
     <p>
-      Hides the modal, returning a promise that resolves when the modal is
-      completely hidden (when the Bootstrap animations are done.)
+      Hides the modal.
+    </p>
+    <p>
+      Note that you can also use the native Bootstrap <code>data-dismiss="modal"</code> attribute.
     </p>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
@@ -129,6 +159,7 @@
               the modal.
             </p>
 
+
           </div>
           <div class="col-sm-6">
             <app-modal-demo-hide></app-modal-demo-hide>
@@ -137,10 +168,10 @@
 
       </div>
       <div class="tab-pane fade" id="modal-hide-demo-ts" role="tabpanel">
-        <markdown-to-html [data]="gistFiles['modal-demo-hide.component.ts'] | language : 'typescript'"></markdown-to-html>
+        <app-gist-embed [gistId]="gistId" file="modal-demo-hide.component.ts"></app-gist-embed>
       </div>
       <div class="tab-pane fade" id="modal-hide-demo-html" role="tabpanel">
-        <markdown-to-html [data]="gistFiles['modal-demo-hide.component.html'] | language : 'html'"></markdown-to-html>
+        <app-gist-embed [gistId]="gistId" file="modal-demo-hide.component.html"></app-gist-embed>
       </div>
     </div>
 
@@ -148,11 +179,15 @@
 
   <!--#handle-update-->
   <section>
+    <div class="badge badge-pill badge-secondary pull-right">Method</div>
     <h3 class="display-6" id="handle-update" permalinked><code>handleUpdate(): void</code></h3>
     <p>
       A wrapper around the native Bootstrap <code>$().modal('handleUpdate')</code> method.
-      Use this when the height of the modal changes. This makes sure the modal is displayed
-      in the viewport correctly (i.e. that scrollbars do not suddenly appear.);
+    </p>
+    <p>
+      Use this when the height of the modal changes. It ensures
+      that scrollbars do not suddenly appear when the modal's height exceeds the height
+      of the viewport.
     </p>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
@@ -182,10 +217,10 @@
 
       </div>
       <div class="tab-pane fade" id="modal-handle-update-demo-ts" role="tabpanel">
-        <markdown-to-html [data]="gistFiles['modal-demo-handle-update.component.ts'] | language : 'typescript'"></markdown-to-html>
+        <app-gist-embed [gistId]="gistId" file="modal-demo-handle-update.component.ts"></app-gist-embed>
       </div>
       <div class="tab-pane fade" id="modal-handle-update-demo-html" role="tabpanel">
-        <markdown-to-html [data]="gistFiles['modal-demo-handle-update.component.html'] | language : 'html'"></markdown-to-html>
+        <app-gist-embed [gistId]="gistId" file="modal-demo-handle-update.component.html"></app-gist-embed>
       </div>
     </div>
 
@@ -193,6 +228,7 @@
 
   <!--#events-->
   <section>
+    <div class="badge badge-pill badge-secondary pull-right">Property</div>
     <h3 class="display-6" id="events" permalinked><code>events: Observable&lt;Event&gt;</code></h3>
     <p>
       An observable of the modal's native Bootstrap events.
@@ -213,8 +249,8 @@
         <div class="row">
           <div class="col-sm-6">
             <p>
-              In this example the modal has variable length content.
-              When the number of paragraphs changes, we call <code>handleUpdate()</code>.
+              This example calls <code>modalInstance.events.subscribe()</code>
+              to display the last 5 Bootstrap modal events.
             </p>
 
           </div>
@@ -225,14 +261,455 @@
 
       </div>
       <div class="tab-pane fade" id="modal-events-demo-ts" role="tabpanel">
-        <markdown-to-html [data]="gistFiles['modal-demo-events.component.ts'] | language : 'typescript'"></markdown-to-html>
+          <app-gist-embed [gistId]="gistId" file="modal-demo-events.component.ts"></app-gist-embed>
       </div>
       <div class="tab-pane fade" id="modal-events-demo-html" role="tabpanel">
-        <markdown-to-html [data]="gistFiles['modal-demo-events.component.html'] | language : 'html'"></markdown-to-html>
+          <app-gist-embed [gistId]="gistId" file="modal-demo-events.component.html"></app-gist-embed>
       </div>
     </div>
 
   </section>
 
+  <!--#status-->
+  <section>
+    <div class="badge badge-pill badge-secondary pull-right">Property</div>
+    <h3 class="display-6" id="status" permalinked><code>status: Observable&lt;string&gt;</code></h3>
+    <p>
+      An observable of a string representing the modal's status. The value is:
+    </p>
+    <ul>
+      <li>
+        <code>'unshown'</code> when the modal does not exist
+        in the DOM &mdash; i.e. before it has been shown or after it's been hidden.
+      </li>
+      <li>
+         <code>'show'</code> while the modal is being animated to shown
+        &mdash; i.e. after the show.bs.modal event.
+      </li>
+      <li>
+         <code>'shown'</code> while the modal is shown
+        &mdash; i.e. after the shown.bs.modal event.
+      </li>
+      <li>
+         <code>'hide'</code> while the modal is being animated to hidden
+        &mdash; i.e. after the hide.bs.modal event.
+      </li>
+      <li>
+         <code>'hidden'</code>  after the hidden.bs.modal event. Note that
+          immediately afterward the directive disposes of the modal markup and Angular bindings,
+          and sets the status back to <code>'unshown'</code>.
+      </li>
+    </ul>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-status-demo" role="tab">Example</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-status-demo-ts" role="tab">Typescript</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-status-demo-html" role="tab">HTML</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-status-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              This example uses <code>modalInstance.status | async</code>
+              to display the modal's current status.
+            </p>
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-status></app-modal-demo-status>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="modal-status-demo-ts" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-status.component.ts"></app-gist-embed>
+      </div>
+      <div class="tab-pane fade" id="modal-status-demo-html" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-status.component.html"></app-gist-embed>
+
+      </div>
+    </div>
+
+  </section>
+
+</section>
+
+<!-- #options -->
+<section>
+  <h2 class="display-4" id="options" permalinked>Options</h2>
+  <p>
+     In keeping with our simple-is-best, non-invasive philosophy,
+     the directive does not have options (i.e. inputs) for things
+     like <code>animation</code> or <code>backdrop</code>.
+     Instead, you set these options  the native way,
+      via <code>data-</code> attributes or CSS classes.
+  </p>
+  <p class="doc-callout info">
+    You can't set <code>data-show="true"</code>. To show the modal immediately
+    (say, on navigating to a new route,) call <code>modalInstance.show()</code>
+    programatically in the component that contains the modal.
+    <a routerLink="." fragment="show-on-instantiation">See this example</a>.
+    All the other Bootstrap modal <code>data-</code> attributes are supported.
+  </p>
+  <!-- #animation -->
+  <section>
+    <h3 class="display-6" id="animation" permalinked>Animation</h3>
+    <p>
+      Animation is turned on or off by adding or removing the <code>.fade</code> class
+      in the top level <code>.modal</code> tag.
+    </p>
+    <ul class="nav nav-tabs" id="example-animation" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-animation-demo" role="tab">Example</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-animation-demo-html" role="tab">HTML (full)</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-animation-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              Use the <code>.fade</code> class to control animation.
+            </p>
+            <app-gist-embed [gistId]="gistId" file="animation-snippet.html"></app-gist-embed>
+
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-animation></app-modal-demo-animation>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="modal-animation-demo-html" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-animation.component.html"></app-gist-embed>
+
+      </div>
+    </div>
+  </section>
+  <!-- #size -->
+  <section>
+    <h3 class="display-6" id="size" permalinked>Size</h3>
+    <p>
+      Change the size of the modal by adding the <code>.modal-sm</code> or <code>.modal-lg</code> class
+      to the <code>.modal-dialog</code> tag.
+      <a class="external"
+        href="https://getbootstrap.com/docs/4.0/components/modal/#optional-sizes"
+        target="bsdocs">Bootstrap documentation</a>
+
+    </p>
+    <ul class="nav nav-tabs" id="example-size" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-size-demo" role="tab">Example</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-size-demo-html" role="tab">HTML (full)</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-size-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              Use the <code>.modal-sm</code> or <code>.modal-lg</code>  classes to control size.
+            </p>
+            <app-gist-embed [gistId]="gistId" file="size-snippet.html"></app-gist-embed>
+
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-size></app-modal-demo-size>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="modal-size-demo-html" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-size.component.html"></app-gist-embed>
+
+      </div>
+    </div>
+  </section>
+  <!-- #backdrop -->
+  <section>
+    <h3 class="display-6" id="backdrop" permalinked>Backdrop</h3>
+    <p>
+      By default the backdrop is shown, and clicking on it will dismiss the modal.
+    </p>
+    <p>
+      Set the <code>data-backdrop</code> attribute in the top level <code>.modal</code> tag
+      to change this.
+    </p>
+    <p>
+      Possible values are <code>data-backdrop="false"</code>, for no backdrop, and
+      <code>data-backdrop="static"</code>, for a backdrop that does not dismiss the modal.
+    </p>
+    <ul class="nav nav-tabs" id="example-backdrop" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-backdrop-demo" role="tab">Example</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-backdrop-demo-html" role="tab">HTML (full)</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-backdrop-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              Use  <code>data-backdrop="false"</code> or
+              <code>data-backdrop="static"</code>.
+            </p>
+            <app-gist-embed [gistId]="gistId" file="backdrop-snippet.html"></app-gist-embed>
+
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-backdrop></app-modal-demo-backdrop>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="modal-backdrop-demo-html" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-backdrop.component.html"></app-gist-embed>
+
+      </div>
+    </div>
+  </section>
+  <!-- #keyboard -->
+  <section>
+    <h3 class="display-6" id="keyboard" permalinked>Keyboard</h3>
+    <p>
+      By default,  pressing the <code>esc</code> key will dismiss the modal when
+      it is focused.
+    </p>
+    <p>
+      Use <code>data-keyboard="false"</code> in the top level <code>.modal</code> tag
+      to disable this behavior.
+    </p>
+
+    <ul class="nav nav-tabs" id="example-keyboard" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-keyboard-demo" role="tab">Example</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-keyboard-demo-html" role="tab">HTML (full)</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-keyboard-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              The first example sets  <code>data-keyboard="false"</code>.
+            </p>
+            <app-gist-embed [gistId]="gistId" file="modal-demo-keyboard-snippet-1.html"></app-gist-embed>
+
+            <p>
+              The second example (default) omits the <code>data-keyboard</code> attribute.
+              This is the default behavior.
+            </p>
+            <app-gist-embed [gistId]="gistId" file="modal-demo-keyboard-snippet-2.html"></app-gist-embed>
+
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-keyboard></app-modal-demo-keyboard>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="modal-keyboard-demo-html" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-keyboard.component.html"></app-gist-embed>
+
+      </div>
+    </div>
+  </section>
+  <!-- #focus -->
+  <section>
+    <h3 class="display-6" id="focus" permalinked>Focus</h3>
+    <p>
+      By default, the modal is focused when shown.
+    </p>
+    <p>
+      Use <code>data-focus="false"</code> in the top level <code>.modal</code> tag
+      to disable this behavior.
+    </p>
+    <p class="doc-callout info">
+       Note that you must also set <code>tabindex="-1"</code> in the <code>.modal</code> tag
+       for the modal to receive focus.
+    </p>
+
+    <ul class="nav nav-tabs" id="example-focus" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-focus-demo" role="tab">Example</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-focus-demo-html" role="tab">HTML (full)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-focus-demo-scss" role="tab">SCSS</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-focus-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              The first example sets  <code>data-focus="false"</code>.
+            </p>
+            <app-gist-embed [gistId]="gistId" file="modal-demo-focus-snippet-1.html"></app-gist-embed>
+
+            <p>
+              The second example (default) omits the <code>data-focus</code> attribute.
+              This is the default behavior.
+            </p>
+            <app-gist-embed [gistId]="gistId" file="modal-demo-focus-snippet-2.html"></app-gist-embed>
+
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-focus></app-modal-demo-focus>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="modal-focus-demo-html" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-focus.component.html"></app-gist-embed>
+
+      </div>
+      <div class="tab-pane fade" id="modal-focus-demo-scss" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-focus-styles.scss"></app-gist-embed>
+
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- #examples -->
+<section>
+  <h2 class="display-4" id="examples" permalinked>Other Examples</h2>
+
+  <section>
+    <h3 class="display-6" id="show-on-instantiation" permalinked>
+      Show a modal immediately on instantiation
+    </h3>
+    <p>
+      As mentioned above, the directive does not support the <code>data-show</code>
+      attribute. Instead use the <code>ngAfterViewInit</code> hook in the component
+      that contains the modal template.
+    </p>
+    <ul class="nav nav-tabs" id="example-show-on-instantiation" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-show-on-instantiation-demo" role="tab">Example</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Code</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" data-toggle="tab" href="#modal-show-on-instantiation-demo-ts-child" role="tab">Typescript (Child)</a>
+          <a class="dropdown-item" data-toggle="tab" href="#modal-show-on-instantiation-demo-html-child" role="tab">HTML (Child)</a>
+          <a class="dropdown-item" data-toggle="tab" href="#modal-show-on-instantiation-demo-ts" role="tab">Typescript (Parent)</a>
+          <a class="dropdown-item" data-toggle="tab" href="#modal-show-on-instantiation-demo-html" role="tab">HTML (Parent)</a>
+        </div>
+      </li>
+
+
+
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-show-on-instantiation-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+
+            <p>
+              Click "Create Child."  The child component shows the modal in
+              it's <code>ngAfterViewInit</code> lifecycle hook.
+            </p>
+            <app-gist-embed [gistId]="gistId" file="modal-demo-show-on-instantiation-snippet.ts"></app-gist-embed>
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-show-on-instantiation></app-modal-demo-show-on-instantiation>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="modal-show-on-instantiation-demo-ts-child" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-show-on-instantiation-child.component.ts"></app-gist-embed>
+      </div>
+      <div class="tab-pane fade" id="modal-show-on-instantiation-demo-html-child" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-show-on-instantiation-child.component.html"></app-gist-embed>
+      </div>
+      <div class="tab-pane fade" id="modal-show-on-instantiation-demo-ts" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-show-on-instantiation.component.ts"></app-gist-embed>
+      </div>
+      <div class="tab-pane fade" id="modal-show-on-instantiation-demo-html" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-show-on-instantiation.component.html"></app-gist-embed>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section>
+    <h3 class="display-6" id="goes-away-nicely" permalinked>
+      A modal is hidden gracefully and automatically
+    </h3>
+    <p>
+      When a component containing a modal directive is destroyed, such as on
+      navigating to a new route, the modal is hidden gracefully if open and
+      all the markup is removed from the <code>body</code> tag.
+    </p>
+    <ul class="nav nav-tabs" id="example-goes-away-nicely" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#modal-goes-away-nicely-demo" role="tab">Example</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#modal-goes-away-nicely-demo-html" role="tab">HTML</a>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 1em">
+      <div class="tab-pane active fade show" id="modal-goes-away-nicely-demo" role="tabpanel">
+        <div class="row">
+          <div class="col-sm-6">
+
+            <p>
+              Show the modal, then click on the link in the modal body to trigger a route change.
+            </p>
+
+          </div>
+          <div class="col-sm-6">
+            <app-modal-demo-goes-away-nicely></app-modal-demo-goes-away-nicely>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="modal-goes-away-nicely-demo-html" role="tabpanel">
+        <app-gist-embed [gistId]="gistId" file="modal-demo-goes-away-nicely.component.html"></app-gist-embed>
+      </div>
+
+    </div>
+
+  </section>
 
 </section>

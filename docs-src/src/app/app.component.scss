@@ -1,0 +1,66 @@
+//@import "~bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.columns-container{
+  $navbarHt: 56px;
+  $sidebarWidth: 300px;
+
+  position: fixed;
+  top: $navbarHt;
+  bottom: 0;
+  left: 0;
+  right:0;
+
+  >.sidebar-container {
+    transition: left .25s;
+    z-index: 1;
+    position: absolute;
+    overflow: scroll;
+    left: -1 *   $sidebarWidth;
+    width:   $sidebarWidth;
+    top:0;
+    bottom: 0;
+    background-color: #FFF;
+    border-right: 1px solid $gray-lighter;
+    > .inner {
+      padding: 24px 0;
+
+    }
+  }
+
+  >.route-container {
+    position: absolute;
+    overflow: scroll;
+    z-index: 0;
+    left: 0;
+    top:0;
+    bottom: 0;
+    right: 0;
+    >.inner {
+      padding: 24px 20px;
+    }
+    @include media-breakpoint-up(sm){
+      >.inner {
+        padding: 24px 48px;
+      }
+    }
+  }
+
+  &.sidebar-open {
+    >.sidebar-container {
+      left: 0;
+    }
+  }
+
+  @include media-breakpoint-up(lg){
+    >.sidebar-container {
+      left: 0;
+
+    }
+    >.route-container {
+      left: $sidebarWidth;
+    }
+  }
+
+}

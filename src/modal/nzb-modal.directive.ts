@@ -39,7 +39,8 @@ export class NzbModalDirective extends NzbAbstractBootstrap  implements  OnDestr
     private appRef: ApplicationRef,
     private cfr: ComponentFactoryResolver
   ) {
-    super(ngZone)
+    super(ngZone);
+    this.statusSubject.next('unshown');
   }
 
   private createAndAppendModal(): any {
@@ -54,37 +55,31 @@ export class NzbModalDirective extends NzbAbstractBootstrap  implements  OnDestr
   }
 
   ngOnDestroy() {
-    this.hide();
+    if (this.instantiated){
+      this.hide();
+    }
   }
 
-  show(): Promise<void> {
-    return new Promise<void>((resolve: any) => {
-      if (this.instantiated){
-        throw new Error('modal already instantiated!')
-      }
-      const $el = this.createAndAppendModal();
-      this.initBootsrapListeners($el);
-      this.eventsSubject.filter((event: Event) => 'hidden' === event.type).take(1).subscribe(() =>{
-        $el.off('show.bs.modal shown.bs.modal hide.bs.modal hidden.bs.modal');
-        this.componentRef.destroy();
-        this.instantiated = false;
-        resolve();
-      })
-      $el.modal({show: true});
+  show(): void {
+    if (this.instantiated){
+      throw new Error('modal already instantiated!')
+    }
+    const $el = this.createAndAppendModal();
+    this.initBootsrapListeners($el);
+    this.eventsSubject.filter((event: Event) => 'hidden' === event.type).take(1).subscribe(() =>{
+      $el.off('show.bs.modal shown.bs.modal hide.bs.modal hidden.bs.modal');
+      this.componentRef.destroy();
+      this.instantiated = false;
+      this.statusSubject.next('unshown');
     })
+    $el.modal({show: true});
   }
 
-  hide(): Promise<void> {
-    return new Promise<void>((resolve: any) => {
-      if (! this.instantiated){
-        return resolve();
-      }
-      this.eventsSubject.filter((event: Event) => 'hidden' === event.type).take(1).subscribe(() =>{
-        resolve();
-      });
-      jQuery('.modal', this.componentRef.location.nativeElement).modal('hide');
-    })
-
+  hide(): void {
+    if (! this.instantiated){
+      throw new Error('modal not instantiated!')
+    }
+    jQuery('.modal', this.componentRef.location.nativeElement).modal('hide');
   }
 
   handleUpdate(): void {
@@ -93,6 +88,5 @@ export class NzbModalDirective extends NzbAbstractBootstrap  implements  OnDestr
     }
     jQuery('.modal', this.componentRef.location.nativeElement).modal('handleUpdate');
   }
-
 
 }

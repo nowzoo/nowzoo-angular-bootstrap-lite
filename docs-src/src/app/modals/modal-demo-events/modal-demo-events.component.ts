@@ -13,8 +13,8 @@ export class ModalDemoEventsComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     this.sub = this.modalInstance.events.subscribe((event:Event) => {
-      this.last5.unshift(event);
-      this.last5 = this.last5.slice(0, 5);
+      this.last5.push(event);
+      this.last5 = this.last5.slice(Math.max(this.last5.length - 5, 0));
     })
   }
 

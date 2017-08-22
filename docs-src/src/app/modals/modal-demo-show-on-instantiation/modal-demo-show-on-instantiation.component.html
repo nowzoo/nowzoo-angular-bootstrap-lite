@@ -1,0 +1,17 @@
+<div *ngIf="!childInstantiated">
+  <p class="text-muted">
+    The child component (containing the modal template)
+    does not exist!
+  </p>
+  <p>
+    <button class="btn btn-secondary btn-sm"
+      (click)="childInstantiated = true">Create Child</button>
+  </p>
+</div>
+<div *ngIf="childInstantiated">
+  <app-modal-demo-show-on-instantiation-child></app-modal-demo-show-on-instantiation-child>
+  <p>
+    <button class="btn btn-secondary btn-sm"
+      (click)="childInstantiated = false">Remove Child</button>
+  </p>
+</div>

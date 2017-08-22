@@ -18,6 +18,8 @@ import { PermalinkedDirective } from './header/permalinked.directive';
 
 import { GistEmbedComponent } from './gist-embed/gist-embed.component';
 
+
+
 import { HomeComponent } from './home/home.component';
 
 
@@ -55,6 +57,17 @@ import { ModalDemoShowComponent } from './modals/modal-demo-show/modal-demo-show
 import { ModalDemoHideComponent } from './modals/modal-demo-hide/modal-demo-hide.component';
 import { ModalDemoHandleUpdateComponent } from './modals/modal-demo-handle-update/modal-demo-handle-update.component';
 import { ModalDemoEventsComponent } from './modals/modal-demo-events/modal-demo-events.component';
+import { ModalDemoStatusComponent } from './modals/modal-demo-status/modal-demo-status.component';
+import { ModalDemoAnimationComponent } from './modals/modal-demo-animation/modal-demo-animation.component';
+import { ModalDemoSizeComponent } from './modals/modal-demo-size/modal-demo-size.component';
+import { ModalDemoBackdropComponent } from './modals/modal-demo-backdrop/modal-demo-backdrop.component';
+import { ModalDemoKeyboardComponent } from './modals/modal-demo-keyboard/modal-demo-keyboard.component';
+import { ModalDemoFocusComponent } from './modals/modal-demo-focus/modal-demo-focus.component';
+import { ModalDemoShowOnInstantiationComponent } from './modals/modal-demo-show-on-instantiation/modal-demo-show-on-instantiation.component';
+import { ModalDemoShowOnInstantiationChildComponent } from './modals/modal-demo-show-on-instantiation/modal-demo-show-on-instantiation-child.component';
+import { ModalDemoGoesAwayNicelyComponent } from './modals/modal-demo-goes-away-nicely/modal-demo-goes-away-nicely.component';
+import { ModalDemoGoesAwayAnotherRouteComponent } from './modals/modal-demo-goes-away-nicely/modal-demo-goes-away-another-route.component';
+import { SideNavItemComponent } from './side-nav/side-nav-item.component';
 
 
 
@@ -64,7 +77,7 @@ const routes = [
     data: {gistId: '9a7fa3f1128dff5f353edf209ed07e35'},
     resolve: {gistFiles: GistService},
     children: [
-
+      {path: 'go-away-nicely', component: ModalDemoGoesAwayAnotherRouteComponent},
       {path: '', component: ModalsComponent}
     ]
   },
@@ -103,7 +116,6 @@ const routes = [
     PermalinkedDirective,
 
 
-
     HomeComponent,
 
 
@@ -140,6 +152,18 @@ const routes = [
     ModalDemoHideComponent,
     ModalDemoHandleUpdateComponent,
     ModalDemoEventsComponent,
+    ModalDemoStatusComponent,
+    ModalDemoAnimationComponent,
+    ModalDemoSizeComponent,
+    ModalDemoBackdropComponent,
+    ModalDemoKeyboardComponent,
+    ModalDemoFocusComponent,
+    ModalDemoShowOnInstantiationComponent,
+    ModalDemoShowOnInstantiationChildComponent,
+    ModalDemoGoesAwayNicelyComponent,
+    ModalDemoGoesAwayAnotherRouteComponent,
+    SideNavItemComponent,
+
 
   ],
   imports: [
@@ -150,8 +174,10 @@ const routes = [
     NzbDevModule,
     NzbModule,
     RouterModule.forRoot(routes),
-    MarkdownToHtmlModule.forRoot()
+    MarkdownToHtmlModule.forRoot(),
+
   ],
+  exports: [],
   providers: [ GistService ],
   bootstrap: [AppComponent]
 })

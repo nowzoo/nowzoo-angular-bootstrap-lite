@@ -6,13 +6,8 @@ import { NzbModalDirective } from 'nowzoo-angular-bootstrap-lite';
 })
 export class ModalDemoShowComponent {
   @ViewChild('modalInstance') modalInstance: NzbModalDirective;
-  constructor() { }
 
-  hiddenMessage: string = null;
-  showModal() {
-    this.hiddenMessage = null;
-    this.modalInstance.show().then(() => {
-      this.hiddenMessage = 'Modal hidden!'
-    })
+  showTheModal(){
+    this.modalInstance.show();
   }
 }

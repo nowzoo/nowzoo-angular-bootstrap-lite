@@ -3,20 +3,17 @@
     Show Modal
   </button>
 </p>
-<p><strong>Last 5 Events</strong></p>
-<ul>
-  <li *ngFor="let e of last5">
-    {{e.type}}.{{e.namespace}} at {{e.timeStamp | amDateFormat: 'H:mm:ss.SSSS'}}
-  </li>
-</ul>
-{{modalInstance.status | async}}
+<p>
+  <strong>Status:</strong>
+  {{modalInstance.status | async}}
+</p>
 <!-- the modal template -->
 <ng-template nzbModal #modalInstance="nzbModal">
   <div class="modal fade" tabindex="-1">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Events Example</h5>
+          <h5 class="modal-title">Status Example</h5>
           <button type="button" class="close"
             (click)="modalInstance.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>

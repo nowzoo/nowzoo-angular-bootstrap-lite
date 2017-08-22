@@ -1,0 +1,21 @@
+li {
+  margin-bottom: 16px;
+  a {
+    font-weight: bold;
+    display: block;
+    padding: 3px 20px;
+  }
+  li {
+    margin-bottom: 0;
+    a {
+      font-weight: normal;
+      padding-left: 40px;
+      font-size: 14px;
+    }
+    li {
+      a {
+        padding-left: 60px;
+      }
+    }
+  }
+}

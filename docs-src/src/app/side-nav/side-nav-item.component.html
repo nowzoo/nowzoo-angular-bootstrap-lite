@@ -1,0 +1,8 @@
+<a *ngIf="item.label" class="text-secondary" [routerLink]="item.routerLink" [fragment]="item.fragment">
+  {{item.label}}
+</a>
+<ul *ngIf="item.children && item.children.length > 0" class="list-unstyled">
+  <li *ngFor="let childItem of item.children">
+    <app-side-nav-item [item]="childItem"></app-side-nav-item>
+  </li>
+</ul>

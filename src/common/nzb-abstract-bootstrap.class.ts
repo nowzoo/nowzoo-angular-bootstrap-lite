@@ -44,8 +44,8 @@ export abstract class NzbAbstractBootstrap  {
     this.ngZone.runOutsideAngular(() => {
       $el.on(this.getEventNames().join(' '), (event:Event) => {
         this.ngZone.run(() => {
-          this.eventsSubject.next(event);
           this.statusSubject.next(event.type);
+          this.eventsSubject.next(event);
         });
       })
     })
