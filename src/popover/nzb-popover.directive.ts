@@ -12,6 +12,7 @@ import {
 
 
 import { NzbAbstractPopup } from '../common/nzb-abstract-popup.class';
+import { NzbPopoverOptions } from './nzb-popover-options.class';
 
 
 @Directive({
@@ -22,8 +23,7 @@ import { NzbAbstractPopup } from '../common/nzb-abstract-popup.class';
 export class NzbPopoverDirective extends NzbAbstractPopup  {
   @Input() nzbPopoverTitle: TemplateRef<any> | null = null;
   @Input() nzbPopoverContent: TemplateRef<any> | null = null;
-  @Input() nzbPopoverPlacement: ((tooltipEl: any, targetEl: any) => string) | null = null;
-
+  @Input() nzbPopoverOptions: NzbPopoverOptions | null = null;
 
   protected bsComponentName: string = 'popover';
 
@@ -33,9 +33,10 @@ export class NzbPopoverDirective extends NzbAbstractPopup  {
     viewContainer: ViewContainerRef,
     appRef: ApplicationRef,
     cfr: ComponentFactoryResolver,
-    ngZone: NgZone
+    ngZone: NgZone,
+    defaultOptions: NzbPopoverOptions
   ) {
-    super(elementRef, renderer, viewContainer, appRef, cfr, ngZone);
+    super(elementRef, renderer, viewContainer, appRef, cfr, ngZone, defaultOptions);
   }
 
   protected getInputTitleTemplate(): TemplateRef<any> | null  {
@@ -44,8 +45,9 @@ export class NzbPopoverDirective extends NzbAbstractPopup  {
   protected getInputContentTemplate(): TemplateRef<any> | null  {
     return this.nzbPopoverContent;
   }
-  protected getInputPlacement(): ((tooltipEl: any, targetEl: any) => string) | null  {
-    return this.nzbPopoverPlacement;
+
+  protected getInputOptions():  NzbPopoverOptions | null{
+    return this.nzbPopoverOptions;
   }
 
 }

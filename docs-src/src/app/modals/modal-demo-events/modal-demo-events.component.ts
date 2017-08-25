@@ -1,7 +1,6 @@
 import { Component, ViewChild, AfterViewInit, OnDestroy} from '@angular/core';
 import { NzbModalDirective } from 'nowzoo-angular-bootstrap-lite';
 import { Subscription } from 'rxjs/Subscription';
-
 @Component({
   selector: 'app-modal-demo-events',
   templateUrl: './modal-demo-events.component.html'

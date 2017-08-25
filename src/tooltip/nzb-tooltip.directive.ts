@@ -10,6 +10,7 @@ import {
   NgZone
 } from '@angular/core';
 
+import { NzbTooltipOptions } from './nzb-tooltip-options.class';
 
 import { NzbAbstractPopup } from '../common/nzb-abstract-popup.class';
 
@@ -22,7 +23,7 @@ declare let jQuery: any;
 })
 export class NzbTooltipDirective extends NzbAbstractPopup  {
   @Input() nzbTooltipTitle: TemplateRef<any> | null = null;
-  @Input() nzbTooltipPlacement: ((tooltipEl: any, targetEl: any) => string) | null = null;
+  @Input() nzbTooltipOptions: NzbTooltipOptions | null = null;
 
   protected bsComponentName: string = 'tooltip';
 
@@ -32,9 +33,10 @@ export class NzbTooltipDirective extends NzbAbstractPopup  {
     viewContainer: ViewContainerRef,
     appRef: ApplicationRef,
     cfr: ComponentFactoryResolver,
-    ngZone: NgZone
+    ngZone: NgZone,
+    defaultOptions: NzbTooltipOptions
   ) {
-    super(elementRef, renderer, viewContainer, appRef, cfr, ngZone);
+    super(elementRef, renderer, viewContainer, appRef, cfr, ngZone, defaultOptions);
   }
 
   protected getInputTitleTemplate(): TemplateRef<any> | null  {
@@ -43,9 +45,9 @@ export class NzbTooltipDirective extends NzbAbstractPopup  {
   protected getInputContentTemplate(): TemplateRef<any> | null  {
     return null;
   }
-
-  protected getInputPlacement(): ((tooltipEl: any, targetEl: any) => string) | null  {
-    return this.nzbTooltipPlacement;
+  protected getInputOptions():  NzbTooltipOptions | null{
+    return this.nzbTooltipOptions;
   }
+
 
 }

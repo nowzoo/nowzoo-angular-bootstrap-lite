@@ -12,7 +12,7 @@ import { NzbPopoverDirective } from 'nowzoo-angular-bootstrap-lite';
   selector: 'app-popover-demo-dismiss-on-click-outside',
   template: `
   <p>
-    <button class="btn btn-primary"
+    <button class="btn btn-outline-info"
       nzbPopover
       #popoverInstance="nzbPopover"
       title="Enter your name..."

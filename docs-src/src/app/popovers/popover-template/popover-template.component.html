@@ -1,0 +1,44 @@
+<section id="template">
+  <h5 class="display-5">template</h5>
+
+
+  <p>
+    <code>template?: string = '&lt;div class="popover" role="tooltip"&gt;...&lt;div&gt;'</code> (see the
+    <a href="https://getbootstrap.com/docs/4.0/components/popovers/#options" target="bsdocs">Bootstrap docs</a> for the full template.)
+  </p>
+
+
+
+  <nzb-tabs [uniqueId]="baseId + '-tabs'">
+    <nav class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="ts">.ts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="html">.html</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="scss">.scss</a>
+      </li>
+    </nav>
+    <div class="tab-content">
+      <div nzbTabPane="demo" #demoPane="nzbTabPane">
+        <div *ngIf="demoPane.data?.visible">
+          <app-popover-template-demo></app-popover-template-demo>
+        </div>
+      </div>
+      <div nzbTabPane="ts" #htmlPane="nzbTabPane">
+        <app-gist-embed [gistId]="gistId" file="popover-template-demo.component.ts"></app-gist-embed>
+      </div>
+      <div nzbTabPane="html" #htmlPane="nzbTabPane">
+        <app-gist-embed [gistId]="gistId" file="popover-template-demo.component.html"></app-gist-embed>
+      </div>
+      <div nzbTabPane="scss" #htmlPane="nzbTabPane">
+        <app-gist-embed [gistId]="gistId" file="popover-template.scss"></app-gist-embed>
+      </div>
+    </div>
+  </nzb-tabs>
+</section>

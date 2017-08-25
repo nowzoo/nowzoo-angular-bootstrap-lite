@@ -4,10 +4,9 @@ import { NzbPopoverDirective } from 'nowzoo-angular-bootstrap-lite';
 @Component({
   selector: 'app-popover-demo-hide-on-route-change',
   template: `<p>
-  <button class="btn btn-primary"
+  <button class="btn btn-outline-info"
     nzbPopover
     #popoverInstance="nzbPopover"
-    [nzbPopoverPlacement]="getPlacement"
     title="Popover"
     data-placement="bottom"
     [nzbPopoverContent]="popoverContent">

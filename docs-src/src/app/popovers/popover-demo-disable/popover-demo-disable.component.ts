@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-popover-demo-disable',
   template: `
     <p>
-      <button class="btn btn-primary"
+      <button class="btn btn-outline-info"
         nzbPopover
         #popoverInstance="nzbPopover"
         title="Enable/Disable Demo"

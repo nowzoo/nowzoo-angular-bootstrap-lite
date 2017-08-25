@@ -1,0 +1,47 @@
+<section id="options">
+  <h4 class="display-4">nzbPopoverOptions</h4>
+
+  <p><code>nzbPopoverOptions: NzbPopoverOptions</code></p>
+
+  <p>
+    <em>Optional.</em> Use <code>[nzbPopoverOptions]="{{ '{' }}...{{ '}' }}"</code>
+    to set the options for an individual popover. Options you do not specify
+    will revert to the Bootstrap popover defaults.
+  </p>
+
+  <p>
+    All the Bootstrap
+    <a class="external" target="_blank" href="https://getbootstrap.com/docs/4.0/components/popovers/#options">popover options</a>
+    except for <code>title</code>, <code>content</code> and <code>selector</code> are supported:
+  </p>
+  <ul>
+    <li><a routerLink="." fragment="animation">animation</a></li>
+    <li><a routerLink="." fragment="container">container</a></li>
+    <li><a routerLink="." fragment="delay">delay</a></li>
+    <li><a routerLink="." fragment="html">html</a></li>
+    <li><a routerLink="." fragment="placement">placement</a></li>
+    <li><a routerLink="." fragment="template">template</a></li>
+    <li><a routerLink="." fragment="trigger">trigger</a></li>
+    <li><a routerLink="." fragment="offset">offset</a></li>
+    <li><a routerLink="." fragment="fallback-placement">fallbackPlacement</a></li>
+  </ul>
+
+
+  <p>
+    Additionally, you may specify
+    <a routerLink="." fragment="animate-on-destroy">animateOnDestroy</a>. This controls
+    whether an open popover animates to hidden when the element that it belongs to is destroyed.
+  </p>
+
+  <app-popover-options-provider></app-popover-options-provider>
+  <app-popover-animation></app-popover-animation>
+  <app-popover-container></app-popover-container>
+  <app-popover-delay></app-popover-delay>
+  <app-popover-html></app-popover-html>
+  <app-popover-placement></app-popover-placement>
+  <app-popover-template></app-popover-template>
+  <app-popover-trigger></app-popover-trigger>
+  <app-popover-offset></app-popover-offset>
+  <app-popover-fallback-placement></app-popover-fallback-placement>
+  <app-popover-animate-on-destroy></app-popover-animate-on-destroy>
+</section>

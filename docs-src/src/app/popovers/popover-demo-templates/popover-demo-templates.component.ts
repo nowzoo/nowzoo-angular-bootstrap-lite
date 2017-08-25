@@ -5,7 +5,7 @@ import { Component, AfterViewInit, OnDestroy, ViewChild} from '@angular/core';
   template: `
   <!-- templates example -->
   <p>
-    <button class="btn btn-primary"
+    <button class="btn btn-outline-info"
       nzbPopover
       [nzbPopoverTitle]="titleTemplate"
       [nzbPopoverContent]="contentTemplate"

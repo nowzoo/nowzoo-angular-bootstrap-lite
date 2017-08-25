@@ -1,0 +1,35 @@
+
+<div class="row align-items-center mb-3">
+  <div class="col-md">
+    <p>
+      <code>[nzbPopoverContent]="contentTemplate"</code> with
+      <br>
+      <code>&lt;ng-template #contentTemplate&gt;...&lt;/ng-template&gt;</code>
+    </p>
+    <p>
+      This example uses a template for the content. The content template has
+      some variable interpolation and a close button that calls
+      <code>hide()</code> on the directive instance.
+    </p>
+  </div>
+  <div class="col-md">
+
+    <p>
+      <button class="btn btn-outline-info"
+        nzbPopover
+        #popoverInstance="nzbPopover"
+        [nzbPopoverContent]="contentTemplate"
+        title="Static Title">Popover Target</button>
+    </p>
+
+    <ng-template #contentTemplate>
+      <p>Shown {{shownFor}} seconds.</p>
+      <p>
+        <button role="button" class="btn btn-danger"
+          (click)="popoverInstance.hide()" aria-label="Close">
+          <i aria-hidden="true" class="fa fa-times"></i> Close Popover
+        </button>
+      </p>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<section id="animation">
+  <h5 class="display-5">animation</h5>
+  <p><code>animation?: boolean = true</code></p>
+
+  <nzb-tabs [uniqueId]="baseId + '-tabs'">
+    <nav class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="html">.html</a>
+      </li>
+    </nav>
+    <div class="tab-content">
+      <div nzbTabPane="demo" #demoPane="nzbTabPane">
+        <div *ngIf="demoPane.data?.visible">
+          <app-popover-animation-demo></app-popover-animation-demo>
+        </div>
+      </div>
+      <div nzbTabPane="html" #htmlPane="nzbTabPane">
+        <app-gist-embed [gistId]="gistId" file="popover-animation-demo.component.html"></app-gist-embed>
+      </div>
+    </div>
+  </nzb-tabs>
+</section>

@@ -44,7 +44,36 @@ export class AppComponent implements OnInit, OnDestroy{
       ] },
     ]},
     { label: 'Tooltips', routerLink: '/tooltips', fragment: 'top', children: []},
-    { label: 'Popovers', routerLink: '/popovers', fragment: 'top', children: []},
+    { label: 'Popovers', routerLink: '/popovers', fragment: 'top', children: [
+      { label: 'Quick Start', routerLink: '/popovers', fragment: 'quickstart'},
+      { label: 'API', routerLink: '/popovers', fragment: 'api', children: [
+        { label: 'Inputs', routerLink: '/popovers', fragment: 'inputs', children: [
+          { label: 'nzbPopoverTitle', routerLink: '/popovers', fragment: 'title' },
+          { label: 'nzbPopoverContent', routerLink: '/popovers', fragment: 'content' },
+          { label: 'nzbPopoverOptions', routerLink: '/popovers', fragment: 'options' , children: [
+            {label: 'Providing app-wide defaults', routerLink: '/popovers', fragment: 'options-provider'},
+            {label: 'animation', routerLink: '/popovers', fragment: 'animation'},
+            {label: 'container', routerLink: '/popovers', fragment: 'container'},
+            {label: 'delay', routerLink: '/popovers', fragment: 'delay'},
+            {label: 'html', routerLink: '/popovers', fragment: 'html'},
+            {label: 'placement', routerLink: '/popovers', fragment: 'placement'},
+            {label: 'template', routerLink: '/popovers', fragment: 'template'},
+            {label: 'trigger', routerLink: '/popovers', fragment: 'trigger'},
+            {label: 'offset', routerLink: '/popovers', fragment: 'offset'},
+            {label: 'fallbackPlacement', routerLink: '/popovers', fragment: 'fallback-placement'},
+            {label: 'animateOnDestroy', routerLink: '/popovers', fragment: 'animate-on-destroy'},
+
+          ]},
+
+        ]},
+        {label: 'Methods', routerLink: '/popovers', fragment: 'methods', children:[
+          {label: 'show()', routerLink: '/popovers', fragment: 'show'},
+          {label: 'hide()', routerLink: '/popovers', fragment: 'hide'},
+          {label: 'toggle()', routerLink: '/popovers', fragment: 'toggle'},
+          {label: 'update()', routerLink: '/popovers', fragment: 'update'},
+        ]}
+      ]}
+    ]},
   ];
 
   constructor(

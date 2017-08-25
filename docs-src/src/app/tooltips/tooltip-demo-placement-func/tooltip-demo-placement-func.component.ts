@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
   template: `<p>
   <button class="btn btn-primary"
     nzbTooltip
-    [nzbTooltipPlacement]="getPlacement"
     title="This tooltip was placed by a function.">
     Tooltip Demo (Hover)</button>
   </p>

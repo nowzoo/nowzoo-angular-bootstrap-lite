@@ -1,0 +1,49 @@
+<div class="row align-items-center mb-3">
+  <div class="col-md">
+    <p>
+      <strong>Simple:</strong> Use the <code>title</code> (or <code>data-title</code>) and
+      <code>data-content</code> attributes to pass strings.
+    </p>
+
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-outline-info"
+        nzbPopover
+        title="Static Popover Title"
+        data-content="Some static popover content">Simple Popover</button>
+      </p>
+  </div>
+</div>
+
+<div class="row align-items-center">
+  <div class="col-md">
+    <p>
+      <strong>Fancier:</strong> Use <code>nzbPopoverTitle</code>
+      and <code>nzbPopoverContent</code> to pass in <code>ng-template</code>s.
+    </p>
+
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-outline-info"
+        nzbPopover
+        #popoverInstance="nzbPopover"
+        [nzbPopoverTitle]="titleTemplate"
+        [nzbPopoverContent]="contentTemplate">Fancy Popover</button>
+        <ng-template #titleTemplate>
+          Shown {{shownAt | amTimeAgo}}!
+        </ng-template>
+        <ng-template #contentTemplate>
+          <div class="text-center">
+            <p>
+              This popover has been shown for
+            </p>
+            <h4>{{shownFor | number}}</h4>
+            <p>
+              second<span *ngIf="1!==shownFor">s</span>!
+            </p>
+          </div>
+        </ng-template>
+  </p>
+</div>

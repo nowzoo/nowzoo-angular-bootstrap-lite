@@ -18,6 +18,13 @@ a[role="button"]:hover {
   text-decoration:underline;
 }
 
+.popover.popover-danger{
+  .popover-header {
+    background-color: $brand-danger;
+    color: #FFF;
+  }
+}
+
 .permalinked {
   display:flex;
   align-items: center;

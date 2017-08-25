@@ -1,0 +1,52 @@
+
+<div class="row align-items-center mb-3">
+  <div class="col-md">
+    <p>
+      <code>offset: 20</code>
+    </p>
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-outline-info"
+        nzbPopover
+        [nzbPopoverOptions]="{offset:20}"
+        title="Static Title"
+        data-content="Static content.">Popover Target</button>
+    </p>
+  </div>
+</div>
+
+
+<div class="row align-items-center mb-3">
+  <div class="col-md">
+    <p>
+      <code>offset: '10px,10px'</code>
+    </p>
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-outline-info"
+        nzbPopover
+        [nzbPopoverOptions]="{offset: '10px,10px'}"
+        title="Static Title"
+        data-content="Static content.">Popover Target</button>
+    </p>
+  </div>
+</div>
+
+<div class="row align-items-center">
+  <div class="col-md">
+    <p>
+      <code>offset: 'offset: 0'</code> (default)
+    </p>
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-outline-info"
+        nzbPopover
+        [nzbPopoverOptions]="{offset: 0}"
+        title="Static Title"
+        data-content="Static content.">Popover Target</button>
+    </p>
+  </div>
+</div>

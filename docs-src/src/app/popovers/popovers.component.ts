@@ -8,17 +8,14 @@ import { ActivatedRoute } from '@angular/router';
 export class PopoversComponent implements OnInit {
 
   gistFiles: any = {};
+  gistId = 'cdcarson/0d2e5ca7d1c32172fe09fcd78bd5b644';
 
   constructor(
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.route.fragment.subscribe ( f => {
-         const element = document.querySelector ( "#" + f )
-         if ( element ) element.scrollIntoView ( element )
-     });
-    this.gistFiles = this.route.snapshot.data['gistFiles'];
+
   }
 
 

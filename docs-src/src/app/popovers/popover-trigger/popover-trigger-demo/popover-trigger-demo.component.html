@@ -1,0 +1,58 @@
+<div class="row align-items-center mb-3">
+  <div class="col-md">
+    <p>
+      <code>trigger: 'hover'</code>
+    </p>
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-outline-info"
+        nzbPopover
+        [nzbPopoverOptions]="{trigger: 'hover'}"
+        title="Static Title"
+        data-content="Static content.">Popover Target</button>
+    </p>
+  </div>
+</div>
+
+<div class="row align-items-center mb-3">
+  <div class="col-md">
+    <p>
+      <code>trigger: 'manual'</code>
+    </p>
+  </div>
+  <div class="col-md">
+
+      <p>
+        <button class="btn btn-outline-info"
+          nzbPopover
+          #manualPopover="nzbPopover"
+          [nzbPopoverOptions]="{trigger: 'manual'}"
+          title="Static Title"
+          data-content="Static content.">Popover Target</button>
+      </p>
+      <p>
+        <button class="btn btn-secondary btn-sm"
+          (click)="manualPopover.toggle()">
+          Toggle Popover</button>
+      </p>
+
+  </div>
+</div>
+
+<div class="row align-items-center">
+  <div class="col-md">
+    <p>
+      <code>trigger: 'click'</code> (default)
+    </p>
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-outline-info"
+        nzbPopover
+        [nzbPopoverOptions]="{trigger: 'click'}"
+        title="Static Title"
+        data-content="Static content.">Popover Target</button>
+    </p>
+  </div>
+</div>

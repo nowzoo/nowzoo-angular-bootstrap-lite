@@ -1,0 +1,37 @@
+<section id="trigger">
+  <h5 class="display-5">trigger</h5>
+
+  <p>
+    <code>trigger?: string = 'click'</code>
+  </p>
+
+  <p class="doc-callout info">
+    The <a routerLink="." fragment="methods">the show(), hide() and toggle() methods</a>
+    allow you to trigger the popover manually.
+  </p>
+
+
+
+  <nzb-tabs [uniqueId]="baseId + '-tabs'">
+    <nav class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="html">.html</a>
+      </li>
+    </nav>
+    <div class="tab-content">
+      <div nzbTabPane="demo" #demoPane="nzbTabPane">
+        <div *ngIf="demoPane.data?.visible">
+          <app-popover-trigger-demo></app-popover-trigger-demo>
+        </div>
+      </div>
+
+      <div nzbTabPane="html" #htmlPane="nzbTabPane">
+        <app-gist-embed [gistId]="gistId" file="popover-trigger-demo.component.html"></app-gist-embed>
+      </div>
+    </div>
+  </nzb-tabs>
+</section>

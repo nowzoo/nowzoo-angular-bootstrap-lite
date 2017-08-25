@@ -4,7 +4,7 @@ import { Component} from '@angular/core';
   selector: 'app-popover-demo-show-hide',
   template: `
     <p>
-      <button class="btn btn-primary"
+      <button class="btn btn-outline-info"
         nzbPopover
         #popoverInstance="nzbPopover"
         title="Show/Hide/Toggle Example"

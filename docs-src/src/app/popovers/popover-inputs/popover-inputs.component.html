@@ -1,0 +1,28 @@
+<section id="inputs">
+  <h3 class="display-3">Inputs</h3>
+  <p>
+    The <code>NzbTooltipDirective</code> exposes three inputs:
+  </p>
+  <ul>
+    <li>
+      <a routerLink="." fragment="title">nzbPopoverTitle</a>:
+      a <code>TemplateRef</code> for the title.
+    </li>
+    <li>
+      <a routerLink="." fragment="content">nzbPopoverContent</a>:
+      a <code>TemplateRef</code> for the popover content.
+    </li>
+    <li>
+      <a routerLink="." fragment="options">nzbPopoverOptions</a>:
+      a map of other popover options.
+    </li>
+
+  </ul>
+  <p>
+    All three can be ommitted (as long as you provide at least a <code>data-content</code>
+    attribute.)
+  </p>
+  <app-popover-title></app-popover-title>
+  <app-popover-content></app-popover-content>
+  <app-popover-options></app-popover-options>
+</section>

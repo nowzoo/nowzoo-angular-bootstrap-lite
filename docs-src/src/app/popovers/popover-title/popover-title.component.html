@@ -1,0 +1,51 @@
+<section id="title">
+  <h4 class="display-4">nzbPopoverTitle</h4>
+  <p><code>nzbPopoverTitle: TemplateRef</code></p>
+  <p>
+    Optional. Use <code>[nzbPopoverTitle]="myTemplate"</code> with
+    <code>&lt;ng-template #myTemplate&gt;...&lt;ng-template #myTemplate&gt;</code>
+    if you want to take advantage of variable interpolation and the directive api
+    in the popover title.
+  </p>
+  <p class="doc-callout info">
+    If you don't need those things, just use the <code>title</code> or
+    <code>data-title</code> attribute.
+  </p>
+  <p class="doc-callout warning">
+    Using <code>nzbPopoverTitle</code> will automatically set
+    the <code>html</code> property of the entire popover to <code>true</code>.
+  </p>
+  <p class="doc-callout warning">
+    The <code>title</code> attribute will always override <code>nzbPopoverTitle</code>.
+    Omit <code>title</code> if you are using a template.
+  </p>
+  <nzb-tabs [uniqueId]="baseId + '-tabs'">
+    <nav class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="ts">.ts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="html">.html</a>
+      </li>
+    </nav>
+    <div class="tab-content">
+      <div nzbTabPane="demo" #demoPane="nzbTabPane">
+
+        <div *ngIf="demoPane.data?.visible">
+
+            <app-popover-title-demo></app-popover-title-demo>
+        </div>
+      </div>
+      <div nzbTabPane="ts" #tsPane="nzbTabPane">
+
+        <app-gist-embed [gistId]="gistId" file="popover-title-demo.component.ts"></app-gist-embed>
+      </div>
+      <div nzbTabPane="html" #htmlPane="nzbTabPane">
+        <app-gist-embed [gistId]="gistId" file="popover-title-demo.component.html"></app-gist-embed>
+      </div>
+    </div>
+  </nzb-tabs>
+</section>
