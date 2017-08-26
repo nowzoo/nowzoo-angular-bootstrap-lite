@@ -24,6 +24,11 @@ export class AppComponent implements OnInit, OnDestroy{
     { label: 'Home', routerLink: '/', fragment: 'top', children: []},
     { label: 'Modals', routerLink: '/modals', fragment: 'top', children: [
       { label: 'Quick Start', routerLink: '/modals', fragment: 'quickstart' },
+      { label: 'Overview', routerLink: '/modals', fragment: 'overview', children: [
+        { label: 'Goals', routerLink: '/modals', fragment: 'goals' },
+        { label: 'How it works', routerLink: '/modals', fragment: 'how' },
+        { label: 'Notes', routerLink: '/modals', fragment: 'notes' },
+      ] },
       { label: 'API', routerLink: '/modals', fragment: 'api', children: [
         { label: 'show()', routerLink: '/modals', fragment: 'show' },
         { label: 'hide()', routerLink: '/modals', fragment: 'hide' },

@@ -52,7 +52,6 @@ import { TooltipPageHideOnRouteChangeComponent } from './tooltips/tooltip-demo-h
 
 
 import { ModalsComponent } from './modals/modals.component';
-import { ModalDemoQuickstartComponent } from './modals/modal-demo-quickstart/modal-demo-quickstart.component';
 import { ModalDemoShowComponent } from './modals/modal-demo-show/modal-demo-show.component';
 import { ModalDemoHideComponent } from './modals/modal-demo-hide/modal-demo-hide.component';
 import { ModalDemoHandleUpdateComponent } from './modals/modal-demo-handle-update/modal-demo-handle-update.component';
@@ -106,7 +105,16 @@ import { PopoverShowComponent } from './popovers/popover-show/popover-show.compo
 import { PopoverHideComponent } from './popovers/popover-hide/popover-hide.component';
 import { PopoverToggleComponent } from './popovers/popover-toggle/popover-toggle.component';
 import { PopoverUpdateComponent } from './popovers/popover-update/popover-update.component';
+import { CodeHighlightComponent } from './code-highlight/code-highlight.component';
+import { CodeHighlightDirective } from './code-highlight.directive';
 
+
+import { ModalQuickstartComponent } from './modals/quickstart/modal-quickstart.component';
+import { ModalQuickstartDemoComponent } from './modals/quickstart/modal-quickstart-demo.component';
+import { ModalOverviewComponent } from './modals/overview/modal-overview.component';
+import { ModalApiComponent } from './modals/api/modal-api.component';
+import { ModalApiShowComponent } from './modals/api/show/modal-api-show.component';
+import { ModalApiShowDemoComponent } from './modals/api/show/modal-api-show-demo.component';
 
 
 
@@ -186,7 +194,7 @@ const routes = [
     TooltipPageHideOnRouteChangeComponent,
 
     ModalsComponent,
-    ModalDemoQuickstartComponent,
+    ModalQuickstartDemoComponent,
     ModalDemoShowComponent,
     ModalDemoHideComponent,
     ModalDemoHandleUpdateComponent,
@@ -241,6 +249,13 @@ const routes = [
     PopoverHideComponent,
     PopoverToggleComponent,
     PopoverUpdateComponent,
+    CodeHighlightComponent,
+    CodeHighlightDirective,
+    ModalQuickstartComponent,
+    ModalOverviewComponent,
+    ModalApiComponent,
+    ModalApiShowComponent,
+    ModalApiShowDemoComponent,
 
 
   ],

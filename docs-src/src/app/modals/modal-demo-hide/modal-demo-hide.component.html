@@ -1,11 +1,23 @@
-<p>
-  <button class="btn btn-primary" (click)="showModal()">
-    Enter First Pet...
-  </button>
-</p>
-<p>
-  <strong>Saved Value: </strong> {{saved}}
-</p>
+<div class="row align-items-center">
+  <div class="col-md">
+    <p>
+      The second button shows the modal from a method in the component.
+    </p>
+
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-primary" (click)="showModal()">
+        Enter First Pet...
+      </button>
+    </p>
+    <p>
+      <strong>Saved Value: </strong> {{saved}}
+    </p>
+  </div>
+</div>
+
+
 
 <ng-template nzbModal #modalInstance="nzbModal">
   <div class="modal fade" tabindex="-1">

@@ -1,3 +1,27 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-modal-api-show',
+  templateUrl: './modal-api-show.component.html',
+  styles: []
+})
+export class ModalApiShowComponent implements OnInit {
+
+  demoTs = `import { Component, ViewChild } from '@angular/core';
+import { NzbModalDirective } from 'nowzoo-angular-bootstrap-lite';
+@Component({
+  selector: 'app-modal-api-show-demo',
+  templateUrl: './modal-demo-show.component.html'
+})
+export class ModalApiShowDemoComponent {
+  @ViewChild('modalInstance') modalInstance: NzbModalDirective;
+  showTheModal(){
+    this.modalInstance.show();
+  }
+}
+
+`;
+  demoHtml = `
 <div class="row align-items-center mb-3">
   <div class="col-md">
     <p>
@@ -56,3 +80,10 @@
     </div>
   </div>
 </ng-template>
+  `
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

@@ -1,29 +1,100 @@
 <section id="api">
-  <h2 class="display-2">API</h2>
+  <h2 class="display-4">API</h2>
 
   <p>
-    <code>NzbPopoverDirective</code>
-    <sup>
+    <code>NzbPopoverDirective<sup>
       <a href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/popover/nzb-popover.directive.ts"
-        class="external" target="repo">code</a>
-    </sup>
+          target="repo"
+          nzbTooltip
+          title="NzbPopoverDirective on GitHub">
+          <span class="sr-only">NzbPopoverDirective on GitHub</span>
+          <i class="fa fa-external-link"></i>
+      </a>
+    </sup></code>
 
-    extends <code>NzbAbstractPopup</code>
-    <sup>
+
+    extends <code>NzbAbstractPopup<sup>
       <a href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/common/nzb-abstract-popup.class.ts"
-        class="external" target="repo">code</a>
-    </sup>
-    extends <code>NzbAbstractBootstrap</code>
-    <sup>
+      target="repo"
+      nzbTooltip
+      title="NzbAbstractPopup on GitHub">
+      <span class="sr-only">NzbAbstractPopup on GitHub</span>
+      <i class="fa fa-external-link"></i>
+    </a>
+    </sup></code>
+
+    extends <code>NzbAbstractBootstrap<sup>
       <a href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/common/nzb-abstract-bootstrap.class.ts"
-        class="external" target="repo">code</a>
-    </sup>
+      target="repo"
+      nzbTooltip
+      title="NzbAbstractBootstrap on GitHub">
+      <span class="sr-only">NzbAbstractBootstrap on GitHub</span>
+      <i class="fa fa-external-link"></i>
+    </a>
+    </sup></code>
+
   </p>
   <p>
     <strong>Selector:</strong> <code>[nzbPopover]</code>
     <strong>Exported As:</strong> <code>nzbPopover</code>
+  </p>
   <p>
-  <app-popover-inputs></app-popover-inputs>
-  <app-popover-methods></app-popover-methods>
+    <strong>See Also:</strong>
+    <code>NzbPopoverOptions <sup>
+      <a href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/popover/nzb-popover-options.class.ts"
+      target="repo"
+      nzbTooltip
+      title="NzbPopoverOptions on GitHub">
+      <span class="sr-only">NzbPopoverOptions on GitHub</span>
+      <i class="fa fa-external-link"></i>
+      </a>
+    </sup></code>
+    extends
+
+    <code>NzbPopupOptions <sup>
+      <a href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/common/nzb-popup-options.class.ts"
+      target="repo"
+      nzbTooltip
+      title="NzbPopupOptions on GitHub">
+      <span class="sr-only">NzbPopupOptions on GitHub</span>
+      <i class="fa fa-external-link"></i>
+      </a>
+    </sup></code>
+
+  </p>
+
+  <section>
+    <h3 class="display-5">Inputs</h3>
+
+    <section>
+      <h4 class="display-6">nzbPopoverTitle</h4>
+      <p>
+        <code>nzbPopoverTitle: TemplateRef</code>
+        <em class="text-muted">Optional</em>
+      </p>
+      <p>
+        Use <code>[nzbPopoverTitle]="myTemplate"</code> with
+        <code>&lt;ng-template #myTemplate&gt;...&lt;ng-template #myTemplate&gt;</code>
+        if you want to take advantage of variable interpolation and the directive api
+        in the popover title.
+      </p>
+      <p>
+        If you don't need those things, just use the <code>title</code> or
+        <code>data-title</code> attribute.
+      </p>
+      <p class="doc-callout warning">
+        Using <code>nzbPopoverTitle</code> will automatically set
+        the <code>html</code> property of the entire popover to <code>true</code>.
+      </p>
+      <p class="doc-callout warning">
+        The <code>title</code> attribute will always override <code>nzbPopoverTitle</code>.
+        Omit <code>title</code> if you are using a template.
+      </p>
+    </section>
+
+  </section>
+
+  <!-- <app-popover-inputs></app-popover-inputs>
+  <app-popover-methods></app-popover-methods> -->
 
 </section>

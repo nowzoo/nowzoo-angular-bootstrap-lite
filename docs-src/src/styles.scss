@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
 @import "../node_modules/font-awesome/scss/variables";
 
 .row.example{
@@ -119,4 +121,26 @@ section {
       display: none;
     }
   }
+}
+
+.nzb-demo-tab-content{
+  margin: 1em 1em 3em 1em;
+}
+
+.text-column {
+
+  @include media-breakpoint-up(lg){
+    margin-right: 25%;
+  }
+  @include media-breakpoint-up(xl){
+    margin-right: 35%;
+  }
+  // @include media-breakpoint-up(lg){
+  //   margin-left: 6rem;
+  //   margin-right: 6rem;
+  // }
+  // @include media-breakpoint-up(xl){
+  //   margin-left: 12rem;
+  //   margin-right: 12rem;
+  // }
 }

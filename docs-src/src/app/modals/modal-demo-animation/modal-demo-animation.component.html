@@ -54,13 +54,34 @@
   </div>
 </ng-template>
 
-<p>
-  <button class="btn btn-primary" (click)="animatedInstance.show()">
-    Animated Modal
-  </button>
-</p>
-<p>
-  <button class="btn btn-primary" (click)="inanimateInstance.show()">
-    Inanimate Modal
-  </button>
-</p>
+<div class="row align-items-center mb-3">
+  <div class="col-md">
+    <p>
+      <code>&lt;div class="modal fade"&gt; ... &lt;/div&gt;</code>
+    </p>
+
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-primary" (click)="animatedInstance.show()">
+        Animated Modal
+      </button>
+    </p>
+  </div>
+</div>
+
+<div class="row align-items-center">
+  <div class="col-md">
+    <p>
+       <code>&lt;div class="modal"&gt; ... &lt;/div&gt;</code>
+    </p>
+
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-primary" (click)="inanimateInstance.show()">
+        Inanimate Modal
+      </button>
+    </p>
+  </div>
+</div>
