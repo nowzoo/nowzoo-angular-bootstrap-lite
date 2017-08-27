@@ -1,0 +1,36 @@
+<section id="api-toggle">
+  <h3 class="display-6">
+    <code>toggle(): void</code>
+  </h3>
+  <p>
+    Toggles the modal.
+  </p>
+
+
+  <nzb-tabs uniqueId="modal-api-toggle-tabs">
+    <nav class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="code">Full Code</a>
+      </li>
+    </nav>
+    <div class="tab-content nzb-demo-tab-content">
+      <div nzbTabPane="demo">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <app-modal-api-toggle-demo></app-modal-api-toggle-demo>
+          </div>
+          <div class="col-md">
+              <code-highlight [content]="snip" lang="html"></code-highlight>
+          </div>
+        </div>
+
+      </div>
+      <div nzbTabPane="code">
+        <code-highlight [content]="code" lang="html"></code-highlight>
+      </div>
+    </div>
+  </nzb-tabs>
+</section>

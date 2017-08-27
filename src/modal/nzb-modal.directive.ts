@@ -81,6 +81,14 @@ export class NzbModalDirective  implements  OnDestroy {
     jQuery('.modal', this.componentRef.location.nativeElement).modal('hide');
   }
 
+  toggle(): void {
+    if (this.statusSubject.value === 'shown'){
+      this.hide();
+    } else {
+      this.show();
+    }
+  }
+
   handleUpdate(): void {
     if (this.statusSubject.value !== 'shown'){
       return;

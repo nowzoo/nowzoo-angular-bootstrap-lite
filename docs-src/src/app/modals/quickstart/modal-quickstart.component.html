@@ -25,15 +25,23 @@
         <a class="nav-link" nzbTab="demo">Demo</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" nzbTab="html">.html</a>
+        <a class="nav-link" nzbTab="html">Full Code</a>
       </li>
     </nav>
     <div class="tab-content nzb-demo-tab-content">
       <div nzbTabPane="demo">
-        <app-modal-quickstart-demo></app-modal-quickstart-demo>
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <app-modal-quickstart-demo></app-modal-quickstart-demo>
+          </div>
+          <div class="col-md-8">
+            <code-highlight [content]="snippet" lang="html"></code-highlight>
+          </div>
+        </div>
+
       </div>
       <div nzbTabPane="html">
-        <code-highlight [content]="quickstartFullCode" lang="html"></code-highlight>
+        <code-highlight [content]="code" lang="html"></code-highlight>
       </div>
     </div>
   </nzb-tabs>

@@ -1,0 +1,35 @@
+<section id="options-animation">
+  <h3 class="display-6">Animation <code>.fade</code> class</h3>
+
+  <p>
+    Control whether the modal is animated by adding or removing
+    the <code>.fade</code> class on the top-level <code>.modal</code>
+    element.
+  </p>
+  <nzb-tabs uniqueId="options-animation-tabs">
+    <nav class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="html">Full Code</a>
+      </li>
+    </nav>
+    <div class="tab-content nzb-demo-tab-content">
+      <div nzbTabPane="demo">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <app-modal-options-animation-demo></app-modal-options-animation-demo>
+          </div>
+          <div class="col-md">
+              <code-highlight [content]="snip" lang="html"></code-highlight>
+          </div>
+        </div>
+      </div>
+      <div nzbTabPane="html">
+        <code-highlight [content]="html" lang="html"></code-highlight>
+      </div>
+
+    </div>
+  </nzb-tabs>
+</section>

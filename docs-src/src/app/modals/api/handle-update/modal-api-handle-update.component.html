@@ -1,0 +1,42 @@
+<section id="api-handle-update">
+  <h3 class="display-6" ><code>handleUpdate(): void</code></h3>
+  <p>
+    A wrapper around the native Bootstrap <code>$el.modal('handleUpdate')</code> method.
+    Use this when the height of the modal changes. It ensures
+    that scrollbars do not suddenly appear when the modal's height exceeds the height
+    of the viewport.
+  </p>
+  <nzb-tabs uniqueId="handle-update-method-tabs">
+    <nav class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Full Code</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" nzbTab="ts">Typescript</a>
+          <a class="dropdown-item" nzbTab="html">HTML</a>
+        </div>
+      </li>
+    </nav>
+    <div class="tab-content nzb-demo-tab-content">
+      <div nzbTabPane="demo">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <app-modal-api-handle-update-demo></app-modal-api-handle-update-demo>
+          </div>
+          <div class="col-md">
+              <code-highlight [content]="snip" lang="typescript"></code-highlight>
+          </div>
+        </div>
+
+      </div>
+      <div nzbTabPane="ts">
+        <code-highlight [content]="tsCode" lang="typescript"></code-highlight>
+      </div>
+      <div nzbTabPane="html">
+        <code-highlight [content]="htmlCode" lang="html"></code-highlight>
+      </div>
+    </div>
+  </nzb-tabs>
+</section>

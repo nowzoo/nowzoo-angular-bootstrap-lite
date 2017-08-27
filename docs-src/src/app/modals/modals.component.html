@@ -14,7 +14,6 @@
 </p>
 
 
-
 <!-- #quickstart -->
 <app-modal-quickstart></app-modal-quickstart>
 
@@ -25,129 +24,7 @@
 <app-modal-api></app-modal-api>
 
 <!-- #options -->
-<section id="options">
-  <h2 class="display-4">Options</h2>
-  <div class="text-column">
-    <p>
-       Set modal options options
-        via <code>data-</code> attributes or CSS classes.
-    </p>
-    <p class="doc-callout info">
-      You can't set <code>data-show="true"</code>. To show the modal immediately
-      (say, on navigating to a new route,) call <code>modalInstance.show()</code>
-      programatically in the component that contains the modal.
-      <a routerLink="." fragment="show-on-instantiation">See this example</a>.
-      All the other Bootstrap modal <code>data-</code> attributes are supported.
-    </p>
-  </div>
-  <!-- #animation -->
-  <section id="animation">
-    <h3 class="display-6">Animation</h3>
-    <div class="text-column">
-      <p>
-        Animation is turned on or off by adding or removing the <code>.fade</code> class
-        in the top level <code>.modal</code> tag.
-      </p>
-      <app-gist-embed [gistId]="gistId" file="animation-snippet.html"></app-gist-embed>
-    </div>
-    <nzb-tabs uniqueId="animation-demo-tabs">
-      <nav class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link" nzbTab="demo">Demo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" nzbTab="html">.html</a>
-        </li>
-      </nav>
-      <div class="tab-content nzb-demo-tab-content">
-        <div nzbTabPane="demo">
-          <app-modal-demo-animation></app-modal-demo-animation>
-        </div>
-        <div nzbTabPane="html">
-          <app-gist-embed [gistId]="gistId" file="modal-demo-animation.component.html"></app-gist-embed>
-        </div>
-      </div>
-    </nzb-tabs>
-
-  </section>
-  <!-- #size -->
-  <section id="size">
-    <h3 class="display-6">Size</h3>
-    <div class="text-column">
-      <p>
-        Change the size of the modal by adding the <code>.modal-sm</code> or <code>.modal-lg</code> class
-        to the <code>.modal-dialog</code> tag.
-        <a class="external"
-          href="https://getbootstrap.com/docs/4.0/components/modal/#optional-sizes"
-          target="bsdocs">Bootstrap documentation</a>
-      </p>
-      <app-gist-embed [gistId]="gistId" file="size-snippet.html"></app-gist-embed>
-
-
-    </div>
-    <nzb-tabs uniqueId="size-demo-tabs">
-      <nav class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link" nzbTab="demo">Demo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" nzbTab="html">.html</a>
-        </li>
-      </nav>
-      <div class="tab-content nzb-demo-tab-content">
-        <div nzbTabPane="demo">
-          <app-modal-demo-size></app-modal-demo-size>
-        </div>
-        <div nzbTabPane="html">
-          <app-gist-embed [gistId]="gistId" file="modal-demo-size.component.html"></app-gist-embed>
-        </div>
-      </div>
-    </nzb-tabs>
-
-  </section>
-  <!-- #backdrop -->
-  <section id="backdrop" >
-    <h3 class="display-6">Backdrop</h3>
-    <p>
-      By default the backdrop is shown, and clicking on it will dismiss the modal.
-    </p>
-    <p>
-      Set the <code>data-backdrop</code> attribute in the top level <code>.modal</code> tag
-      to change this.
-    </p>
-    <p>
-      Possible values are <code>data-backdrop="false"</code>, for no backdrop, and
-      <code>data-backdrop="static"</code>, for a backdrop that does not dismiss the modal.
-    </p>
-  </section>
-  <!-- #keyboard -->
-  <section id="keyboard">
-    <h3 class="display-6">Keyboard</h3>
-    <p>
-      By default,  pressing the <code>esc</code> key will dismiss the modal when
-      it is focused.
-    </p>
-    <p>
-      Use <code>data-keyboard="false"</code> in the top level <code>.modal</code> tag
-      to disable this behavior.
-    </p>
-  </section>
-  <!-- #focus -->
-  <section id="focus">
-    <h3 class="display-6" >Focus</h3>
-    <p>
-      By default, the modal is focused when shown.
-    </p>
-    <p>
-      Use <code>data-focus="false"</code> in the top level <code>.modal</code> tag
-      to disable this behavior.
-    </p>
-    <p class="doc-callout info">
-       Note that you must also set <code>tabindex="-1"</code> in the <code>.modal</code> tag
-       for the modal to receive focus.
-    </p>
-  </section>
-</section>
+<app-modal-options></app-modal-options>
 
 <!-- #examples -->
 <section>

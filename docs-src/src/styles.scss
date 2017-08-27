@@ -144,3 +144,38 @@ section {
   //   margin-right: 12rem;
   // }
 }
+
+code-highlight {
+  display: block;
+  background: #FAFAFA;
+  padding: 6px;
+  border-radius: 6px;
+  margin: 1em 0;
+  .code-highlight.hljs{
+    white-space: pre;
+    font-family: $font-family-monospace;
+    font-size: .875em;
+  }
+  &.inline {
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    display: inline;
+    .code-highlight.hljs{
+      white-space: pre-wrap;
+      display: inline;
+    }
+  }
+}
+
+.demo-blank {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 0;
+  overflow: scroll;
+  z-index: $zindex-modal -1;
+  background-color: #FFF;
+}

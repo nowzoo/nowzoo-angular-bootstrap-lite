@@ -1,67 +1,9 @@
 <section id="api">
   <h2 class="display-4">API</h2>
-
-  <!-- #show -->
   <app-modal-api-show></app-modal-api-show>
-
-
-  <section id="hide">
-    <div class="badge badge-pill badge-secondary pull-right">Method</div>
-    <h3 class="display-6" ><code>hide(): void</code></h3>
-    <p>
-      Hides the modal.
-    </p>
-    <p>
-      Note that you can also use the native Bootstrap <code>data-dismiss="modal"</code> attribute.
-    </p>
-  </section>
-  <section id="handle-update">
-    <div class="badge badge-pill badge-secondary pull-right">Method</div>
-    <h3 class="display-6" ><code>handleUpdate(): void</code></h3>
-    <p>
-      A wrapper around the native Bootstrap <code>$().modal('handleUpdate')</code> method.
-    </p>
-    <p>
-      Use this when the height of the modal changes. It ensures
-      that scrollbars do not suddenly appear when the modal's height exceeds the height
-      of the viewport.
-    </p>
-  </section>
-  <section id="events">
-    <div class="badge badge-pill badge-secondary pull-right">Method</div>
-    <h3 class="display-6"><code>events: Observable&lt;Event&gt;</code></h3>
-    <p>
-      An observable of the modal's native Bootstrap events.
-    </p>
-  </section>
-  <section id="status">
-    <div class="badge badge-pill badge-secondary pull-right">Method</div>
-    <h3 class="display-6"><code>status: Observable&lt;string&gt;</code></h3>
-    <p>
-      An observable of a string representing the modal's status. The value is:
-    </p>
-    <ul>
-      <li>
-        <code>'uninitialized'</code> when the modal does not exist
-        in the DOM &mdash; i.e. before it has been shown or after it's been hidden.
-      </li>
-      <li>
-         <code>'show'</code> while the modal is being animated to shown
-        &mdash; i.e. after the show.bs.modal event.
-      </li>
-      <li>
-         <code>'shown'</code> while the modal is shown
-        &mdash; i.e. after the shown.bs.modal event.
-      </li>
-      <li>
-         <code>'hide'</code> while the modal is being animated to hidden
-        &mdash; i.e. after the hide.bs.modal event.
-      </li>
-      <li>
-         <code>'hidden'</code>  after the hidden.bs.modal event. Note that
-          immediately afterward the directive disposes of the modal markup and Angular bindings,
-          and sets the status back to <code>'uninitialized'</code>.
-      </li>
-    </ul>
-  </section>
+  <app-modal-api-hide></app-modal-api-hide>
+  <app-modal-api-toggle></app-modal-api-toggle>
+  <app-modal-api-handle-update></app-modal-api-handle-update>
+  <app-modal-api-events></app-modal-api-events>
+  <app-modal-api-status></app-modal-api-status>
 </section>

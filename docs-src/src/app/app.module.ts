@@ -52,16 +52,7 @@ import { TooltipPageHideOnRouteChangeComponent } from './tooltips/tooltip-demo-h
 
 
 import { ModalsComponent } from './modals/modals.component';
-import { ModalDemoShowComponent } from './modals/modal-demo-show/modal-demo-show.component';
-import { ModalDemoHideComponent } from './modals/modal-demo-hide/modal-demo-hide.component';
-import { ModalDemoHandleUpdateComponent } from './modals/modal-demo-handle-update/modal-demo-handle-update.component';
-import { ModalDemoEventsComponent } from './modals/modal-demo-events/modal-demo-events.component';
-import { ModalDemoStatusComponent } from './modals/modal-demo-status/modal-demo-status.component';
-import { ModalDemoAnimationComponent } from './modals/modal-demo-animation/modal-demo-animation.component';
-import { ModalDemoSizeComponent } from './modals/modal-demo-size/modal-demo-size.component';
-import { ModalDemoBackdropComponent } from './modals/modal-demo-backdrop/modal-demo-backdrop.component';
-import { ModalDemoKeyboardComponent } from './modals/modal-demo-keyboard/modal-demo-keyboard.component';
-import { ModalDemoFocusComponent } from './modals/modal-demo-focus/modal-demo-focus.component';
+
 import { ModalDemoShowOnInstantiationComponent } from './modals/modal-demo-show-on-instantiation/modal-demo-show-on-instantiation.component';
 import { ModalDemoShowOnInstantiationChildComponent } from './modals/modal-demo-show-on-instantiation/modal-demo-show-on-instantiation-child.component';
 import { ModalDemoGoesAwayNicelyComponent } from './modals/modal-demo-goes-away-nicely/modal-demo-goes-away-nicely.component';
@@ -115,6 +106,29 @@ import { ModalOverviewComponent } from './modals/overview/modal-overview.compone
 import { ModalApiComponent } from './modals/api/modal-api.component';
 import { ModalApiShowComponent } from './modals/api/show/modal-api-show.component';
 import { ModalApiShowDemoComponent } from './modals/api/show/modal-api-show-demo.component';
+import { ModalApiHideComponent } from './modals/api/hide/modal-api-hide.component';
+import { ModalApiHideDemoComponent } from './modals/api/hide/modal-api-hide-demo.component';
+import { ModalApiHandleUpdateComponent } from './modals/api/handle-update/modal-api-handle-update.component';
+import { ModalApiHandleUpdateDemoComponent } from './modals/api/handle-update/modal-api-handle-update-demo.component';
+import { ModalApiToggleComponent } from './modals/api/toggle/modal-api-toggle.component';
+import { ModalApiToggleDemoComponent } from './modals/api/toggle/modal-api-toggle-demo.component';
+import { ModalApiEventsComponent } from './modals/api/events/modal-api-events.component';
+import { ModalApiEventsDemoComponent } from './modals/api/events/modal-api-events-demo.component';
+import { ModalApiStatusComponent } from './modals/api/status/modal-api-status.component';
+import { ModalApiStatusDemoComponent } from './modals/api/status/modal-api-status-demo.component';
+import { ModalOptionsComponent } from './modals/options/modal-options.component';
+import { ModalOptionsAnimationComponent } from './modals/options/animation/modal-options-animation.component';
+import { ModalOptionsAnimationDemoComponent } from './modals/options/animation/modal-options-animation-demo.component';
+import { ModalOptionsSizeComponent } from './modals/options/size/modal-options-size.component';
+import { ModalOptionsSizeDemoComponent } from './modals/options/size/modal-options-size-demo.component';
+import { ModalOptionsFocusComponent } from './modals/options/focus/modal-options-focus.component';
+import { ModalOptionsFocusDemoComponent } from './modals/options/focus/modal-options-focus-demo.component';
+import { ModalOptionsKeyboardComponent } from './modals/options/keyboard/modal-options-keyboard.component';
+import { ModalOptionsKeyboardDemoComponent } from './modals/options/keyboard/modal-options-keyboard-demo.component';
+import { ModalOptionsBackdropComponent } from './modals/options/backdrop/modal-options-backdrop.component';
+import { ModalOptionsBackdropDemoComponent } from './modals/options/backdrop/modal-options-backdrop-demo.component';
+import { ModalOptionsShowComponent } from './modals/options/show/modal-options-show.component';
+import { ModalOptionsShowDemoComponent } from './modals/options/show/modal-options-show-demo.component';
 
 
 
@@ -125,6 +139,7 @@ const routes = [
     //resolve: {gistFiles: GistService},
     children: [
       {path: 'go-away-nicely', component: ModalDemoGoesAwayAnotherRouteComponent},
+      {path: 'immediately', component: ModalOptionsShowDemoComponent},
       {path: '', component: ModalsComponent}
     ]
   },
@@ -195,16 +210,7 @@ const routes = [
 
     ModalsComponent,
     ModalQuickstartDemoComponent,
-    ModalDemoShowComponent,
-    ModalDemoHideComponent,
-    ModalDemoHandleUpdateComponent,
-    ModalDemoEventsComponent,
-    ModalDemoStatusComponent,
-    ModalDemoAnimationComponent,
-    ModalDemoSizeComponent,
-    ModalDemoBackdropComponent,
-    ModalDemoKeyboardComponent,
-    ModalDemoFocusComponent,
+
     ModalDemoShowOnInstantiationComponent,
     ModalDemoShowOnInstantiationChildComponent,
     ModalDemoGoesAwayNicelyComponent,
@@ -256,6 +262,29 @@ const routes = [
     ModalApiComponent,
     ModalApiShowComponent,
     ModalApiShowDemoComponent,
+    ModalApiHideComponent,
+    ModalApiHideDemoComponent,
+    ModalApiToggleComponent,
+    ModalApiToggleDemoComponent,
+    ModalApiHandleUpdateComponent,
+    ModalApiHandleUpdateDemoComponent,
+    ModalApiEventsComponent,
+    ModalApiEventsDemoComponent,
+    ModalApiStatusComponent,
+    ModalApiStatusDemoComponent,
+    ModalOptionsComponent,
+    ModalOptionsAnimationComponent,
+    ModalOptionsAnimationDemoComponent,
+    ModalOptionsSizeComponent,
+    ModalOptionsSizeDemoComponent,
+    ModalOptionsFocusComponent,
+    ModalOptionsFocusDemoComponent,
+    ModalOptionsKeyboardComponent,
+    ModalOptionsKeyboardDemoComponent,
+    ModalOptionsBackdropComponent,
+    ModalOptionsBackdropDemoComponent,
+    ModalOptionsShowComponent,
+    ModalOptionsShowDemoComponent,
 
 
   ],

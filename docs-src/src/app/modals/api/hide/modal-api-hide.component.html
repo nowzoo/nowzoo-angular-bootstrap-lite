@@ -1,0 +1,38 @@
+<section id="api-hide">
+  <h3 class="display-6">
+    <code>hide(): void</code>
+  </h3>
+  <p>
+    Hides the modal.
+    Note that you can also use the native Bootstrap <code>data-dismiss="modal"</code> attribute
+    if you do not need to do anything special before hiding.
+  </p>
+
+
+  <nzb-tabs uniqueId="modal-api-hide-tabs">
+    <nav class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="code">Full Code</a>
+      </li>
+    </nav>
+    <div class="tab-content nzb-demo-tab-content">
+      <div nzbTabPane="demo">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <app-modal-api-hide-demo></app-modal-api-hide-demo>
+          </div>
+          <div class="col-md">
+              <code-highlight [content]="snip" lang="html"></code-highlight>
+          </div>
+        </div>
+
+      </div>
+      <div nzbTabPane="code">
+        <code-highlight [content]="code" lang="html"></code-highlight>
+      </div>
+    </div>
+  </nzb-tabs>
+</section>

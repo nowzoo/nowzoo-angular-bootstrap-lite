@@ -1,30 +1,35 @@
-<section id="show">
-  <div class="badge badge-pill badge-secondary pull-right">Method</div>
-  <h3 class="display-6"><code>show(): void</code></h3>
+<section id="api-show">
+  <h3 class="display-6">
+    <code>show(): void</code>
+  </h3>
   <p>
     Shows the modal.
   </p>
+
+
   <nzb-tabs uniqueId="modal-api-show-tabs">
     <nav class="nav nav-tabs" role="tablist">
       <li class="nav-item">
         <a class="nav-link" nzbTab="demo">Demo</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" nzbTab="ts">.ts</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" nzbTab="html">.html</a>
+        <a class="nav-link" nzbTab="code">Full Code</a>
       </li>
     </nav>
     <div class="tab-content nzb-demo-tab-content">
       <div nzbTabPane="demo">
-        <app-modal-api-show-demo></app-modal-api-show-demo>
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <app-modal-api-show-demo></app-modal-api-show-demo>
+          </div>
+          <div class="col-md">
+              <code-highlight [content]="snip" lang="html"></code-highlight>
+          </div>
+        </div>
+
       </div>
-      <div nzbTabPane="ts">
-        <code-highlight [content]="demoTs" lang="typescript"></code-highlight>
-      </div>
-      <div nzbTabPane="html">
-        <code-highlight [content]="demoHtml" lang="html"></code-highlight>
+      <div nzbTabPane="code">
+        <code-highlight [content]="code" lang="html"></code-highlight>
       </div>
     </div>
   </nzb-tabs>

@@ -30,18 +30,20 @@ export class AppComponent implements OnInit, OnDestroy{
         { label: 'Notes', routerLink: '/modals', fragment: 'notes' },
       ] },
       { label: 'API', routerLink: '/modals', fragment: 'api', children: [
-        { label: 'show()', routerLink: '/modals', fragment: 'show' },
-        { label: 'hide()', routerLink: '/modals', fragment: 'hide' },
-        { label: 'handleUpdate()', routerLink: '/modals', fragment: 'handle-update' },
-        { label: 'events', routerLink: '/modals', fragment: 'events' },
-        { label: 'status', routerLink: '/modals', fragment: 'status' },
+        { label: 'show()', routerLink: '/modals', fragment: 'api-show' },
+        { label: 'hide()', routerLink: '/modals', fragment: 'api-hide' },
+        { label: 'toggle()', routerLink: '/modals', fragment: 'api-toggle' },
+        { label: 'handleUpdate()', routerLink: '/modals', fragment: 'api-handle-update' },
+        { label: 'events', routerLink: '/modals', fragment: 'api-events' },
+        { label: 'status', routerLink: '/modals', fragment: 'api-status' },
       ] },
       { label: 'Options', routerLink: '/modals', fragment: 'options', children: [
-        { label: 'Animation', routerLink: '/modals', fragment: 'animation' },
-        { label: 'Size', routerLink: '/modals', fragment: 'size' },
-        { label: 'Backdrop', routerLink: '/modals', fragment: 'backdrop' },
-        { label: 'Keyboard', routerLink: '/modals', fragment: 'keyboard' },
-        { label: 'Focus', routerLink: '/modals', fragment: 'focus' },
+        { label: 'Animation', routerLink: '/modals', fragment: 'options-animation' },
+        { label: 'Size', routerLink: '/modals', fragment: 'options-size' },
+        { label: 'data-backdrop', routerLink: '/modals', fragment: 'options-backdrop' },
+        { label: 'data-focus', routerLink: '/modals', fragment: 'options-focus' },
+        { label: 'data-keyboard', routerLink: '/modals', fragment: 'options-keyboard' },
+        { label: 'data-show (alternative)', routerLink: '/modals', fragment: 'options-show' },
       ] },
       { label: 'Other Examples', routerLink: '/modals', fragment: 'examples', children: [
         { label: 'Show modal immediately', routerLink: '/modals', fragment: 'show-on-instantiation' },
@@ -92,9 +94,9 @@ export class AppComponent implements OnInit, OnDestroy{
     this.routerSub = this.router.events.filter((e:any) => e instanceof NavigationEnd).subscribe(e => {
       this.toggleSidebar(false);
       const parts = e.url.split('#');
-
+      const paths = parts[0].split('/');
       const current = this.links.filter(link => {
-        return link.routerLink === parts[0];
+        return link.routerLink === '/' + paths[1];
       })[0] || null;
 
       if (current){

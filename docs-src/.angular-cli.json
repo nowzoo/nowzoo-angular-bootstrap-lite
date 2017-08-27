@@ -20,10 +20,9 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "../node_modules/highlightjs/styles/atom-one-dark.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/prism-themes/themes/prism-ghcolors.css"
+        "../node_modules/highlightjs/styles/atom-one-light.css"
       ],
       "scripts": [
         "../node_modules/highlightjs/highlight.pack.min.js",

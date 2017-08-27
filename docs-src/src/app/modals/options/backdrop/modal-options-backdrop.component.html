@@ -1,0 +1,39 @@
+<section id="options-backdrop">
+  <h3 class="display-6"><code>data-backdrop</code></h3>
+  <p>
+    By default a backdrop is shown, and clicking on it will dismiss the modal.
+  </p>
+  <p>
+    <code>data-backdrop="false"</code>: removes the backdrop.
+  </p>
+  <p>
+    <code>data-backdrop="static"</code>: the backdrop is shown, but clicking on it
+    does not dismiss the modal.
+  </p>
+  <nzb-tabs uniqueId="options-backdrop-tabs">
+    <nav class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="html">Full Code</a>
+      </li>
+    </nav>
+    <div class="tab-content nzb-demo-tab-content">
+      <div nzbTabPane="demo">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <app-modal-options-backdrop-demo></app-modal-options-backdrop-demo>
+          </div>
+          <div class="col-md-8">
+              <code-highlight [content]="snip" lang="html"></code-highlight>
+          </div>
+        </div>
+      </div>
+      <div nzbTabPane="html">
+        <code-highlight [content]="html" lang="html"></code-highlight>
+      </div>
+
+    </div>
+  </nzb-tabs>
+</section>

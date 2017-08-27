@@ -7,53 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalApiShowComponent implements OnInit {
 
-  demoTs = `import { Component, ViewChild } from '@angular/core';
-import { NzbModalDirective } from 'nowzoo-angular-bootstrap-lite';
-@Component({
-  selector: 'app-modal-api-show-demo',
-  templateUrl: './modal-demo-show.component.html'
-})
-export class ModalApiShowDemoComponent {
-  @ViewChild('modalInstance') modalInstance: NzbModalDirective;
-  showTheModal(){
-    this.modalInstance.show();
-  }
-}
+  snip = `
+<button (click)="modalInstance.show()" class="btn btn-primary">
+  Show Modal
+</button>
+  `;
 
-`;
-  demoHtml = `
-<div class="row align-items-center mb-3">
-  <div class="col-md">
-    <p>
-      The first button uses <code>(click)="modalInstance.show()"</code>
-      in the HTML template to show the modal.
-    </p>
-
-  </div>
-  <div class="col-md">
-    <p>
-      <button (click)="modalInstance.show()" class="btn btn-primary">
-        Show Modal
-      </button>
-    </p>
-  </div>
-</div>
-
-<div class="row align-items-center">
-  <div class="col-md">
-    <p>
-      The second button shows the modal from a method in the component.
-    </p>
-
-  </div>
-  <div class="col-md">
-    <p>
-      <button (click)="showTheModal()" class="btn btn-primary">
-        Show Modal
-      </button>
-    </p>
-  </div>
-</div>
+  code = `
+<p>
+  <button (click)="modalInstance.show()" class="btn btn-primary">
+    Show Modal
+  </button>
+</p>
 
 <ng-template nzbModal #modalInstance="nzbModal">
   <div class="modal fade" tabindex="-1">
@@ -62,7 +27,7 @@ export class ModalApiShowDemoComponent {
         <div class="modal-header">
           <h5 class="modal-title">Show Modal Demo</h5>
           <button type="button" class="close"
-            (click)="modalInstance.hide()" aria-label="Close">
+            data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -74,7 +39,7 @@ export class ModalApiShowDemoComponent {
         <div class="modal-footer">
           <button
             type="button" class="btn btn-secondary"
-            (click)="modalInstance.hide()">Close</button>
+            data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
