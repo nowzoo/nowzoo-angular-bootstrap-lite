@@ -1,31 +1,34 @@
 <section id="api-status">
   <h3 class="display-6"><code>status: Observable&lt;string&gt;</code></h3>
-  <p>
-    An observable of a string representing the modal's status. The value can be:
-  </p>
-  <ul>
-    <li>
-      <code>'uninitialized'</code> when the modal does not exist
-      in the DOM &mdash; i.e. before it has been shown or after it's been hidden.
-    </li>
-    <li>
-       <code>'show'</code> while the modal is being animated to shown
-      &mdash; i.e. after the show.bs.modal event.
-    </li>
-    <li>
-       <code>'shown'</code> while the modal is shown
-      &mdash; i.e. after the shown.bs.modal event.
-    </li>
-    <li>
-       <code>'hide'</code> while the modal is being animated to hidden
-      &mdash; i.e. after the hide.bs.modal event.
-    </li>
-    <li>
-       <code>'hidden'</code>  after the hidden.bs.modal event. Note that
-        immediately afterward the directive disposes of the modal markup and Angular bindings,
-        and sets the status back to <code>'uninitialized'</code>.
-    </li>
-  </ul>
+  <div class="text-columns">
+
+    <p>
+      An observable of a string representing the modal's status. The value can be:
+    </p>
+    <ul>
+      <li>
+        <code>'uninitialized'</code> when the modal does not exist
+        in the DOM &mdash; i.e. before it has been shown or after it's been hidden.
+      </li>
+      <li>
+         <code>'show'</code> while the modal is being animated to shown
+        &mdash; i.e. after the show.bs.modal event.
+      </li>
+      <li>
+         <code>'shown'</code> while the modal is shown
+        &mdash; i.e. after the shown.bs.modal event.
+      </li>
+      <li>
+         <code>'hide'</code> while the modal is being animated to hidden
+        &mdash; i.e. after the hide.bs.modal event.
+      </li>
+      <li>
+         <code>'hidden'</code>  after the hidden.bs.modal event. Note that
+          immediately afterward the directive disposes of the modal markup and Angular bindings,
+          and sets the status back to <code>'uninitialized'</code>.
+      </li>
+    </ul>
+  </div>
   <nzb-tabs uniqueId="status-property-tabs">
     <nav class="nav nav-tabs" role="tablist">
       <li class="nav-item">

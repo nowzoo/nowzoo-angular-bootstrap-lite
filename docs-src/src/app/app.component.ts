@@ -25,7 +25,6 @@ export class AppComponent implements OnInit, OnDestroy{
     { label: 'Modals', routerLink: '/modals', fragment: 'top', children: [
       { label: 'Quick Start', routerLink: '/modals', fragment: 'quickstart' },
       { label: 'Overview', routerLink: '/modals', fragment: 'overview', children: [
-        { label: 'Goals', routerLink: '/modals', fragment: 'goals' },
         { label: 'How it works', routerLink: '/modals', fragment: 'how' },
         { label: 'Notes', routerLink: '/modals', fragment: 'notes' },
       ] },
@@ -38,8 +37,8 @@ export class AppComponent implements OnInit, OnDestroy{
         { label: 'status', routerLink: '/modals', fragment: 'api-status' },
       ] },
       { label: 'Options', routerLink: '/modals', fragment: 'options', children: [
-        { label: 'Animation', routerLink: '/modals', fragment: 'options-animation' },
-        { label: 'Size', routerLink: '/modals', fragment: 'options-size' },
+        { label: 'Animation: .fade', routerLink: '/modals', fragment: 'options-animation' },
+        { label: 'Size: .modal-sm and .modal-lg', routerLink: '/modals', fragment: 'options-size' },
         { label: 'data-backdrop', routerLink: '/modals', fragment: 'options-backdrop' },
         { label: 'data-focus', routerLink: '/modals', fragment: 'options-focus' },
         { label: 'data-keyboard', routerLink: '/modals', fragment: 'options-keyboard' },
