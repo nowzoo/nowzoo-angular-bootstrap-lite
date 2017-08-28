@@ -4,8 +4,7 @@ import { NzbPopoverDirective } from 'nowzoo-angular-bootstrap-lite';
 
 @Component({
   selector: 'app-popover-content-demo',
-  templateUrl: './popover-content-demo.component.html',
-  styles: []
+  templateUrl: './popover-content-demo.component.html'
 })
 export class PopoverContentDemoComponent implements AfterViewInit, OnDestroy {
   @ViewChild('popoverInstance') popoverInstance: NzbPopoverDirective;

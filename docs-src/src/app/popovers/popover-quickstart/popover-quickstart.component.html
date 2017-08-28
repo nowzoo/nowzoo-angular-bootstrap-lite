@@ -1,11 +1,28 @@
 <section id="quickstart">
-  <h2 class="display-2">Quick Start</h2>
+  <h2 class="display-4">Quick Start</h2>
 
   <p>
-    Use the <code>nzbPopover</code> selector to add a popover
-    to an element.
+    <strong>Simple:</strong> Use the <code>nzbPopover</code> selector
+    with <code>title</code> and <code>data-content</code> attributes.
   </p>
-  <nzb-tabs uniqueId="popovers-quick-start-tabs">
+  <div class="row align-items-center mb-3">
+    <div class="col-md-4">
+      <app-popover-quickstart-simple-demo></app-popover-quickstart-simple-demo>
+    </div>
+    <div class="col-md-8">
+      <code-highlight lang="html" [content]="simpleHTML"></code-highlight>
+    </div>
+  </div>
+
+  <p>
+    <strong>Fancier:</strong> Pass <code>ng-template</code>s to to the
+    directive using <code>nzbPopoverTitle</code> and
+    <code>nzbPopoverContent</code>. Use <code>data-</code> attributes
+    or <code>nzbTooltipOptions</code> to set the tooltip's behavior.
+
+  </p>
+
+  <nzb-tabs uniqueId="quickstart-fancy-demo-tabs">
     <nav class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">
       <li class="nav-item">
         <a class="nav-link" nzbTab="demo">Demo</a>
@@ -20,15 +37,23 @@
     <div class="tab-content">
       <div nzbTabPane="demo" #demoPane="nzbTabPane">
         <div *ngIf="demoPane.data?.visible">
-            <app-popover-quickstart-demo></app-popover-quickstart-demo>
+          <div class="row align-items-center mb-3">
+            <div class="col-md-4">
+              <app-popover-quickstart-demo></app-popover-quickstart-demo>
+            </div>
+            <div class="col-md-8">
+              <code-highlight lang="html" [content]="fancySnip"></code-highlight>
+            </div>
+          </div>
         </div>
       </div>
-      <div nzbTabPane="ts" #tsPane="nzbTabPane">
-        <app-gist-embed [gistId]="gistId" file="popover-quickstart-demo.component.ts"></app-gist-embed>
+      <div nzbTabPane="ts" #htmlPane="nzbTabPane">
+        <code-highlight lang="typescript" [content]="fancyTs"></code-highlight>
       </div>
       <div nzbTabPane="html" #htmlPane="nzbTabPane">
-        <app-gist-embed [gistId]="gistId" file="popover-quickstart-demo.component.html"></app-gist-embed>
+        <code-highlight lang="html" [content]="fancyHTML"></code-highlight>
       </div>
     </div>
   </nzb-tabs>
+
 </section>

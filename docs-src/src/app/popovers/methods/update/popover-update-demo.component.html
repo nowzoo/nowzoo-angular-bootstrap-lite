@@ -1,0 +1,19 @@
+<p>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    #popoverInstance="nzbPopover"
+    title="update() Demo"
+    data-placement="top"
+    [nzbPopoverContent]="contentTemplate">update() Demo</button>
+</p>
+<ng-template #contentTemplate>
+  <p>
+    <button class="btn btn-secondary btn-sm"
+    [disabled]="paras.length===0"
+    (click)="pop()">less</button>
+    <button class="btn btn-secondary btn-sm"
+    [disabled]="paras.length===3"
+    (click)="push()">more</button>
+  </p>
+  <p *ngFor="let para of paras">{{para}}</p>
+</ng-template>

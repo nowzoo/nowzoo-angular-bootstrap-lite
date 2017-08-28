@@ -26,16 +26,7 @@ import { HomeComponent } from './home/home.component';
 
 
 import { PopoversComponent } from './popovers/popovers.component';
-import { PopoverDemoGetInstanceComponent } from './popovers/popover-demo-get-instance/popover-demo-get-instance.component';
-import { PopoverDemoDisableComponent } from './popovers/popover-demo-disable/popover-demo-disable.component';
-import { PopoverDemoShowHideComponent } from './popovers/popover-demo-show-hide/popover-demo-show-hide.component';
-import { PopoverDemoPlacementFuncComponent } from './popovers/popover-demo-placement-func/popover-demo-placement-func.component';
-import { PopoverDemoTemplatesComponent } from './popovers/popover-demo-templates/popover-demo-templates.component';
-import { PopoverDemoAttributesComponent } from './popovers/popover-demo-attributes/popover-demo-attributes.component';
-import { PopoverDemoAddClassComponent } from './popovers/popover-demo-add-class/popover-demo-add-class.component';
 import { PopoverDemoDismissOnClickOutsideComponent } from './popovers/popover-demo-dismiss-on-click-outside/popover-demo-dismiss-on-click-outside.component';
-import { PopoverDemoHideOnRouteChangeComponent } from './popovers/popover-demo-hide-on-route-change/popover-demo-hide-on-route-change.component';
-import { PopoverPageHideOnRouteChangeComponent } from './popovers/popover-demo-hide-on-route-change/popover-page-hide-on-route-change.component';
 import { PopoverDemoNoTitleComponent } from './popovers/popover-demo-no-title/popover-demo-no-title.component';
 
 
@@ -63,35 +54,11 @@ import { PopoverTitleDemoComponent } from './popovers/popover-title/popover-titl
 import { PopoverContentComponent } from './popovers/popover-content/popover-content.component';
 import { PopoverContentDemoComponent } from './popovers/popover-content/popover-content-demo.component';
 import { PopoverOptionsComponent } from './popovers/popover-options/popover-options.component';
-import { PopoverOptionsProviderComponent } from './popovers/popover-options-provider/popover-options-provider.component';
-import { PopoverAnimationComponent } from './popovers/popover-animation/popover-animation.component';
-import { PopoverAnimationDemoComponent } from './popovers/popover-animation/popover-animation-demo.component';
 
-import { PopoverContainerComponent } from './popovers/popover-container/popover-container.component';
-import { PopoverContainerDemoComponent } from './popovers/popover-container/popover-container-demo.component';
-import { PopoverDelayComponent } from './popovers/popover-delay/popover-delay.component';
-import { PopoverDelayDemoComponent } from './popovers/popover-delay/popover-delay-demo.component';
-import { PopoverHtmlComponent } from './popovers/popover-html/popover-html.component';
-import { PopoverHtmlDemoComponent } from './popovers/popover-html/popover-html-demo/popover-html-demo.component';
-import { PopoverPlacementComponent } from './popovers/popover-placement/popover-placement.component';
-import { PopoverPlacementDemoComponent } from './popovers/popover-placement/popover-placement-demo/popover-placement-demo.component';
-import { PopoverTemplateComponent } from './popovers/popover-template/popover-template.component';
-import { PopoverTemplateDemoComponent } from './popovers/popover-template/popover-template-demo/popover-template-demo.component';
-import { PopoverTriggerComponent } from './popovers/popover-trigger/popover-trigger.component';
-import { PopoverTriggerDemoComponent } from './popovers/popover-trigger/popover-trigger-demo/popover-trigger-demo.component';
-import { PopoverOffsetComponent } from './popovers/popover-offset/popover-offset.component';
-import { PopoverOffsetDemoComponent } from './popovers/popover-offset/popover-offset-demo/popover-offset-demo.component';
-import { PopoverFallbackPlacementComponent } from './popovers/popover-fallback-placement/popover-fallback-placement.component';
-import { PopoverFallbackPlacementDemoComponent } from './popovers/popover-fallback-placement/popover-fallback-placement-demo/popover-fallback-placement-demo.component';
-import { PopoverAnimateOnDestroyComponent } from './popovers/popover-animate-on-destroy/popover-animate-on-destroy.component';
-import { PopoverAnimateOnDestroyDemoComponent } from './popovers/popover-animate-on-destroy/popover-animate-on-destroy-demo/popover-animate-on-destroy-demo.component';
+import { PopoverAnimateOnDestroyDemoComponent } from './popovers/popover-options/popover-animate-on-destroy-demo/popover-animate-on-destroy-demo.component';
 import { PopoverApiComponent } from './popovers/popover-api/popover-api.component';
-import { PopoverInputsComponent } from './popovers/popover-inputs/popover-inputs.component';
-import { PopoverMethodsComponent } from './popovers/popover-methods/popover-methods.component';
-import { PopoverShowComponent } from './popovers/popover-show/popover-show.component';
-import { PopoverHideComponent } from './popovers/popover-hide/popover-hide.component';
-import { PopoverToggleComponent } from './popovers/popover-toggle/popover-toggle.component';
-import { PopoverUpdateComponent } from './popovers/popover-update/popover-update.component';
+
+import { PopoverUpdateComponent } from './popovers/methods/update/popover-update.component';
 import { CodeHighlightComponent } from './code-highlight/code-highlight.component';
 import { CodeHighlightDirective } from './code-highlight.directive';
 
@@ -136,6 +103,14 @@ import { ModalExampleYoutubeDemoComponent } from './modals/examples/modal-exampl
 import { ModalExampleWrappingComponentComponent } from './modals/examples/modal-example-wrapping-component/modal-example-wrapping-component.component';
 import { ModalExampleWrappingComponentDemoComponent } from './modals/examples/modal-example-wrapping-component/modal-example-wrapping-component-demo.component';
 import { ModalExampleWrappedComponentDemoComponent } from './modals/examples/modal-example-wrapping-component/modal-example-wrapped-component-demo.component';
+import { PopoverQuickstartSimpleDemoComponent } from './popovers/popover-quickstart/popover-quickstart-simple-demo.component';
+import { PopoverOptionsDemoComponent } from './popovers/popover-options/popover-options-demo/popover-options-demo.component';
+import { PopoverShowHideToggleDemoComponent } from './popovers/methods/show-hide-toggle/popover-show-hide-toggle-demo.component';
+import { PopoverShowHideToggleComponent } from './popovers/methods/show-hide-toggle/popover-show-hide-toggle.component';
+import { PopoverMethodsComponent } from './popovers/methods/popover-methods.component';
+import { PopoverUpdateDemoComponent } from './popovers/methods/update/popover-update-demo.component';
+import { PopoverEnableDisableComponent } from './popovers/methods/enable-disable/popover-enable-disable.component';
+import { PopoverEnableDisableDemoComponent } from './popovers/methods/enable-disable/popover-enable-disable-demo.component';
 
 
 
@@ -166,7 +141,6 @@ const routes = [
     data: {gistId: '5afd85ea5ae5731112130269a4c5772c'},
     //resolve: {gistFiles: GistService},
     children: [
-      {path: 'go-away-nicely', component: PopoverPageHideOnRouteChangeComponent},
       {path: '', component: PopoversComponent}
     ]
   },
@@ -191,16 +165,7 @@ const routes = [
 
 
 
-    PopoverDemoGetInstanceComponent,
-    PopoverDemoDisableComponent,
-    PopoverDemoShowHideComponent,
-    PopoverDemoPlacementFuncComponent,
-    PopoverDemoTemplatesComponent,
-    PopoverDemoAttributesComponent,
-    PopoverDemoAddClassComponent,
     PopoverDemoDismissOnClickOutsideComponent,
-    PopoverDemoHideOnRouteChangeComponent,
-    PopoverPageHideOnRouteChangeComponent,
     PopoverDemoNoTitleComponent,
 
 
@@ -231,33 +196,9 @@ const routes = [
     PopoverContentComponent,
     PopoverContentDemoComponent,
     PopoverOptionsComponent,
-    PopoverOptionsProviderComponent,
-    PopoverAnimationComponent,
-    PopoverAnimationDemoComponent,
-    PopoverContainerComponent,
-    PopoverContainerDemoComponent,
-    PopoverDelayComponent,
-    PopoverDelayDemoComponent,
-    PopoverHtmlComponent,
-    PopoverHtmlDemoComponent,
-    PopoverPlacementComponent,
-    PopoverPlacementDemoComponent,
-    PopoverTemplateComponent,
-    PopoverTemplateDemoComponent,
-    PopoverTriggerComponent,
-    PopoverTriggerDemoComponent,
-    PopoverOffsetComponent,
-    PopoverOffsetDemoComponent,
-    PopoverFallbackPlacementComponent,
-    PopoverFallbackPlacementDemoComponent,
-    PopoverAnimateOnDestroyComponent,
     PopoverAnimateOnDestroyDemoComponent,
     PopoverApiComponent,
-    PopoverInputsComponent,
-    PopoverMethodsComponent,
-    PopoverShowComponent,
-    PopoverHideComponent,
-    PopoverToggleComponent,
+
     PopoverUpdateComponent,
     CodeHighlightComponent,
     CodeHighlightDirective,
@@ -300,6 +241,14 @@ const routes = [
     ModalExampleWrappingComponentComponent,
     ModalExampleWrappingComponentDemoComponent,
     ModalExampleWrappedComponentDemoComponent,
+    PopoverQuickstartSimpleDemoComponent,
+    PopoverOptionsDemoComponent,
+    PopoverShowHideToggleDemoComponent,
+    PopoverShowHideToggleComponent,
+    PopoverMethodsComponent,
+    PopoverUpdateDemoComponent,
+    PopoverEnableDisableComponent,
+    PopoverEnableDisableDemoComponent,
 
 
   ],

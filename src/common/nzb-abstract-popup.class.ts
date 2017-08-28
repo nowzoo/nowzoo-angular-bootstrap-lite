@@ -67,8 +67,7 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
   }
 
   private normalizeOptions() {
-    const options: NzbPopupOptions = this.bsComponentName === 'tooltip' ?
-      new NzbTooltipOptions() : new NzbPopoverOptions();
+    const options: NzbPopupOptions = {};
     let inputOptions = this.getInputOptions();
     let defaultOptions = this.defaultOptions;
     if (! inputOptions) {

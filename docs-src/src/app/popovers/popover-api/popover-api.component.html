@@ -1,4 +1,4 @@
-<section id="api">
+ <section id="api">
   <h2 class="display-4">API</h2>
 
   <p>
@@ -60,41 +60,8 @@
       <i class="fa fa-external-link"></i>
       </a>
     </sup></code>
-
   </p>
 
-  <section>
-    <h3 class="display-5">Inputs</h3>
 
-    <section>
-      <h4 class="display-6">nzbPopoverTitle</h4>
-      <p>
-        <code>nzbPopoverTitle: TemplateRef</code>
-        <em class="text-muted">Optional</em>
-      </p>
-      <p>
-        Use <code>[nzbPopoverTitle]="myTemplate"</code> with
-        <code>&lt;ng-template #myTemplate&gt;...&lt;ng-template #myTemplate&gt;</code>
-        if you want to take advantage of variable interpolation and the directive api
-        in the popover title.
-      </p>
-      <p>
-        If you don't need those things, just use the <code>title</code> or
-        <code>data-title</code> attribute.
-      </p>
-      <p class="doc-callout warning">
-        Using <code>nzbPopoverTitle</code> will automatically set
-        the <code>html</code> property of the entire popover to <code>true</code>.
-      </p>
-      <p class="doc-callout warning">
-        The <code>title</code> attribute will always override <code>nzbPopoverTitle</code>.
-        Omit <code>title</code> if you are using a template.
-      </p>
-    </section>
-
-  </section>
-
-  <!-- <app-popover-inputs></app-popover-inputs>
-  <app-popover-methods></app-popover-methods> -->
 
 </section>

@@ -26,7 +26,7 @@ declare let jQuery: any;
 export class NzbModalDirective  implements  OnDestroy {
   private eventsSubject: Subject<Event> = new Subject();
   private statusSubject: BehaviorSubject<string> = new BehaviorSubject('uninitialized');
-  public componentRef: ComponentRef<NzbDynamicContentComponent>;
+  private componentRef: ComponentRef<NzbDynamicContentComponent>;
   constructor(
     private ngZone: NgZone,
     private templateRef: TemplateRef<any>,
@@ -103,7 +103,5 @@ export class NzbModalDirective  implements  OnDestroy {
   get events(): Observable<Event> {
     return this.eventsSubject.asObservable();
   }
-
-
 
 }

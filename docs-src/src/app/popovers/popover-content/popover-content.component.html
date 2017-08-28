@@ -1,8 +1,6 @@
 
 <section id="content">
-  <h4 class="display-4">nzbPopoverContent</h4>
-
-  <p><code>nzbPopoverContent: TemplateRef</code></p>
+  <h3 class="display-6"><code>nzbPopoverContent: TemplateRef</code></h3>
   <p>
     Optional. Use <code>[nzbPopoverContent]="myTemplate"</code> with
     <code>&lt;ng-template #myTemplate&gt;...&lt;ng-template #myTemplate&gt;</code>
@@ -24,29 +22,36 @@
     Make sure to omit it if you want to use a template.
   </p>
 
-  <nzb-tabs [uniqueId]="baseId + '-tabs'">
+  <nzb-tabs uniqueId="popover-content-demo-tabs">
     <nav class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">
       <li class="nav-item">
         <a class="nav-link" nzbTab="demo">Demo</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" nzbTab="ts">.ts</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" nzbTab="html">.html</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Full Code</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" nzbTab="ts">Typescript</a>
+          <a class="dropdown-item" nzbTab="html">HTML</a>
+        </div>
       </li>
     </nav>
     <div class="tab-content">
       <div nzbTabPane="demo" #demoPane="nzbTabPane">
-        <div  *ngIf="demoPane.data?.visible">
-          <app-popover-content-demo></app-popover-content-demo>
+
+        <div *ngIf="demoPane.data?.visible" class="row align-items-center">
+            <div class="col-md-4">
+              <app-popover-content-demo></app-popover-content-demo>
+            </div>
+            <div class="col-md-8">
+              <code-highlight lang="html" [content]="snip"></code-highlight>
+            </div>
         </div>
       </div>
       <div nzbTabPane="ts" #tsPane="nzbTabPane">
-        <app-gist-embed [gistId]="gistId" file="popover-content-demo.component.ts"></app-gist-embed>
+        <code-highlight lang="typescript" [content]="ts"></code-highlight>
       </div>
       <div nzbTabPane="html" #htmlPane="nzbTabPane">
-        <app-gist-embed [gistId]="gistId" file="popover-content-demo.component.html"></app-gist-embed>
+        <code-highlight lang="html" [content]="html"></code-highlight>
       </div>
     </div>
   </nzb-tabs>

@@ -1,0 +1,41 @@
+<section id="show-hide-toggle">
+
+  <p><code>show(): void</code></p>
+  <p><code>hide(): void</code></p>
+  <p><code>toggle(): void</code></p>
+
+
+  <nzb-tabs uniqueId="popover-show-hide-toggle-tabs">
+    <nav class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="html">Code</a>
+      </li>
+
+
+    </nav>
+    <div class="tab-content">
+      <div nzbTabPane="demo" #demoPane="nzbTabPane">
+
+        <div *ngIf="demoPane.data?.visible" class="row align-items-center">
+            <div class="col-md-4">
+              <app-popover-show-hide-toggle-demo></app-popover-show-hide-toggle-demo>
+            </div>
+            <div class="col-md-8">
+              <p class="doc-callout info">
+                In this example <code>data-trigger="manual"</code>.
+                The popover is triggered by the buttons beneath the demo button.
+              </p>
+            </div>
+        </div>
+      </div>
+
+      <div nzbTabPane="html" #htmlPane="nzbTabPane">
+        <code-highlight lang="html" [content]="html"></code-highlight>
+      </div>
+    </div>
+  </nzb-tabs>
+
+</section>

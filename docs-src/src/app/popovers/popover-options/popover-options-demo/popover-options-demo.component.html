@@ -1,0 +1,83 @@
+<h6>Animation</h6>
+<p>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    title="Static Title"
+    [nzbPopoverOptions]="{animation: false}"
+    data-content="Static content.">animation: false</button>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    title="Static Title"
+    [nzbPopoverOptions]="{animation: true}"
+    data-content="Static content.">animation: true</button>
+</p>
+<h6>Container</h6>
+<p id="popover-example-ctr">
+  <button class="btn btn-outline-info"
+    nzbPopover
+    title="Static Title"
+    [nzbPopoverOptions]="{container: '#popover-example-ctr'}"
+    data-content="Static content.">container: '#popover-example-ctr'</button>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    title="Static Title"
+    [nzbPopoverOptions]="{container: false}"
+    data-content="Static content.">container: false</button>
+</p>
+<h6>Delay</h6>
+<p id="popover-example-ctr">
+  <button class="btn btn-outline-info"
+    nzbPopover
+    title="Static Title"
+    [nzbPopoverOptions]="{delay: 1000}"
+    data-content="Static content.">delay: 1000</button>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    title="Static Title"
+    [nzbPopoverOptions]="{delay: 0}"
+    data-content="Static content.">delay: 0</button>
+</p>
+<h6>HTML</h6>
+<p>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    [nzbPopoverOptions]="{html: true}"
+    title="<strong>Bold Title</strong>"
+    data-content="Static <strong>content</strong>.">html: true</button>
+
+  <button class="btn btn-outline-info"
+    nzbPopover
+    [nzbPopoverOptions]="{html: false}"
+    title="<strong>Bold Title</strong>"
+    data-content="Static <strong>content</strong>.">html: false</button>
+</p>
+<h6>Placement</h6>
+<p>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    [nzbPopoverOptions]="{placement: 'bottom'}"
+    title="Static Title"
+    data-content="Static content.">placement: 'bottom'</button>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    [nzbPopoverOptions]="{placement: 'top'}"
+    title="Static Title"
+    data-content="Static content.">placement: 'top'</button>
+</p>
+<h6>Template</h6>
+<p>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    [nzbPopoverOptions]="{template: dangerTemplate}"
+    title="Static Title"
+    data-content="Static content.">template: dangerTemplate</button>
+</p>
+
+<h6>Trigger</h6>
+<p>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    [nzbPopoverOptions]="{trigger: 'hover'}"
+    title="Static Title"
+    data-content="Static content.">trigger: 'hover'</button>
+</p>

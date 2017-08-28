@@ -1,0 +1,50 @@
+<section id="update">
+
+  <p><code>update(): void</code></p>
+  <p>
+    Use this method to trigger an update of the popover's position
+    in relation to its target (for example when the height of the content changes.)
+  </p>
+
+  <nzb-tabs uniqueId="popover-update-demo-tabs">
+    <nav class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Code</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" nzbTab="ts">Typescript</a>
+          <a class="dropdown-item" nzbTab="html">HTML</a>
+        </div>
+      </li>
+
+
+    </nav>
+    <div class="tab-content">
+      <div nzbTabPane="demo" #demoPane="nzbTabPane">
+
+        <div *ngIf="demoPane.data?.visible" class="row align-items-center">
+            <div class="col-md-4">
+              <app-popover-update-demo></app-popover-update-demo>
+            </div>
+            <div class="col-md-8">
+              <p class="doc-callout info">
+                Click to open the popover, then use the buttons to
+                add or subtract paragraphs. We call
+                <code>popoverInstance.update()</code> when this happens.
+              </p>
+            </div>
+        </div>
+      </div>
+
+      <div nzbTabPane="ts" #htmlPane="nzbTabPane">
+        <code-highlight lang="typescript" [content]="ts"></code-highlight>
+      </div>
+      <div nzbTabPane="html" #htmlPane="nzbTabPane">
+        <code-highlight lang="html" [content]="html"></code-highlight>
+      </div>
+    </div>
+  </nzb-tabs>
+
+</section>
