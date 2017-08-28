@@ -1,3 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-modal-example-go-away',
+  templateUrl: './modal-example-go-away.component.html',
+  styles: []
+})
+export class ModalExampleGoAwayComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  html = `
 
 <!-- the modal template -->
 <ng-template nzbModal #modalInstance="nzbModal">
@@ -7,14 +22,14 @@
         <div class="modal-header">
           <h5 class="modal-title">Modal Goes Away Nicely</h5>
           <button type="button" class="close"
-            (click)="modalInstance.hide()" aria-label="Close">
+            data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <p>
 
-            <a class="btn btn-lg btn-success btn-block" routerLink="/modals/go-away-nicely">Click here</a>
+            <a routerLink="/modals/go-away">Click here</a>
             to trigger a route change. This modal will disappear
             gracefully when its template is destroyed.
           </p>
@@ -22,7 +37,7 @@
         <div class="modal-footer">
           <button
             type="button" class="btn btn-secondary"
-            (click)="modalInstance.hide()">Close</button>
+            data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -35,3 +50,6 @@
     Show Modal
   </button>
 </p>
+  `
+
+}

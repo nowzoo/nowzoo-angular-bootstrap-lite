@@ -1,0 +1,48 @@
+<section id="example-wrap-component">
+  <h3 class="display-6">Wrapping a Component</h3>
+  <p>
+    This example wraps a generic confirm checkbox
+    component within the modal body.
+  </p>
+  <nzb-tabs uniqueId="example-wrap-component-tabs">
+    <nav class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Full Code</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" nzbTab="ts-modal">Typescript (Modal)</a>
+          <a class="dropdown-item" nzbTab="html-modal">HTML (Modal)</a>
+          <a class="dropdown-item" nzbTab="ts-wrapped">Typescript (Wrapped Component)</a>
+          <a class="dropdown-item" nzbTab="html-wrapped">HTML (Wrapped Component)</a>
+        </div>
+      </li>
+    </nav>
+    <div class="tab-content nzb-demo-tab-content">
+      <div nzbTabPane="demo">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <app-modal-example-wrapping-component-demo></app-modal-example-wrapping-component-demo>
+          </div>
+          <div class="col-md-8">
+              <code-highlight [content]="snipHtml" lang="html"></code-highlight>
+          </div>
+
+        </div>
+      </div>
+      <div nzbTabPane="ts-modal">
+        <code-highlight [content]="tsModal" lang="typescript"></code-highlight>
+      </div>
+      <div nzbTabPane="html-modal">
+        <code-highlight [content]="htmlModal" lang="html"></code-highlight>
+      </div>
+      <div nzbTabPane="ts-wrapped">
+        <code-highlight [content]="tsWrapped" lang="typescript"></code-highlight>
+      </div>
+      <div nzbTabPane="html-wrapped">
+        <code-highlight [content]="htmlWrapped" lang="html"></code-highlight>
+      </div>
+    </div>
+  </nzb-tabs>
+</section>

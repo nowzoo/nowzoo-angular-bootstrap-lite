@@ -53,10 +53,6 @@ import { TooltipPageHideOnRouteChangeComponent } from './tooltips/tooltip-demo-h
 
 import { ModalsComponent } from './modals/modals.component';
 
-import { ModalDemoShowOnInstantiationComponent } from './modals/modal-demo-show-on-instantiation/modal-demo-show-on-instantiation.component';
-import { ModalDemoShowOnInstantiationChildComponent } from './modals/modal-demo-show-on-instantiation/modal-demo-show-on-instantiation-child.component';
-import { ModalDemoGoesAwayNicelyComponent } from './modals/modal-demo-goes-away-nicely/modal-demo-goes-away-nicely.component';
-import { ModalDemoGoesAwayAnotherRouteComponent } from './modals/modal-demo-goes-away-nicely/modal-demo-goes-away-another-route.component';
 import { SideNavItemComponent } from './side-nav/side-nav-item.component';
 import { PopoverQuickstartComponent } from './popovers/popover-quickstart/popover-quickstart.component';
 import { PopoverQuickstartDemoComponent } from './popovers/popover-quickstart/popover-quickstart-demo.component';
@@ -129,6 +125,17 @@ import { ModalOptionsBackdropComponent } from './modals/options/backdrop/modal-o
 import { ModalOptionsBackdropDemoComponent } from './modals/options/backdrop/modal-options-backdrop-demo.component';
 import { ModalOptionsShowComponent } from './modals/options/show/modal-options-show.component';
 import { ModalOptionsShowDemoComponent } from './modals/options/show/modal-options-show-demo.component';
+import { ModalExamplesComponent } from './modals/examples/modal-examples.component';
+import { ModalExampleGoAwayComponent } from './modals/examples/modal-example-go-away/modal-example-go-away.component';
+import { ModalExampleGoAwayDemoComponent } from './modals/examples/modal-example-go-away/modal-example-go-away-demo.component';
+import { ModalExampleGoAwayRouteComponent } from './modals/examples/modal-example-go-away/modal-example-go-away-route.component';
+import { ModalExampleUserInputComponent } from './modals/examples/modal-example-user-input/modal-example-user-input.component';
+import { ModalExampleUserInputDemoComponent } from './modals/examples/modal-example-user-input/modal-example-user-input-demo.component';
+import { ModalExampleYoutubeComponent } from './modals/examples/modal-example-youtube/modal-example-youtube.component';
+import { ModalExampleYoutubeDemoComponent } from './modals/examples/modal-example-youtube/modal-example-youtube-demo.component';
+import { ModalExampleWrappingComponentComponent } from './modals/examples/modal-example-wrapping-component/modal-example-wrapping-component.component';
+import { ModalExampleWrappingComponentDemoComponent } from './modals/examples/modal-example-wrapping-component/modal-example-wrapping-component-demo.component';
+import { ModalExampleWrappedComponentDemoComponent } from './modals/examples/modal-example-wrapping-component/modal-example-wrapped-component-demo.component';
 
 
 
@@ -138,7 +145,7 @@ const routes = [
     data: {gistId: '9a7fa3f1128dff5f353edf209ed07e35'},
     //resolve: {gistFiles: GistService},
     children: [
-      {path: 'go-away-nicely', component: ModalDemoGoesAwayAnotherRouteComponent},
+      {path: 'go-away', component: ModalExampleGoAwayRouteComponent},
       {path: 'immediately', component: ModalOptionsShowDemoComponent},
       {path: '', component: ModalsComponent}
     ]
@@ -211,10 +218,7 @@ const routes = [
     ModalsComponent,
     ModalQuickstartDemoComponent,
 
-    ModalDemoShowOnInstantiationComponent,
-    ModalDemoShowOnInstantiationChildComponent,
-    ModalDemoGoesAwayNicelyComponent,
-    ModalDemoGoesAwayAnotherRouteComponent,
+
     SideNavItemComponent,
     PopoverQuickstartComponent,
     PopoverQuickstartDemoComponent,
@@ -285,6 +289,17 @@ const routes = [
     ModalOptionsBackdropDemoComponent,
     ModalOptionsShowComponent,
     ModalOptionsShowDemoComponent,
+    ModalExamplesComponent,
+    ModalExampleGoAwayComponent,
+    ModalExampleGoAwayDemoComponent,
+    ModalExampleGoAwayRouteComponent,
+    ModalExampleUserInputComponent,
+    ModalExampleUserInputDemoComponent,
+    ModalExampleYoutubeComponent,
+    ModalExampleYoutubeDemoComponent,
+    ModalExampleWrappingComponentComponent,
+    ModalExampleWrappingComponentDemoComponent,
+    ModalExampleWrappedComponentDemoComponent,
 
 
   ],

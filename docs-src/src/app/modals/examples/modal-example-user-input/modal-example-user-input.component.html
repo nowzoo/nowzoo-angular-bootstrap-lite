@@ -1,0 +1,46 @@
+<section id="example-user-input">
+  <h3 class="display-6">Collecting User Input</h3>
+
+  <p>
+    This example uses <code>modalInstance.events</code>
+    to initialize the modal's input when it is shown, and some markup
+    to focus the input and respond to <code>keyup.enter</code>.
+  </p>
+  <nzb-tabs uniqueId="example-user-input-tabs">
+    <nav class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Full Code</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" nzbTab="ts">Typescript</a>
+          <a class="dropdown-item" nzbTab="html">HTML</a>
+
+        </div>
+      </li>
+    </nav>
+    <div class="tab-content nzb-demo-tab-content">
+      <div nzbTabPane="demo">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <app-modal-example-user-input-demo></app-modal-example-user-input-demo>
+          </div>
+          <div class="col-md-8">
+            <p>When the modal is focused, focus and select the input...</p>
+            <code-highlight [content]="snipHtmlFocus" lang="html"></code-highlight>
+            <p>If the user hits <code>enter</code>, save and hide the modal...</p>
+            <code-highlight [content]="snipHtmlKeyupEnter" lang="html"></code-highlight>
+          </div>
+
+        </div>
+      </div>
+      <div nzbTabPane="ts">
+        <code-highlight [content]="ts" lang="typescript"></code-highlight>
+      </div>
+      <div nzbTabPane="html">
+        <code-highlight [content]="html" lang="html"></code-highlight>
+      </div>
+    </div>
+  </nzb-tabs>
+</section>

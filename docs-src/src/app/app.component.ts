@@ -45,9 +45,12 @@ export class AppComponent implements OnInit, OnDestroy{
         { label: 'data-keyboard', routerLink: '/modals', fragment: 'options-keyboard' },
         { label: 'data-show (alternative)', routerLink: '/modals', fragment: 'options-show' },
       ] },
+
       { label: 'Other Examples', routerLink: '/modals', fragment: 'examples', children: [
-        { label: 'Show modal immediately', routerLink: '/modals', fragment: 'show-on-instantiation' },
-        { label: 'Modal hidden gracefully', routerLink: '/modals', fragment: 'goes-away-nicely' },
+        { label: 'Collecting User Input', routerLink: '/modals', fragment: 'example-user-input' },
+        { label: 'Wrapping a Component', routerLink: '/modals', fragment: 'example-wrap-component' },
+        { label: 'YouTube Video', routerLink: '/modals', fragment: 'example-youtube' },
+        { label: 'Modals Go Away Nicely', routerLink: '/modals', fragment: 'example-go-away' },
       ] },
     ]},
     { label: 'Tooltips', routerLink: '/tooltips', fragment: 'top', children: []},

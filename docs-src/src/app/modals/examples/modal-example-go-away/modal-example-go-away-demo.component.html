@@ -1,28 +1,28 @@
-<p class="text-muted">
-  This is the child component (containing the modal template.)
-</p>
+
 <!-- the modal template -->
 <ng-template nzbModal #modalInstance="nzbModal">
   <div class="modal fade" tabindex="-1">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal Shown on Instantiation</h5>
+          <h5 class="modal-title">Modal Goes Away Nicely</h5>
           <button type="button" class="close"
-            (click)="modalInstance.hide()" aria-label="Close">
+            data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <p>
-            I was shown immediately by the <code>ngAfterViewInit</code>
-            hook in the component that contains me.
+
+            <a routerLink="/modals/go-away">Click here</a>
+            to trigger a route change. This modal will disappear
+            gracefully when its template is destroyed.
           </p>
         </div>
         <div class="modal-footer">
           <button
             type="button" class="btn btn-secondary"
-            (click)="modalInstance.hide()">Close</button>
+            data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
