@@ -64,10 +64,10 @@ export class NzbAlertDirective implements AfterViewInit {
       });
       this.$el.one('closed.bs.alert', (event: Event) => {
         this.ngZone.run(() =>{
+          this.eventsSubject.next(event);
           this.statusSubject.next('closed');
         });
       });
-
 
       this.$el.alert();
 

@@ -1,5 +1,13 @@
 <h1 class="display-1">Alerts</h1>
 
+<hr>
+
+<p>
+  <a href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/tree/master/docs-src/src/app/alerts">Code for these examples</a>
+  |
+  <a href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite#alerts">Alerts documentation</a>
+</p>
+
 
 <h2>Example #1</h2>
 <div class="row">
@@ -10,13 +18,14 @@
       </button>
       <strong>Holy guacamole!</strong>
     </div>
-    <p><strong>Alert #1 Status:</strong> {{alert1.status | async}}</p>
-  </div>
-  <div class="col-md">
     <p>
       <button class="btn btn-secondary btn-sm" type="button" [disabled]="'closed'!==(alert1.status | async)" (click)="alert1.open()">open()</button>
       <button class="btn btn-secondary btn-sm" type="button" [disabled]="'open'!==(alert1.status | async)" (click)="alert1.close()">close()</button>
     </p>
+
+  </div>
+  <div class="col-md">
+    <app-alert-observables [alert]="alert1"></app-alert-observables>
   </div>
 </div>
 <h2>Example #2</h2>
@@ -29,12 +38,13 @@
       </button>
       <strong>Holy guacamole!</strong>
     </div>
-    <p><strong>Alert #2 Status:</strong> {{alert2.status | async}}</p>
-  </div>
-  <div class="col-md">
     <p>
       <button class="btn btn-secondary btn-sm" type="button" [disabled]="'closed'!==(alert2.status | async)" (click)="alert2.open()">open()</button>
       <button class="btn btn-secondary btn-sm" type="button" [disabled]="'open'!==(alert2.status | async)" (click)="alert2.close()">close()</button>
     </p>
+  </div>
+  <div class="col-md">
+    <app-alert-observables [alert]="alert2"></app-alert-observables>
+
   </div>
 </div>

@@ -2,7 +2,7 @@
 
 This library is an Angular 4+ wrapper for  Bootstrap 4 Beta.
 
-<strong>Important: depends on Bootstrap, Tether and slim jQuery.</strong> Rather than recreating Bootstrap components from scratch in native Angular, we use Bootstrap javascript and its dependencies. This is a fundamentally different approach from other Angular/Bootstrap libraries. Namely, it's not "pure" Angular. We've went for a bit of impurity for the sake of a smaller codebase and consistency with Bootstrap.
+**Important: depends on Bootstrap, Tether and slim jQuery.** Rather than recreating Bootstrap components from scratch in native Angular, we use Bootstrap javascript and its dependencies. This is a fundamentally different approach from other Angular/Bootstrap libraries. Namely, it's not "pure" Angular. We've went for a bit of impurity for the sake of a smaller codebase and consistency with Bootstrap.
 
 (Want Angular purity? Look here https://github.com/valor-software/ngx-bootstrap or here https://github.com/ng-bootstrap/ng-bootstrap.)
 
@@ -59,15 +59,17 @@ export class AppModule { }
 
 ## Alerts
 
-Use the `nzbAlert` selector in native Bootstrap alert markup.  This creates an instance of `NzbAlertDirective`, with an API that closely follows the native Bootstrap implementation. Notes:
+Use the `nzbAlert` selector in native Bootstrap alert markup.  This creates an instance of `NzbAlertDirective`, with an API that closely follows the native Bootstrap implementation. Notes/Differences/Additions:
 
 - Bootstrap removes the alert markup when the modal is closed. The library does not change this behavior,
 but it does provide an `open` method that reinserts the original markup into the DOM -- effectively showing the alert again.
 - Relatedly, you can hide the alert initially using the `initiallyOpen` input.
 
-Directive:  `NzbAlertDirective`
+[Examples](https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/alerts)
 
-selector: `[nzbAlert]` exportAs: `nzbAlert`
+Directive:  `NzbAlertDirective` [code](https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/alert/nzb-alert.directive.ts)
+
+selector: `[nzbAlert]` | exportAs: `nzbAlert`
 
 ### Usage
 

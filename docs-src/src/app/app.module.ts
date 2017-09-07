@@ -24,6 +24,7 @@ import { TabsObservablesComponent } from './tabs/tabs-observables.component';
 import { DropdownsComponent } from './dropdowns/dropdowns.component';
 import { DropdownObservablesComponent } from './dropdowns/dropdown-observables.component';
 import { HomeComponent } from './home/home.component';
+import { AlertObservablesComponent } from './alerts/alert-observables.component';
 
 const routes = [
   { path: 'alerts', data: {title: 'Alerts'}, component: AlertsComponent},
@@ -57,7 +58,8 @@ const routes = [
     TabsObservablesComponent,
     DropdownsComponent,
     DropdownObservablesComponent,
-    HomeComponent
+    HomeComponent,
+    AlertObservablesComponent
   ],
   imports: [
     BrowserModule,
