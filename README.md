@@ -59,35 +59,47 @@ export class AppModule { }
 
 ## Alerts
 
-Use the `nzbAlert` selector in native Bootstrap alert markup.  This creates an instance of `NzbAlertDirective`, with an API that closely follows the native Bootstrap implementation. Notes/Differences/Additions:
-
-- Bootstrap removes the alert markup when the modal is closed. The library does not change this behavior,
-but it does provide an `open` method that reinserts the original markup into the DOM -- effectively showing the alert again.
-- Relatedly, you can hide the alert initially using the `initiallyOpen` input.
-
 [Examples](https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/alerts)
 
-Directive:  `NzbAlertDirective` [code](https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/alert/nzb-alert.directive.ts)
+Use the `nzbAlert` selector in native Bootstrap alert markup.  This creates an instance of `NzbAlertDirective`, with an API that closely follows the native Bootstrap implementation. Notes:
 
-selector: `[nzbAlert]` | exportAs: `nzbAlert`
+- Bootstrap removes the alert markup when the modal is closed. The library does not change this behavior,
+but it does provide an `open` method that reinserts the original markup into the DOM &mdash; showing the alert again.
+- Relatedly, you can hide the alert when it is instantiated using the `initiallyOpen` input.
+
+
+Directive:  `NzbAlertDirective` [code](https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/alert/nzb-alert.directive.ts)
+ | selector: `[nzbAlert]` | exportAs: `nzbAlert`
 
 ### Usage
 
 ```html
-<div nzbAlert #alert1="nzbAlert" class="alert alert-warning alert-dismissible fade show" role="alert">
+<div nzbAlert #alert1="nzbAlert" class="alert alert-warning alert-dismissible fade" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
   <strong>Holy guacamole!</strong> You should check in on some of those fields below.
 </div>
+<p>Alert 1 Status: {{ alert1.status | async }}</p>
+```
+
+Use `ViewChild` to grab the instance in your component:
+
+```ts
+export class SomeComponent implements AfterViewInit {
+  @ViewChild('alert1') alert1: NzbAlertDirective;
+  ngAfterViewInit() {
+    console.log(this.alert1);
+  }
+}
 ```
 
 ### Options
 
 - `initiallyOpen: boolean = true` Whether to show the alert initially. Use `[initiallyOpen]="false"` to hide the alert.
 - Use the contextual classes (e.g. `alert-warning`) as you would normally.
-- Use the `fade` class to control whether the alert opens and closes with the fade transition.
-- Use the `alert-dismissable` class if you include a close button.
+- Add the `fade` class to enable animation.
+- Add the `alert-dismissable` class if you include a close button.
 
 ### Methods
 
@@ -96,13 +108,13 @@ selector: `[nzbAlert]` | exportAs: `nzbAlert`
 
 ### Properties
 
-- `events: Observable<Event>` Provides the native bootstrap alert events (`close.bs.alert` and `closed.bs.alert`) as an observable.
 - `status: Observable<string>` One of:
   - 'uninitialized'
   - 'opening'
   - 'opened'
   - 'closing'
   - 'closed'
+- `events: Observable<Event>` Provides the native bootstrap alert events (`close.bs.alert` and `closed.bs.alert`) as an observable. Note that there are no analogous `open` and `opened` events, since such events do not exist natively.
 
 ## Carousels
 
