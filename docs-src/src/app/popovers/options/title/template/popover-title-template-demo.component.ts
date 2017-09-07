@@ -3,10 +3,11 @@ import { Subscription } from 'rxjs/Subscription';
 import { NzbPopoverDirective } from 'nowzoo-angular-bootstrap-lite';
 
 @Component({
-  selector: 'app-popover-content-demo',
-  templateUrl: './popover-content-demo.component.html'
+  selector: 'app-popover-title-template-demo',
+  templateUrl: './popover-title-template-demo.component.html',
+  styleUrls: ['./popover-title-template-demo.component.scss']
 })
-export class PopoverContentDemoComponent implements AfterViewInit, OnDestroy {
+export class PopoverTitleTemplateDemoComponent implements AfterViewInit, OnDestroy {
   @ViewChild('popoverInstance') popoverInstance: NzbPopoverDirective;
   shownFor: number;
   private interval: any;

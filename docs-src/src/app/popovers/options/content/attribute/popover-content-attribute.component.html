@@ -1,10 +1,11 @@
-<section id="enable-disable">
-
-  <p><code>enable(): void</code></p>
-  <p><code>disable(): void</code></p>
-  <p><code>toggleEnabled(): void</code></p>
-
-  <nzb-tabs uniqueId="popover-enable-disable-tabs">
+<section id="options-content-attribute">
+  <h4>Content from Attribute: <code>data-content</code></h4>
+  <p>
+    If you don't need variable interpolation or lots of logic
+    in the popover content, simply use the
+    <code>data-content</code> attribute.
+  </p>
+  <nzb-tabs uniqueId="options-content-attribute-tabs">
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
         <a class="nav-link" nzbTab="demo">Demo</a>
@@ -12,26 +13,27 @@
       <li class="nav-item">
         <a class="nav-link" nzbTab="html">Code</a>
       </li>
+
     </ul>
     <div class="tab-content nzb-demo-tab-content">
       <div nzbTabPane="demo" #demoPane="nzbTabPane">
-
-        <div *ngIf="demoPane.data?.visible" class="row align-items-center">
+        <div *ngIf="demoPane.data?.visible">
+          <div class="row align-items-center mb-3">
             <div class="col-md-4">
-              <app-popover-enable-disable-demo></app-popover-enable-disable-demo>
+              <app-popover-content-attribute-demo></app-popover-content-attribute-demo>
             </div>
             <div class="col-md-8">
-              <p class="doc-callout info">
-                Blah
-              </p>
+              <code-highlight lang="html" [content]="snip"></code-highlight>
             </div>
+          </div>
         </div>
       </div>
-
       <div nzbTabPane="html" #htmlPane="nzbTabPane">
         <code-highlight lang="html" [content]="html"></code-highlight>
       </div>
     </div>
   </nzb-tabs>
+
+
 
 </section>

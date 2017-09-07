@@ -7,7 +7,7 @@
   </p>
 
   <nzb-tabs uniqueId="popover-update-demo-tabs">
-    <nav class="nav nav-tabs" role="tablist" style="margin-bottom: 1em">
+    <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
         <a class="nav-link" nzbTab="demo">Demo</a>
       </li>
@@ -20,8 +20,8 @@
       </li>
 
 
-    </nav>
-    <div class="tab-content">
+    </ul>
+    <div class="tab-content nzb-demo-tab-content">
       <div nzbTabPane="demo" #demoPane="nzbTabPane">
 
         <div *ngIf="demoPane.data?.visible" class="row align-items-center">

@@ -25,9 +25,7 @@ import { HomeComponent } from './home/home.component';
 
 
 
-import { PopoversComponent } from './popovers/popovers.component';
-import { PopoverDemoDismissOnClickOutsideComponent } from './popovers/popover-demo-dismiss-on-click-outside/popover-demo-dismiss-on-click-outside.component';
-import { PopoverDemoNoTitleComponent } from './popovers/popover-demo-no-title/popover-demo-no-title.component';
+
 
 
 import { TooltipsComponent } from './tooltips/tooltips.component';
@@ -45,18 +43,10 @@ import { TooltipPageHideOnRouteChangeComponent } from './tooltips/tooltip-demo-h
 import { ModalsComponent } from './modals/modals.component';
 
 import { SideNavItemComponent } from './side-nav/side-nav-item.component';
-import { PopoverQuickstartComponent } from './popovers/popover-quickstart/popover-quickstart.component';
-import { PopoverQuickstartDemoComponent } from './popovers/popover-quickstart/popover-quickstart-demo.component';
+import { PopoverQuickstartComponent } from './popovers/quickstart/popover-quickstart.component';
+import { PopoverQuickstartDemoComponent } from './popovers/quickstart/popover-quickstart-demo.component';
 
 
-import { PopoverTitleComponent } from './popovers/popover-title/popover-title.component';
-import { PopoverTitleDemoComponent } from './popovers/popover-title/popover-title-demo.component';
-import { PopoverContentComponent } from './popovers/popover-content/popover-content.component';
-import { PopoverContentDemoComponent } from './popovers/popover-content/popover-content-demo.component';
-import { PopoverOptionsComponent } from './popovers/popover-options/popover-options.component';
-
-import { PopoverAnimateOnDestroyDemoComponent } from './popovers/popover-options/popover-animate-on-destroy-demo/popover-animate-on-destroy-demo.component';
-import { PopoverApiComponent } from './popovers/popover-api/popover-api.component';
 
 import { PopoverUpdateComponent } from './popovers/methods/update/popover-update.component';
 import { CodeHighlightComponent } from './code-highlight/code-highlight.component';
@@ -103,8 +93,7 @@ import { ModalExampleYoutubeDemoComponent } from './modals/examples/modal-exampl
 import { ModalExampleWrappingComponentComponent } from './modals/examples/modal-example-wrapping-component/modal-example-wrapping-component.component';
 import { ModalExampleWrappingComponentDemoComponent } from './modals/examples/modal-example-wrapping-component/modal-example-wrapping-component-demo.component';
 import { ModalExampleWrappedComponentDemoComponent } from './modals/examples/modal-example-wrapping-component/modal-example-wrapped-component-demo.component';
-import { PopoverQuickstartSimpleDemoComponent } from './popovers/popover-quickstart/popover-quickstart-simple-demo.component';
-import { PopoverOptionsDemoComponent } from './popovers/popover-options/popover-options-demo/popover-options-demo.component';
+import { PopoverQuickstartSimpleDemoComponent } from './popovers/quickstart/popover-quickstart-simple-demo.component';
 import { PopoverShowHideToggleDemoComponent } from './popovers/methods/show-hide-toggle/popover-show-hide-toggle-demo.component';
 import { PopoverShowHideToggleComponent } from './popovers/methods/show-hide-toggle/popover-show-hide-toggle.component';
 import { PopoverMethodsComponent } from './popovers/methods/popover-methods.component';
@@ -113,6 +102,21 @@ import { PopoverEnableDisableComponent } from './popovers/methods/enable-disable
 import { PopoverEnableDisableDemoComponent } from './popovers/methods/enable-disable/popover-enable-disable-demo.component';
 
 
+import { PopoversComponent } from './popovers/popovers.component';
+import { PopoverOptionsComponent } from './popovers/options/popover-options.component';
+import { PopoverTitleComponent } from './popovers/options/title/popover-title.component';
+import { PopoverContentComponent } from './popovers/options/content/popover-content.component';
+import { PopoverOtherOptionsComponent } from './popovers/options/other/popover-other-options.component';
+import { PopoverTitleAttributesComponent } from './popovers/options/title/attributes/popover-title-attributes.component';
+import { PopoverTitleAttributesDemoComponent } from './popovers/options/title/attributes/popover-title-attributes-demo.component';
+import { PopoverTitleTemplateComponent } from './popovers/options/title/template/popover-title-template.component';
+import { PopoverTitleTemplateDemoComponent } from './popovers/options/title/template/popover-title-template-demo.component';
+import { PopoverContentTemplateDemoComponent } from './popovers/options/content/template/popover-content-template-demo.component';
+import { PopoverContentTemplateComponent } from './popovers/options/content/template/popover-content-template.component';
+import { PopoverContentAttributeComponent } from './popovers/options/content/attribute/popover-content-attribute.component';
+import { PopoverContentAttributeDemoComponent } from './popovers/options/content/attribute/popover-content-attribute-demo.component';
+import { AlertsComponent } from './alerts/alerts.component';
+import { AlertDemoComponent } from './alerts/alert-demo.component';
 
 const routes = [
   {
@@ -145,6 +149,14 @@ const routes = [
     ]
   },
 
+  {
+    path: 'alerts',
+    //resolve: {gistFiles: GistService},
+    children: [
+      {path: '', component: AlertsComponent}
+    ]
+  },
+
 
 
 
@@ -164,9 +176,6 @@ const routes = [
 
 
 
-
-    PopoverDemoDismissOnClickOutsideComponent,
-    PopoverDemoNoTitleComponent,
 
 
     TooltipsComponent,
@@ -191,13 +200,7 @@ const routes = [
 
 
     PopoversComponent,
-    PopoverTitleComponent,
-    PopoverTitleDemoComponent,
-    PopoverContentComponent,
-    PopoverContentDemoComponent,
-    PopoverOptionsComponent,
-    PopoverAnimateOnDestroyDemoComponent,
-    PopoverApiComponent,
+
 
     PopoverUpdateComponent,
     CodeHighlightComponent,
@@ -242,13 +245,26 @@ const routes = [
     ModalExampleWrappingComponentDemoComponent,
     ModalExampleWrappedComponentDemoComponent,
     PopoverQuickstartSimpleDemoComponent,
-    PopoverOptionsDemoComponent,
     PopoverShowHideToggleDemoComponent,
     PopoverShowHideToggleComponent,
     PopoverMethodsComponent,
     PopoverUpdateDemoComponent,
     PopoverEnableDisableComponent,
     PopoverEnableDisableDemoComponent,
+    PopoverOptionsComponent,
+    PopoverTitleComponent,
+    PopoverContentComponent,
+    PopoverOtherOptionsComponent,
+    PopoverTitleAttributesComponent,
+    PopoverTitleAttributesDemoComponent,
+    PopoverTitleTemplateComponent,
+    PopoverTitleTemplateDemoComponent,
+    PopoverContentTemplateDemoComponent,
+    PopoverContentTemplateComponent,
+    PopoverContentAttributeComponent,
+    PopoverContentAttributeDemoComponent,
+    AlertsComponent,
+    AlertDemoComponent,
 
 
   ],

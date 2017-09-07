@@ -34,7 +34,6 @@ export class NzbCollapseDirective extends NzbAbstractBootstrap  implements After
         $el.collapse({toggle: $el.data('toggle')});
       })
     })
-
   }
 
   ngOnDestroy() {

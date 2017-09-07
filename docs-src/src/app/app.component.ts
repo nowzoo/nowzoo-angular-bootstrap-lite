@@ -22,6 +22,7 @@ export class AppComponent implements OnInit, OnDestroy{
   sidebarItem: any = null;
   links: any[] = [
     { label: 'Home', routerLink: '/', fragment: 'top', children: []},
+    { label: 'Alerts', routerLink: '/alerts', fragment: 'top', children: []},
     { label: 'Modals', routerLink: '/modals', fragment: 'top', children: [
       { label: 'Quick Start', routerLink: '/modals', fragment: 'quickstart' },
       { label: 'Overview', routerLink: '/modals', fragment: 'overview', children: [
@@ -55,22 +56,24 @@ export class AppComponent implements OnInit, OnDestroy{
     { label: 'Tooltips', routerLink: '/tooltips', fragment: 'top', children: []},
     { label: 'Popovers', routerLink: '/popovers', fragment: 'top', children: [
       { label: 'Quick Start', routerLink: '/popovers', fragment: 'quickstart'},
+      { label: 'Options', routerLink: '/popovers', fragment: 'options', children:[
+        { label: 'Title', routerLink: '/popovers', fragment: 'options-title', children: [
+          {label: 'From Attribute: title or data-title', routerLink: '/popovers', fragment: 'options-title-attributes'},
+          {label: 'From Template: nzbPopoverTitle', routerLink: '/popovers', fragment: 'options-title-template'},
+
+        ]},
+        { label: 'Content', routerLink: '/popovers', fragment: 'options-content', children: [
+          {label: 'From Attribute: data-content', routerLink: '/popovers', fragment: 'options-content-attribute'},
+          {label: 'From Template: nzbPopoverContent', routerLink: '/popovers', fragment: 'options-content-template'},
+
+        ]},
+        { label: 'Other Popover Options', routerLink: '/popovers', fragment: 'options-other'},
+      ]},
       { label: 'Methods', routerLink: '/popovers', fragment: 'methods', children: [
         {label: 'show(), hide() and toggle()', routerLink: '/popovers', fragment: 'show-hide-toggle'},
         {label: 'enable(), disable() and toggleEnabled()', routerLink: '/popovers', fragment: 'enable-disable'},
         {label: 'update()', routerLink: '/popovers', fragment: 'update'},
 
-      ]},
-      { label: 'API', routerLink: '/popovers', fragment: 'api', children: [
-        { label: 'nzbPopoverTitle', routerLink: '/popovers', fragment: 'title' },
-        { label: 'nzbPopoverContent', routerLink: '/popovers', fragment: 'content' },
-        { label: 'nzbPopoverOptions', routerLink: '/popovers', fragment: 'options', children: [
-
-          {label: 'Bootstrap Options', routerLink: '/popovers', fragment: 'options-bootstrap'},
-          {label: 'animateOnDestroy', routerLink: '/popovers', fragment: 'options-animate-on-destroy'},
-          {label: 'Providing app-wide defaults', routerLink: '/popovers', fragment: 'options-provider'}
-        ]},
-      
       ]}
     ]},
   ];

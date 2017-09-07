@@ -1,0 +1,58 @@
+<section id="options-title-template">
+  <h4>Title from Template: <code>nzbPopoverTitle</code></h4>
+  <p>
+    If you want to take advantage of variable interpolation, or
+    perform complex feats of logic in your popover title, use
+    <code>[nzbPopoverTitle]="titleTemplate"</code> with
+    <code>&lt;ng-template #titleTemplate&gt;...&lt;/ng-template&gt;</code>.
+  </p>
+  <p>
+    The following demo displays the number of seconds since the
+    popover was opened, and has a handy close button that
+    calls <code>popoverInstance.hide()</code>.
+  </p>
+  <p class="doc-callout warning">
+    Note that both the <code>title</code> and <code>data-title</code>
+    attributes will override <code>nzbPopoverTitle</code>. Omit them
+    when you use a template.
+  </p>
+  <p class="doc-callout info">
+    Also note that using <code>nzbPopoverTitle</code> automatically
+    sets the popover's <code>html</code> option to <code>true</code>.
+    This  is by design: Angular needs markup in order to do its stuff.
+  </p>
+  <nzb-tabs uniqueId="options-title-template-tabs">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" nzbTab="demo">Demo</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Code</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" nzbTab="ts">Typescript</a>
+          <a class="dropdown-item" nzbTab="html">HTML</a>
+        </div>
+      </li>
+    </ul>
+    <div class="tab-content nzb-demo-tab-content">
+      <div nzbTabPane="demo" #demoPane="nzbTabPane">
+        <div *ngIf="demoPane.data?.visible">
+          <div class="row align-items-center mb-3">
+            <div class="col-md-4">
+              <app-popover-title-template-demo></app-popover-title-template-demo>
+            </div>
+            <div class="col-md-8">
+              <code-highlight lang="html" [content]="snip"></code-highlight>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div nzbTabPane="ts" #htmlPane="nzbTabPane">
+        <code-highlight lang="typescript" [content]="ts"></code-highlight>
+      </div>
+      <div nzbTabPane="html" #htmlPane="nzbTabPane">
+        <code-highlight lang="html" [content]="html"></code-highlight>
+      </div>
+    </div>
+  </nzb-tabs>
+</section>

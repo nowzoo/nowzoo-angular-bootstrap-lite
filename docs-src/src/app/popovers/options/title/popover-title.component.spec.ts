@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopoverContentDemoComponent } from './popover-content-demo.component';
+import { PopoverTitleComponent } from './popover-title.component';
 
-describe('PopoverContentDemoComponent', () => {
-  let component: PopoverContentDemoComponent;
-  let fixture: ComponentFixture<PopoverContentDemoComponent>;
+describe('PopoverTitleComponent', () => {
+  let component: PopoverTitleComponent;
+  let fixture: ComponentFixture<PopoverTitleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopoverContentDemoComponent ]
+      declarations: [ PopoverTitleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PopoverContentDemoComponent);
+    fixture = TestBed.createComponent(PopoverTitleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

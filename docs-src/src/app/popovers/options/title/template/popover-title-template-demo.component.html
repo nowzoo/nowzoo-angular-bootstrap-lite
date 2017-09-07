@@ -1,0 +1,22 @@
+<ng-template #titleTemplate>
+  <div class="clearfix">
+    <div class="pull-left">
+      Shown {{shownFor}}s
+    </div>
+    <div class="pull-right">
+      <a role="button" class="text-secondary" style="cursor:pointer"
+        (click)="popoverInstance.hide()" aria-label="Close">
+        <i aria-hidden="true" class="fa fa-times"></i>
+      </a>
+    </div>
+  </div>
+</ng-template>
+<p>
+  <button class="btn btn-outline-info"
+    nzbPopover
+    #popoverInstance="nzbPopover"
+    [nzbPopoverTitle]="titleTemplate"
+    data-content="Some static content.">
+    Title from Template
+  </button>
+</p>

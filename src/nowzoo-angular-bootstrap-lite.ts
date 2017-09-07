@@ -7,5 +7,6 @@ export { NzbPopoverOptions } from './popover/nzb-popover-options.class';
 export { NzbTabsComponent } from './tabs/nzb-tabs.component';
 export { NzbTabPaneDirective } from './tabs/nzb-tab-pane.directive';
 export { NzbTabDirective } from './tabs/nzb-tab.directive';
+export { NzbAlertDirective } from './alert/nzb-alert.directive';
 
 export { NzbModule } from './nzb.module';

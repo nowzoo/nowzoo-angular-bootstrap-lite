@@ -10,6 +10,7 @@ import { NzbPopoverOptions } from './popover/nzb-popover-options.class';
 import { NzbTabsComponent } from './tabs/nzb-tabs.component';
 import { NzbTabPaneDirective } from './tabs/nzb-tab-pane.directive';
 import { NzbTabDirective } from './tabs/nzb-tab.directive';
+import { NzbAlertDirective } from './alert/nzb-alert.directive';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { NzbTabDirective } from './tabs/nzb-tab.directive';
     NzbTabsComponent,
     NzbTabPaneDirective,
     NzbTabDirective,
+    NzbAlertDirective,
   ],
   providers:[
     NzbTooltipOptions,
@@ -38,6 +40,7 @@ import { NzbTabDirective } from './tabs/nzb-tab.directive';
     NzbTabsComponent,
     NzbTabPaneDirective,
     NzbTabDirective,
+    NzbAlertDirective,
   ],
   entryComponents: [
     NzbDynamicContentComponent
