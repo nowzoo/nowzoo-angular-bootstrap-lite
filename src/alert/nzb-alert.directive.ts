@@ -16,7 +16,6 @@ declare let jQuery: any;
 @Directive({
   selector: '[nzbAlert]',
   exportAs: 'nzbAlert'
-
 })
 export class NzbAlertDirective implements AfterViewInit {
   @Input() initiallyOpen: boolean = true;
