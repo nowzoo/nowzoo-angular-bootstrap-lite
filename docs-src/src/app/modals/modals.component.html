@@ -1,30 +1,178 @@
-<h1 class="display-1" id="top">
-  Modals
-</h1>
+<h1 class="display-1">Modals</h1>
+
+
+<h2>Default</h2>
+
+<div class="row">
+  <div class="col-md">
+    <p>
+      Use an <code>ng-template</code> with the <code>nzbModal</code>
+      directive to enclose complete Boostrap modal markup.
+    </p>
+    <!-- template tag -->
+    <ng-template nzbModal #modal1="nzbModal">
+      <!-- Bootstrap modal markup -->
+      <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal1Label">Modal Title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Hello world!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end Bootstrap modal markup -->
+    </ng-template>
+
+    <!-- the button -->
+    <p>
+      <button class="btn btn-primary" (click)="modal1.show()">
+        Show Modal
+      </button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-modal-observables [modal]="modal1"></app-modal-observables>
+  </div>
+</div>
+
 <hr>
 
-<p class="lead">
-  Simple
-  <a class="external"
-    href="https://getbootstrap.com/docs/4.0/components/modal/"
-    nzbTooltip
-    title="Bootstrap modal docs"
-    target="bsdocs">Bootstrap modals</a>
-    with <code>ng-template</code>.
-</p>
+<h2>Without animation</h2>
 
+<div class="row">
+  <div class="col-md">
+    <p>
+      Remove the <code>.fade</code> class from the <code>.modal</code>
+      div.
+    </p>
+    <ng-template nzbModal #modal2="nzbModal">
+      <!-- no fade class removes animation -->
+      <div class="modal" tabindex="-1" role="dialog" aria-labelledby="modal2Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal2Label">Modal Title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Hello world!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <p>
+      <button class="btn btn-primary" (click)="modal2.show()">
+        Show Modal
+      </button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-modal-observables [modal]="modal2"></app-modal-observables>
+  </div>
+</div>
 
-<!-- #quickstart -->
-<app-modal-quickstart></app-modal-quickstart>
+<hr>
 
-<!-- #overview -->
-<app-modal-overview></app-modal-overview>
+<h2>Using <code>data-</code> attributes</h2>
 
-<!-- #api -->
-<app-modal-api></app-modal-api>
+<div class="row">
+  <div class="col-md">
+    <p>
+      All Bootstrap modal <code>data-</code> attributes except for <code>data-show</code>
+      are supported. This demo has <code>data-backdrop="static"</code>.
+    </p>
 
-<!-- #options -->
-<app-modal-options></app-modal-options>
+    <ng-template nzbModal #modal3="nzbModal">
+      <!-- data-backdrop="static" -->
+      <div data-backdrop="static" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal3Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal3Label">Modal Title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              This modal has a static backdrop.  Clicking on it will not dismiss the modal.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <p>
+      <button class="btn btn-primary" (click)="modal3.show()">
+        Show Modal
+      </button>
+    </p>
 
-<!-- #examples -->
-<app-modal-examples></app-modal-examples>
+    <div class="alert alert-info">
+      In place of <code>data-show</code>, you can use <code>ngAfterViewInit</code>
+      to show a modal immediately. <a class="alert-link" routerLink="/modal-opened-immediately">Demo...</a>
+    </div>
+  </div>
+  <div class="col-md">
+    <app-modal-observables [modal]="modal3"></app-modal-observables>
+  </div>
+</div>
+
+<h2>Modals go away nicely</h2>
+
+<div class="row">
+  <div class="col-md">
+    <p>
+      A modal is hidden gracefully when its <code>ng-template</code>
+      is destroyed, such as on navigation to a different page.  Click on the link
+      in the modal to trigger a route change.
+    </p>
+    <ng-template nzbModal #modal4="nzbModal">
+      <!-- data-backdrop="static" -->
+      <div data-backdrop="static" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal4Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal4Label">Modal Title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              This modal will go away nicely when you
+              <a routerLink="/modals-go-away-nicely">click here</a>.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <p>
+      <button class="btn btn-primary" (click)="modal4.show()">
+        Show Modal
+      </button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-modal-observables [modal]="modal4"></app-modal-observables>
+  </div>
+</div>

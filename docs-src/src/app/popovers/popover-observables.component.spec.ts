@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TooltipsComponent } from './tooltips.component';
+import { PopoverObservablesComponent } from './popover-observables.component';
 
-describe('TooltipsComponent', () => {
-  let component: TooltipsComponent;
-  let fixture: ComponentFixture<TooltipsComponent>;
+describe('PopoverObservablesComponent', () => {
+  let component: PopoverObservablesComponent;
+  let fixture: ComponentFixture<PopoverObservablesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TooltipsComponent ]
+      declarations: [ PopoverObservablesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TooltipsComponent);
+    fixture = TestBed.createComponent(PopoverObservablesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

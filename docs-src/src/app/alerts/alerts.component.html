@@ -1,4 +1,40 @@
-<h1 class="display-1" id="top">
-  Alerts
-</h1>
-<app-alert-demo></app-alert-demo>
+<h1 class="display-1">Alerts</h1>
+
+
+<h2>Example #1</h2>
+<div class="row">
+  <div class="col-md">
+    <div nzbAlert #alert1="nzbAlert" class="alert alert-warning alert-dismissible fade" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong>Holy guacamole!</strong>
+    </div>
+    <p><strong>Alert #1 Status:</strong> {{alert1.status | async}}</p>
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-secondary btn-sm" type="button" [disabled]="'closed'!==(alert1.status | async)" (click)="alert1.open()">open()</button>
+      <button class="btn btn-secondary btn-sm" type="button" [disabled]="'open'!==(alert1.status | async)" (click)="alert1.close()">close()</button>
+    </p>
+  </div>
+</div>
+<h2>Example #2</h2>
+<p>Use <code>[initiallyOpen]="false"</code> to hide the alert initially.</p>
+<div class="row">
+  <div class="col-md">
+    <div nzbAlert [initiallyOpen]="false" #alert2="nzbAlert" class="alert alert-warning alert-dismissible fade" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong>Holy guacamole!</strong>
+    </div>
+    <p><strong>Alert #2 Status:</strong> {{alert2.status | async}}</p>
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-secondary btn-sm" type="button" [disabled]="'closed'!==(alert2.status | async)" (click)="alert2.open()">open()</button>
+      <button class="btn btn-secondary btn-sm" type="button" [disabled]="'open'!==(alert2.status | async)" (click)="alert2.close()">close()</button>
+    </p>
+  </div>
+</div>

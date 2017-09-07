@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TooltipsComponent } from './tooltips.component';
+import { DropdownObservablesComponent } from './dropdown-observables.component';
 
-describe('TooltipsComponent', () => {
-  let component: TooltipsComponent;
-  let fixture: ComponentFixture<TooltipsComponent>;
+describe('DropdownObservablesComponent', () => {
+  let component: DropdownObservablesComponent;
+  let fixture: ComponentFixture<DropdownObservablesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TooltipsComponent ]
+      declarations: [ DropdownObservablesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TooltipsComponent);
+    fixture = TestBed.createComponent(DropdownObservablesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

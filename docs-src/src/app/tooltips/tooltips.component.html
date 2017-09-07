@@ -1,428 +1,160 @@
-<h1 class="display-2">
-  Tooltips
-</h1>
-<hr>
+<h1 class="display-1">Tooltips</h1>
 
 
-<p class="lead">
-  <a
-    href="https://getbootstrap.com/docs/4.0/components/tooltips/"
-    nzbTooltip
-    title="Bootstrap tooltip docs"
-    target="bsdocs">Bootstrap tooltips<i class="fa fa-fw fa-external-link"></i></a>
-    based on data- attributes and (optionally) an <code>ng-template</code>.
-</p>
+<h2>Simple</h2>
 
-<section>
-  <h2 class="display-4" id="quickstart" permalinked>Quick Start</h2>
-  <div class="row align-items-center">
-    <div class="col-sm-4">
-      <p class="text-center">
-        <button class="btn btn-primary"
-          nzbTooltip
-          [nzbTooltipTitle]="quickstartTitle"
-          data-placement="auto">Quick Example (Hover)</button>
-          <ng-template #quickstartTitle>Tooltip Title</ng-template>
-      </p>
-      <p class="text-center">
-        <a routerLink="." fragment="examples">more examples</a>
-      </p>
-    </div>
-    <div class="col-sm-8">
-      <markdown-to-html [data]="gistFiles['tooltip-demo-0.html'] | language : 'html'"></markdown-to-html>
-
-    </div>
-  </div>
-</section>
-<!-- #api -->
-<section>
-  <h2 class="display-4" id="api" permalinked>API</h2>
-
-  <p>
-    <code>NzbTooltipDirective</code>
-    <a
-      class="btn btn-secondary btn-sm"
-      nzbTooltip
-      title="NzbTooltipDirective on GitHub"
-      href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/tooltip/nzb-tooltip.directive.ts"
-      target="gh">
-      <span class="sr-only">NzbTooltipDirective on GitHub</span>
-      <i class="fa fa-github"></i>
-    </a>
-
-    <code>extends NzbAbstractPopup</code>
-
-    <a
-      class="btn btn-secondary btn-sm"
-      nzbTooltip
-      title="NzbAbstractPopup on GitHub"
-      href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/common/nzb-abstract-popup.class.ts"
-      target="gh">
-      <span class="sr-only">NzbAbstractPopup on GitHub</span>
-      <i class="fa fa-github"></i>
-    </a>
-  </p>
-
-  <p>
-    Selector: <code>[nzbTooltip]</code>
-  </p>
-
-  <h3 class="display-6"  id="inputs" permalinked>Inputs</h3>
-  <ul>
-    <li>
-      <code>nzbTooltipTitle: TemplateRef</code>
-      <small><a routerLink="." fragment="templates">example</a></small>
-      <em>Or</em>  use the <code>title</code> or <code>data-title</code> attribute.
-      <small><a routerLink="." fragment="attributes">example</a></small>
-    </li>
-    <li>
-      <code>nzbTooltipPlacement: (tooltipEl, targetEl) => string</code>
-      <em>Or</em> use the <code>data-placement</code> attribute.
-    </li>
-
-  </ul>
-  <p>
-    All the other
-    <a href="https://getbootstrap.com/docs/4.0/components/tooltips/#options"
-    nzbTooltip
-    title="tooltip option docs"
-    target="bsdocs">Bootstrap tooltip options<i class="fa fa-fw fa-external-link"></i></a>
-    (except <code>selector</code>) are supported
-    via <code>data-</code> attributes:
-  </p>
-  <ul>
-    <li><code>data-animation</code></li>
-    <li><code>data-container</code></li>
-    <li><code>data-delay</code></li>
-    <li><code>data-html</code></li>
-    <li><code>data-trigger</code></li>
-    <li><code>data-offset</code></li>
-    <li><code>data-fallbackTrigger</code></li>
-  </ul>
-
-  <h3 class="display-6"  id="methods" permalinked>Methods</h3>
-  <p>
-    The directive wraps all Bootstrap
-    <a href="https://getbootstrap.com/docs/4.0/components/tooltips/#methods"
-    nzbTooltip
-    title="tooltip method docs"
-    target="bsdocs">tooltip methods<i class="fa fa-fw fa-external-link"></i></a> except for
-    <code>dispose()</code> (the directive takes care of disposing of the tooltip.)
-
-  <ul>
-    <li>
-      <code>show()</code>
-    </li>
-    <li>
-      <code>hide()</code>
-    </li>
-    <li>
-      <code>toggle()</code>
-    </li>
-    <li>
-      <code>enable()</code>
-    </li>
-    <li>
-      <code>disable()</code>
-    </li>
-    <li>
-      <code>toggleEnabled()</code>
-    </li>
-    <li>
-      <code>update()</code>
-    </li>
-
-  </ul>
-
-  <h3 class="display-6"  id="properties" permalinked>Properties</h3>
-  <ul>
-    <li>
-      <code>shown: boolean</code>
-      Whether the tooltip is completely shown (i.e., when the animations are done.)
-    </li>
-    <li>
-      <code>hidden: boolean</code>
-      Whether the tooltip is completely hidden (i.e., when the animations are done.)
-    </li>
-    <li>
-      <code>enabled: boolean</code>
-      Whether the tooltip is enabled.
-    </li>
-    <li>
-      <code>events: Observable&lt;Event&gt;</code> An observable of the
-        <a href="https://getbootstrap.com/docs/4.0/components/tooltips/#events"
+<div class="row">
+  <div class="col-md">
+    <p>
+      Use the <code>title</code> (or <code>data-title</code>)
+      attribute with a string.
+    </p>
+    <p>
+      <button class="btn btn-primary"
         nzbTooltip
-        title="tooltip event docs"
-        target="bsdocs">native tooltip events<i class="fa fa-fw fa-external-link"></i></a>.
-    </li>
-    <li>
-      <code>status: Observable&lt;string&gt;</code>
-      An observable of <code>'show'|'inserted'|'shown'|'hide'|'hidden'</code>.
-    </li>
-    <li>
-      <code>boostrapComponentData: any</code>
-      The underlying tooltip data attached by Bootstrap to the
-      target element.
-    </li>
-  </ul>
+        #tooltip1="nzbTooltip"
+        title="Static Title">Tooltip (hover)</button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-tooltip-observables [tooltip]="tooltip1"></app-tooltip-observables>
+  </div>
+</div>
 
-</section>
+<hr>
+<h2>More Complex</h2>
 
+<div class="row">
+  <div class="col-md">
+    <p>
+      Use <code>ng-template</code> with <code>nzbTooltipTitle</code>
+      to enable variable interpolation and the tooltip API.
+    </p>
+    <p>
+      <button class="btn btn-primary"
+        nzbTooltip
+        #tooltip2="nzbTooltip"
+        [nzbTooltipTitle]="tooltip2Title">Tooltip (hover)</button>
+    </p>
+    <ng-template #tooltip2Title>
+      Shown for {{shownFor}}s
+    </ng-template>
+  </div>
+  <div class="col-md">
+    <app-tooltip-observables [tooltip]="tooltip2"></app-tooltip-observables>
+  </div>
+</div>
 
-<!-- #examples -->
-<section>
-  <h2 class="display-4" id="examples" permalinked>Examples</h2>
+<hr>
+<h2>Options via <code>data-</code> attributes</h2>
 
-  <ul>
-    <li>
-      <a routerLink="." fragment="attributes">Using an attribute for the title</a>
-    </li>
-    <li>
-      <a routerLink="." fragment="templates">Using a template the for title</a>
-    </li>
+<div class="row">
+  <div class="col-md">
+    <p>
+      This demo sets <code>data-animation="false"</code>.
+    </p>
+    <p>
+      <button class="btn btn-primary"
+        nzbTooltip
+        #tooltip3="nzbTooltip"
+        title="Static Title"
+        data-animation="false">Tooltip (hover)</button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-tooltip-observables [tooltip]="tooltip3"></app-tooltip-observables>
 
-    <li>
-      <a routerLink="." fragment="placement-function">Using a function for placement</a>
-    </li>
-    <li>
-      <a routerLink="." fragment="tooltip-instance">Getting the tooltip directive instance</a>
-    </li>
-    <li>
-      <a routerLink="." fragment="show-hide">Programatically showing and hiding a tooltip</a>
-    </li>
-    <li>
-      <a routerLink="." fragment="enable-disable">Enable/disable a tooltip</a>
-    </li>
-    <li>
-      <a routerLink="." fragment="add-class">Toggle extra classes on the tooltip element</a>
-    </li>
+  </div>
+</div>
 
+<hr>
+<h2>Options passed via <code>nzbTooltipOptions</code></h2>
 
-    <li>
-      <a routerLink="/tooltips/go-away-nicely">Tooltips go away gracefully when their target is destroyed</a>
-      (separate page)
-    </li>
+<div class="row">
+  <div class="col-md">
+    <p>
+      This demo sets animation to false using
+      <code>[nzbTooltipOptions]="{{ '{' }}animation: false{{ '}' }}"</code>.
+    </p>
+    <p>
+      <button class="btn btn-primary"
+        nzbTooltip
+        #tooltip4="nzbTooltip"
+        title="Static Title"
+        [nzbTooltipOptions]="{animation: false}">Tooltip (hover)</button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-tooltip-observables [tooltip]="tooltip4"></app-tooltip-observables>
 
-  </ul>
+  </div>
+</div>
 
-  <!-- #attributes -->
-  <section>
-    <h3 class="display-6" id="attributes" permalinked>
-      Using an attribute for the title
-    </h3>
-    <div class="row example">
-      <div class="col-sm-8">
-        <p>
-          The directive can handle the simplest use case
-          (e.g. adding a tooltip with a static title)
-          using <code>nzbTooltip title="..."</code>.
-        </p>
-        <p class="doc-callout info">
-          You can use <code>data-title</code> rather than <code>title</code>.
-        </p>
-      </div>
-      <div class="col-sm-4">
-        <div class="demo">
-          <app-tooltip-demo-attributes></app-tooltip-demo-attributes>
-        </div>
-      </div>
-    </div>
-    <markdown-to-html [data]="gistFiles['tooltip-demo-attributes.html'] | language : 'html'"></markdown-to-html>
+<hr>
+<h2>Enable/Disable</h2>
 
-  </section>
+<div class="row">
+  <div class="col-md">
+    <p>
+      Demonstrates the
+      <code>enable()</code>, <code>disable()</code> and <code>toggleEnabled()</code> methods.
+    </p>
 
+    <p>
+      <button class="btn btn-primary"
+        nzbTooltip
+        #tooltip5="nzbTooltip"
+        title="Static Title">Tooltip (hover)</button>
+    </p>
+    <p>
+      <button class="btn btn-secondary btn-sm"
+        (click)="tooltip5.enable()"
+        [disabled]="(tooltip5.enabled | async)">enable()</button>
+      <button class="btn btn-secondary btn-sm"
+        (click)="tooltip5.disable()"
+        [disabled]="!(tooltip5.enabled | async)">disable()</button>
+      <button class="btn btn-secondary btn-sm"
+        (click)="tooltip5.toggleEnabled()">toggleEnabled()</button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-tooltip-observables [tooltip]="tooltip5"></app-tooltip-observables>
 
-  <!-- #templates -->
-  <section>
-    <h3 class="display-6" id="templates" permalinked>Using a template the for title</h3>
-    <div class="row example">
-      <div class="col-sm-8">
-        <p>
-          The directive can also handle more complex situations, by using an <code>ng-template</code> to
-          define the tooltip's title. This allows you to interpolate variables and
-          perform more complex logic.
-        </p>
-        <p>
-          This demo displays
-          an informative message about how long it's been since you
-          toggled the tooltip.
-        </p>
-        <p>
-          Use <code>[nzbTooltipTitle]="titleTemplate"</code>
-          with <code>&lt;ng-template #titleTemplate&gt;...&lt;/ng-template&gt;</code>
-        </p>
+  </div>
+</div>
 
-        <p class="doc-callout warning">
-          The <code>title</code> attribute, if present, will override
-           <code>[nzbTooltipTitle]</code>. This is by design. If you're using
-           a template for the title, omit the title attribute.
-        </p>
-        <p class="doc-callout warning">
-          If you use a template for the title, the tooltip's
-          <code>html</code> property will be set to <code>true</code>.
-          Angular needs markup to do its stuff.
-        </p>
-      </div>
-      <div class="col-sm-4">
-        <div class="demo">
-          <app-tooltip-demo-templates></app-tooltip-demo-templates>
-        </div>
+<hr>
+<h2>Show/Hide Programatically</h2>
 
-      </div>
-    </div>
-    <markdown-to-html [data]="gistFiles['tooltip-demo-templates.component.ts'] | language : 'typescript'"></markdown-to-html>
-  </section>
+<div class="row">
+  <div class="col-md">
+    <p>
+      Demonstrates the
+      <code>show()</code>, <code>hide()</code> and <code>toggle()</code> methods.
+      Note that the tooltip target has <code>data-trigger="manual"</code>, so hovering
+      over it will not open the tooltip.
+    </p>
 
+    <p>
+      <button class="btn btn-primary"
+        nzbTooltip
+        #tooltip6="nzbTooltip"
+        title="Static Title"
+        data-trigger="manual">Tooltip (manual)</button>
+    </p>
+    <p>
+      <button class="btn btn-secondary btn-sm"
+        (click)="tooltip6.show()"
+        [disabled]="(tooltip6.status | async)!=='hidden'">show()</button>
+      <button class="btn btn-secondary btn-sm"
+        (click)="tooltip6.hide()"
+        [disabled]="(tooltip6.status | async)!=='shown'">hide()</button>
+      <button class="btn btn-secondary btn-sm"
+        (click)="tooltip6.toggle()">toggle()</button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-tooltip-observables [tooltip]="tooltip6"></app-tooltip-observables>
 
-
-  <!-- #placement-function -->
-  <section>
-    <h3 class="display-6" id="placement-function" permalinked>Using a function for placement</h3>
-    <div class="row example">
-      <div class="col-sm-8">
-        <p>
-          If you want to do some fancy calculation in order
-          to figure out placement, use <code>[nzbTooltipPlacement]="myPlacementFunc"</code>.
-        </p>
-
-        <p class="doc-callout info">
-          As an alternative, try plain old <code>data-placement="auto"</code>.
-          This should be sufficient in most use cases.
-        </p>
-        <p class="doc-callout info">
-          Our function in this example returns <code>'top'</code> if the window is smaller than
-          the small breakpoint, and <code>'left'</code> otherwise. But
-          by default Bootstrap tries to flip the placement if there isn't enough room in the
-          viewport to display the entire tooltip &mdash; so your results may vary.
-        </p>
-      </div>
-      <div class="col-sm-4">
-        <div class="demo">
-          <app-tooltip-demo-placement-func></app-tooltip-demo-placement-func>
-        </div>
-      </div>
-    </div>
-    <markdown-to-html [data]="gistFiles['tooltip-demo-placement.component.ts'] | language : 'typescript'"></markdown-to-html>
-
-  </section>
-
-  <!-- #tooltip-instance -->
-  <section>
-    <h3 class="display-6"  id="tooltip-instance" permalinked>Getting the tooltip directive instance</h3>
-    <div class="row example">
-      <div class="col-sm-8">
-        <p>
-          Access the tooltip directive instance in a template variable with
-          <code>#myTooltip="nzbTooltip"</code>.
-          You can then use <code>myTooltip</code> in your template,
-          or use
-          <code>@ViewChild('myTooltip') myTooltip: NzbTooltipDirective</code>
-          to manipulate it in typescript.
-        </p>
-
-
-      </div>
-      <div class="col-sm-4">
-        <div class="demo">
-          <app-tooltip-demo-get-instance></app-tooltip-demo-get-instance>
-        </div>
-      </div>
-    </div>
-    <markdown-to-html [data]="gistFiles['tooltip-demo-instance.component.ts'] | language : 'typescript'"></markdown-to-html>
-
-  </section>
-
-  <!-- #show-hide -->
-  <section>
-    <h3 class="display-6" id="show-hide" permalinked>Programatically showing and hiding a tooltip</h3>
-    <div class="row example">
-      <div class="col-sm-8">
-        <p>
-          You can programatically show/hide/toggle a tooltip with
-          the <code>show()</code>,
-          <code>hide()</code>,
-          and <code>toggle()</code> methodes.
-        </p>
-        <p class="doc-callout info">
-          Note that in this example <code>data-trigger="manual"</code>,
-          disabling the default "click" trigger. Use the show(), hide() and toggle() buttons below it
-          to manipulate the tooltip.
-        </p>
-        <p class="doc-callout info">
-          We're using <code>tooltipInstance.shown</code> and
-          <code>tooltipInstance.hidden</code> properties to control the disabed state
-          of the show and hide buttons.
-        </p>
-      </div>
-      <div class="col-sm-4">
-        <div class="demo">
-          <app-tooltip-demo-show-hide></app-tooltip-demo-show-hide>
-        </div>
-
-      </div>
-    </div>
-    <markdown-to-html [data]="gistFiles['tooltip-demo-manual.html'] | language : 'html'"></markdown-to-html>
-
-  </section>
-
-  <!-- #enable-disable -->
-  <section>
-    <h3 class="display-6" id="enable-disable" permalinked>Enable/disable a tooltip</h3>
-    <div class="row example">
-      <div class="col-sm-8">
-        <p>
-          This example demonstrates
-          <code>enable()</code>,
-          <code>disable()</code>,
-          and <code>toggleEnabled()</code>
-          methods of the directive.
-        </p>
-        <p class="doc-callout info">
-          We're also using the <code>enabled</code>
-          property to control the disabled state
-          of the enable and disble buttons.
-        </p>
-
-      </div>
-      <div class="col-sm-4">
-        <div class="demo">
-          <app-tooltip-demo-disable></app-tooltip-demo-disable>
-        </div>
-
-      </div>
-    </div>
-    <markdown-to-html [data]="gistFiles['tooltip-demo-disable.html'] | language : 'html'"></markdown-to-html>
-
-  </section>
-
-  <!-- #add-class -->
-  <section>
-    <h3 class="display-6" id="add-class" permalinked>Toggle extra classes on the tooltip element</h3>
-
-    <div class="row example">
-      <div class="col-sm-8">
-        <p>
-          This example toggles an extra <code>.danger</code> class on
-          the tooltip, using the<code>boostrapComponentData</code>
-          property. This gives us access to <code>tip</code> property,
-          which is the top level HTML element for the tooltip.
-        </p>
-        <p class="doc-callout warning">
-          The <code>tip</code> property does not exist
-          until the tooltip has been opened for the first time,
-          so check for its existence for manipulating it.
-        </p>
-
-      </div>
-      <div class="col-sm-4">
-        <div class="demo">
-          <app-tooltip-demo-add-class></app-tooltip-demo-add-class>
-        </div>
-
-      </div>
-    </div>
-    <markdown-to-html [data]="gistFiles['tooltip-demo-add-class.component.ts'] | language : 'typescript'"></markdown-to-html>
-  </section>
-
-
-</section>
+  </div>
+</div>

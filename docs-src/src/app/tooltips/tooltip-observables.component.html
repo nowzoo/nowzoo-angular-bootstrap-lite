@@ -1,0 +1,17 @@
+<p>
+  <strong>Status:</strong>
+  {{tooltip.status | async}}
+</p>
+
+<p>
+  <strong>Last 5 Events:</strong>
+</p>
+<ul>
+  <li *ngFor="let e of last5">
+    {{e.type}}.{{e.namespace}} at {{e.timeStamp | amDateFormat: 'HH:mm:ss.SSS'}}
+  </li>
+</ul>
+<p>
+  <strong>Enabled:</strong>
+  {{tooltip.enabled | async | json}}
+</p>

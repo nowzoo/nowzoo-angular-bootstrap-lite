@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TooltipsComponent } from './tooltips.component';
+import { ModalsGoAwayNicelyComponent } from './modals-go-away-nicely.component';
 
-describe('TooltipsComponent', () => {
-  let component: TooltipsComponent;
-  let fixture: ComponentFixture<TooltipsComponent>;
+describe('ModalsGoAwayNicelyComponent', () => {
+  let component: ModalsGoAwayNicelyComponent;
+  let fixture: ComponentFixture<ModalsGoAwayNicelyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TooltipsComponent ]
+      declarations: [ ModalsGoAwayNicelyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TooltipsComponent);
+    fixture = TestBed.createComponent(ModalsGoAwayNicelyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

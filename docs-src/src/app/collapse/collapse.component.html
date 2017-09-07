@@ -1,0 +1,63 @@
+
+<h1 class="display-1">Collapse</h1>
+
+
+<h2>Example #1: Single Collapse</h2>
+<p>
+  By default, the collapse is initially shown.
+</p>
+<div class="row">
+  <div class="col-md">
+    <div nzbCollapse #collapseInstance1="nzbCollapse" class="collapse">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+    <p>
+      Status: {{ collapseInstance1.status | async }}
+    </p>
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-secondary btn-sm"
+        (click)="collapseInstance1.show()"
+        [disabled]="(collapseInstance1.status | async)!=='hidden'">show()</button>
+      <button class="btn btn-secondary btn-sm" (click)="collapseInstance1.hide()"
+        [disabled]="(collapseInstance1.status | async)!=='shown'">hide()</button>
+      <button class="btn btn-secondary btn-sm" (click)="collapseInstance1.toggle()">toggle()</button>
+    </p>
+  </div>
+</div>
+
+<h2>Example #2: Initially Hidden</h2>
+<p>
+  Use <code>data-toggle="false"</code> to hide the collapse initially.
+</p>
+<div class="row">
+  <div class="col-md">
+    <div nzbCollapse #collapseInstance2="nzbCollapse" class="collapse" data-toggle="false">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+    <p>
+      Status: {{ collapseInstance2.status | async }}
+    </p>
+  </div>
+  <div class="col-md">
+    <p>
+      <button class="btn btn-secondary btn-sm"
+        (click)="collapseInstance2.show()"
+        [disabled]="(collapseInstance2.status | async)!=='hidden'">show()</button>
+      <button class="btn btn-secondary btn-sm" (click)="collapseInstance2.hide()"
+        [disabled]="(collapseInstance2.status | async)!=='shown'">hide()</button>
+      <button class="btn btn-secondary btn-sm" (click)="collapseInstance2.toggle()">toggle()</button>
+    </p>
+  </div>
+</div>

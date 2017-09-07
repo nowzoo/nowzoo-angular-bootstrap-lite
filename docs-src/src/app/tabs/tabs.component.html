@@ -1,0 +1,156 @@
+<h1 class="display-1">Tabs</h1>
+
+<p class="lead">
+  Yada yada
+</p>
+
+<h2>Tabs</h2>
+
+<div class="row">
+  <div class="col-md">
+    <nzb-tabs uniqueId="tabDemo1" #tabsDemo1="nzbTabs">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" nzbTab="tab1">Tab 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" nzbTab="tab2">Tab 2</a>
+        </li>
+
+      </ul>
+      <div class="tab-content nzb-demo-tab-content">
+        <div nzbTabPane="tab1">
+          <p>
+            This is tab 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div nzbTabPane="tab2">
+          <p>
+            This is tab 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+    </nzb-tabs>
+
+  </div>
+  <div class="col-md">
+    <app-tabs-observables [tabs]="tabsDemo1"></app-tabs-observables>
+  </div>
+</div>
+
+<hr>
+
+<h2>Tabs with Dropdown</h2>
+
+<div class="row">
+  <div class="col-md">
+    <nzb-tabs uniqueId="tabDemo2" #tabsDemo2="nzbTabs">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" nzbTab="tab1">Tab 1</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" nzbTab="tab2">Tab 2</a>
+            <a class="dropdown-item" nzbTab="tab3">Tab 3</a>
+          </div>
+        </li>
+
+      </ul>
+      <div class="tab-content nzb-demo-tab-content">
+        <div nzbTabPane="tab1">
+          <p>
+            This is tab 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div nzbTabPane="tab2">
+          <p>
+            This is tab 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div nzbTabPane="tab3">
+          <p>
+            This is tab 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+    </nzb-tabs>
+
+  </div>
+  <div class="col-md">
+    <app-tabs-observables [tabs]="tabsDemo2"></app-tabs-observables>
+  </div>
+</div>
+<hr>
+<h2>Pills</h2>
+
+<div class="row">
+  <div class="col-md">
+    <nzb-tabs uniqueId="tabDemo3" #tabsDemo3="nzbTabs">
+      <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" nzbTab="tab1">Tab 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" nzbTab="tab2">Tab 2</a>
+        </li>
+
+      </ul>
+      <div class="tab-content nzb-demo-tab-content">
+        <div nzbTabPane="tab1">
+          <p>
+            This is tab 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div nzbTabPane="tab2">
+          <p>
+            This is tab 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+    </nzb-tabs>
+
+  </div>
+  <div class="col-md">
+    <app-tabs-observables [tabs]="tabsDemo3"></app-tabs-observables>
+  </div>
+</div>
+
+<h2>show()</h2>
+
+<div class="row">
+  <div class="col-md">
+    <p>
+      <button  class="btn btn-secondary btn-sm" (click)="tabsDemo4.show('tab1')">show('tab1')</button>
+      <button  class="btn btn-secondary btn-sm" (click)="tabsDemo4.show('tab2')">show('tab2')</button>
+    </p>
+    <nzb-tabs uniqueId="tabDemo4" #tabsDemo4="nzbTabs">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" nzbTab="tab1">Tab 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" nzbTab="tab2">Tab 2</a>
+        </li>
+
+      </ul>
+      <div class="tab-content nzb-demo-tab-content">
+        <div nzbTabPane="tab1">
+          <p>
+            This is tab 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div nzbTabPane="tab2">
+          <p>
+            This is tab 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+    </nzb-tabs>
+
+  </div>
+  <div class="col-md">
+    <app-tabs-observables [tabs]="tabsDemo4"></app-tabs-observables>
+  </div>
+</div>

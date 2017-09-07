@@ -1,0 +1,13 @@
+<p>
+  <strong>Status:</strong>
+  {{modal.status | async}}
+</p>
+
+<p>
+  <strong>Last 5 Events:</strong>
+</p>
+<ul>
+  <li *ngFor="let e of last5">
+    {{e.type}}.{{e.namespace}} at {{e.timeStamp | amDateFormat: 'HH:mm:ss.SSS'}}
+  </li>
+</ul>

@@ -1,66 +1,40 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/">nzb Demos</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/alerts">Alerts</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/carousels">Carousels</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/collapse">Collapse</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/dropdowns">Dropdowns</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/modals">Modals</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/popovers">Popovers</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/tooltips">Tooltips</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/tabs">Tabs</a>
+      </li>
 
-
-
-  <ul class="navbar-nav" *ngIf="currentLink">
-    <li class="nav-item d-lg-none">
-      <a class="nav-link"
-        href="javascript:void(0)" (click)="toggleSidebar()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </li>
-    <li class="nav-item active" >
-      <a class="navbar-brand"
-        [routerLink]="currentLink.routerLink"
-        fragment="top">
-        {{currentLink.label}}
-      </a>
-    </li>
-
-  </ul>
-
-  <ul class="navbar-nav">
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle"
-          href="#"
-          id="topMenuToggle"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false">
-          nzb
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="topMenuToggle">
-          <a
-            *ngFor="let item of links"
-            class="dropdown-item"
-            [class.active]="currentRouterLink===item.routerLink"
-            [routerLink]="item.routerLink"
-            [fragment]="item.fragment">{{item.label}}</a>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="http://github.com"><i class="fa fa-home"></i></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="http://github.com"><i class="fa fa-github"></i></a>
-    </li>
-
-  </ul>
-
-
-
-
+    </ul>
+  </div>
 </nav>
 
-<div #columns class="columns-container">
-  <div #route class="route-container">
-    <div class="inner">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-  <div #sidebar class="sidebar-container">
-    <div *ngIf="sidebarLink" class="inner">
-      <app-side-nav-item [item]="sidebarLink"></app-side-nav-item>
-    </div>
-  </div>
+
+<div class="container" style="padding-top: 30px">
+  <router-outlet></router-outlet>
 </div>

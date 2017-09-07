@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md">
+    <p>
+      <strong>activeTab</strong>
+    </p>
+    <pre>{{activeTabData | json}}</pre>
+    <p>
+      <strong>tabs</strong>
+    </p>
+    <pre>{{tabsData | json}}</pre>
+  </div>
+  <div class="col-md">
+    <p>
+      <strong>Last 5 Events:</strong>
+    </p>
+    <ul>
+      <li *ngFor="let e of last5">
+        {{e.type}}.{{e.namespace}} at {{e.timeStamp | amDateFormat: 'HH:mm:ss.SSS'}}
+      </li>
+    </ul>
+  </div>
+</div>

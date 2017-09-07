@@ -1,18 +1,217 @@
-<h1 class="display-2" id="top">
-  Popovers
-</h1>
+<h1 class="display-1">Popovers</h1>
+
+
+<h2>Simple</h2>
+
+<div class="row">
+  <div class="col-md">
+    <p>
+      Use the <code>title</code> (or <code>data-title</code>)
+      and <code>data-content</code> attributes with static strings.
+    </p>
+    <p>
+      <button class="btn btn-primary"
+        nzbPopover
+        #popover1="nzbPopover"
+        title="Static Title"
+        data-content="Some static popover content.">Popover (click)</button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-popover-observables [popover]="popover1"></app-popover-observables>
+  </div>
+</div>
+
 <hr>
+<h2>More Complex</h2>
 
+<div class="row">
+  <div class="col-md">
+    <p>
+      Use <code>ng-template</code>s with <code>nzbPopoverTitle</code>
+      and <code>nzbPopoverContent</code>
+      to enable variable interpolation and the popover API.
+    </p>
+    <p>
+      <button class="btn btn-primary"
+        nzbPopover
+        #popover2="nzbPopover"
+        [nzbPopoverTitle]="popover2Title"
+        [nzbPopoverContent]="popover2Content">Popover (click)</button>
+    </p>
+    <ng-template #popover2Title>
+      Shown for {{shownFor}}s
+    </ng-template>
+    <ng-template #popover2Content>
+      <p class="text-center">
+        This popover has been shown for
+      </p>
+      <h4 class="text-center">{{shownFor}}</h4>
+      <p class="text-center">
+        second<span *ngIf="shownFor !== 1">s</span>!
+      </p>
+      <p class="text-center">
+        <button class="btn btn-danger btn-lg" (click)="popover2.hide()">
+          Hide It
+        </button>
+      </p>
+    </ng-template>
+  </div>
+  <div class="col-md">
+    <app-popover-observables [popover]="popover2"></app-popover-observables>
+  </div>
+</div>
 
-<p class="lead">
-  <a
-    href="https://getbootstrap.com/docs/4.0/components/popovers/"
-    nzbTooltip
-    title="Bootstrap popover docs"
-    target="bsdocs">Bootstrap popovers<i class="fa fa-fw fa-external-link"></i></a>
-    with (optionally) <code>ng-template</code>s.
-</p>
+<hr>
+<h2>Options via <code>data-</code> attributes</h2>
 
-<app-popover-quickstart></app-popover-quickstart>
-<app-popover-options></app-popover-options>
-<app-popover-methods></app-popover-methods>
+<div class="row">
+  <div class="col-md">
+    <p>
+      This demo sets <code>data-animation="false"</code>.
+    </p>
+    <p>
+      <button class="btn btn-primary"
+        nzbPopover
+        #popover3="nzbPopover"
+        title="Static Title"
+        data-content="Some static popover content."
+        data-animation="false">Popover (click)</button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-popover-observables [popover]="popover3"></app-popover-observables>
+
+  </div>
+</div>
+
+<hr>
+<h2>Options passed via <code>nzbPopoverOptions</code></h2>
+
+<div class="row">
+  <div class="col-md">
+    <p>
+      This demo sets animation to false using
+      <code>[nzbPopoverOptions]="{{ '{' }}animation: false{{ '}' }}"</code>.
+    </p>
+    <p>
+      <button class="btn btn-primary"
+        nzbPopover
+        #popover4="nzbPopover"
+        title="Static Title"
+        data-content="Some static popover content."
+        [nzbPopoverOptions]="{animation: false}">Popover (click)</button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-popover-observables [popover]="popover4"></app-popover-observables>
+
+  </div>
+</div>
+
+<hr>
+<h2>Enable/Disable</h2>
+
+<div class="row">
+  <div class="col-md">
+    <p>
+      Demonstrates the
+      <code>enable()</code>, <code>disable()</code> and <code>toggleEnabled()</code> methods.
+    </p>
+
+    <p>
+      <button class="btn btn-primary"
+        nzbPopover
+        #popover5="nzbPopover"
+        title="Static Title"
+        data-content="Some static popover content.">Popover (click)</button>
+    </p>
+    <p>
+      <button class="btn btn-secondary btn-sm"
+        (click)="popover5.enable()"
+        [disabled]="(popover5.enabled | async)">enable()</button>
+      <button class="btn btn-secondary btn-sm"
+        (click)="popover5.disable()"
+        [disabled]="!(popover5.enabled | async)">disable()</button>
+      <button class="btn btn-secondary btn-sm"
+        (click)="popover5.toggleEnabled()">toggleEnabled()</button>
+    </p>
+
+    <div class="alert alert-warning">
+      Note that as of the <code>bootstrap@4.0.0-beta</code> release there is a bug that
+      calls <code>toggle()</code> on a popover even if it is disabled. This
+      means that the user must, in some cases, click twice to show the popover if
+      it has been disabled then enabled. This issue has been fixed in the development branch,
+      and should go away with the next Bootstrap release.
+      <a class="alert-link" href="https://github.com/twbs/bootstrap/issues/23525">More info...</a>
+    </div>
+  </div>
+  <div class="col-md">
+    <app-popover-observables [popover]="popover5"></app-popover-observables>
+
+  </div>
+</div>
+
+<hr>
+<h2>Show/Hide Programatically</h2>
+
+<div class="row">
+  <div class="col-md">
+    <p>
+      Demonstrates the
+      <code>show()</code>, <code>hide()</code> and <code>toggle()</code> methods.
+      Note that the popover target has <code>data-trigger="manual"</code>, so clicking
+      on it will not open the popover.
+    </p>
+
+    <p>
+      <button class="btn btn-primary"
+        nzbPopover
+        #popover6="nzbPopover"
+        title="Static Title"
+        data-content="Some static popover content."
+        data-trigger="manual">Popover (manual)</button>
+    </p>
+    <p>
+      <button class="btn btn-secondary btn-sm"
+        (click)="popover6.show()"
+        [disabled]="(popover6.status | async)!=='hidden'">show()</button>
+      <button class="btn btn-secondary btn-sm"
+        (click)="popover6.hide()"
+        [disabled]="(popover6.status | async)!=='shown'">hide()</button>
+      <button class="btn btn-secondary btn-sm"
+        (click)="popover6.toggle()">toggle()</button>
+    </p>
+  </div>
+  <div class="col-md">
+    <app-popover-observables [popover]="popover6"></app-popover-observables>
+
+  </div>
+</div>
+
+<hr>
+<h2>Dismiss on Click Outside</h2>
+
+<div class="row">
+  <div class="col-md">
+    <p>
+      Demonstrates how you can use the <code>status</code>
+      observable and <code>data</code> property to set up a listener that closes
+      the popover on a click outside.
+    </p>
+
+    <p>
+      <button class="btn btn-primary"
+        nzbPopover
+        #popover7="nzbPopover"
+        title="Static Title"
+        data-content="<p>Clicking inside this popover will not dismiss it.</p><p>Click outside to dismiss it.</p>"
+        data-html="true">Popover (click)</button>
+    </p>
+
+  </div>
+  <div class="col-md">
+    <app-popover-observables [popover]="popover7"></app-popover-observables>
+
+  </div>
+</div>
