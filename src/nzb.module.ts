@@ -1,46 +1,52 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NzbDynamicContentComponent } from './common/nzb-dynamic-content.component';
-import { NzbTooltipDirective } from './tooltip/nzb-tooltip.directive';
-import { NzbPopoverDirective } from './popover/nzb-popover.directive';
-import { NzbModalDirective } from './modal/nzb-modal.directive';
+import { NzbAlertDirective } from './alert/nzb-alert.directive';
+import { NzbCarouselDirective } from './carousel/nzb-carousel.directive';
 import { NzbCollapseDirective } from './collapse/nzb-collapse.directive';
-import { NzbTooltipOptions } from './tooltip/nzb-tooltip-options.class';
+import { NzbModalDirective } from './modal/nzb-modal.directive';
+import { NzbPopoverDirective } from './popover/nzb-popover.directive';
 import { NzbPopoverOptions } from './popover/nzb-popover-options.class';
+import { NzbTooltipDirective } from './tooltip/nzb-tooltip.directive';
+import { NzbTooltipOptions } from './tooltip/nzb-tooltip-options.class';
 import { NzbTabsComponent } from './tabs/nzb-tabs.component';
 import { NzbTabPaneDirective } from './tabs/nzb-tab-pane.directive';
 import { NzbTabDirective } from './tabs/nzb-tab.directive';
-import { NzbAlertDirective } from './alert/nzb-alert.directive';
-
+import { NzbDropdownDirective } from './dropdown/nzb-dropdown.directive';
+import { NzbDynamicContentComponent } from './common/nzb-dynamic-content.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    NzbDynamicContentComponent,
-    NzbTooltipDirective,
-    NzbPopoverDirective,
-    NzbModalDirective,
+    NzbAlertDirective,
+    NzbCarouselDirective,
     NzbCollapseDirective,
+    NzbDynamicContentComponent,
+    NzbModalDirective,
+    NzbPopoverDirective,
+    NzbTooltipDirective,
     NzbTabsComponent,
     NzbTabPaneDirective,
     NzbTabDirective,
-    NzbAlertDirective,
-  ],
-  providers:[
-    NzbTooltipOptions,
-    NzbPopoverOptions
+    NzbDropdownDirective
   ],
   exports: [
-    NzbTooltipDirective,
-    NzbPopoverDirective,
-    NzbModalDirective,
+    NzbAlertDirective,
+    NzbCarouselDirective,
     NzbCollapseDirective,
+    NzbDynamicContentComponent,
+    NzbModalDirective,
+    NzbPopoverDirective,
+    NzbTooltipDirective,
     NzbTabsComponent,
     NzbTabPaneDirective,
     NzbTabDirective,
-    NzbAlertDirective,
+    NzbDropdownDirective
+  ],
+  providers: [
+    NzbPopoverOptions,
+    NzbTooltipOptions
   ],
   entryComponents: [
     NzbDynamicContentComponent

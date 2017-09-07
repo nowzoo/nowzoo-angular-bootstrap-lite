@@ -8,36 +8,55 @@ import {
   ApplicationRef,
   ComponentFactoryResolver,
   ComponentRef,
-  EventEmitter,
   ElementRef,
   EmbeddedViewRef,
   NgZone
 } from '@angular/core';
 
-
+import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+
 declare let jQuery: any;
 
 
 import { NzbDynamicContentComponent } from './nzb-dynamic-content.component';
-import { NzbAbstractBootstrap } from './nzb-abstract-bootstrap.class';
 import { NzbPopupOptions } from '../common/nzb-popup-options.class';
 import { NzbPopoverOptions } from '../popover/nzb-popover-options.class';
 import { NzbTooltipOptions } from '../tooltip/nzb-tooltip-options.class';
 
 
-export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements AfterViewInit, OnDestroy {
+export abstract class NzbAbstractPopup implements AfterViewInit, OnDestroy {
 
 
+  protected abstract bsComponentName: string;
   protected abstract getInputTitleTemplate(): TemplateRef<any> | null;
   protected abstract getInputContentTemplate(): TemplateRef<any> | null;
   protected abstract getInputOptions(): NzbPopupOptions | null;
+
+  protected eventsSubject: Subject<Event> = new Subject();
+  protected statusSubject: BehaviorSubject<string> = new BehaviorSubject('uninitialized');
 
   private titleComponentRef: ComponentRef<NzbDynamicContentComponent> | null = null;
   private contentComponentRef: ComponentRef<NzbDynamicContentComponent> | null = null;
 
   protected enabledSubject: BehaviorSubject<boolean> = new BehaviorSubject(true);
+
+  get enabled(): Observable<boolean> {
+    return this.enabledSubject.asObservable();
+  }
+
+  get status(): Observable<string> {
+    return this.statusSubject.asObservable();
+  }
+
+  get events(): Observable<Event> {
+    return this.eventsSubject.asObservable();
+  }
+
+  get data(): any {
+    return jQuery(this.elementRef.nativeElement).data('bs.' + this.bsComponentName);
+  }
 
 
   constructor (
@@ -46,28 +65,22 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
     private viewContainer: ViewContainerRef,
     private appRef: ApplicationRef,
     private cfr: ComponentFactoryResolver,
-    ngZone: NgZone,
+    private ngZone: NgZone,
     private defaultOptions: NzbPopupOptions
-  ) {
-    super(ngZone)
+  ) { }
+
+
+
+  protected getEventNames(): string {
+    const events = ['inserted', 'show', 'shown', 'hide', 'hidden'].map((type:string) => {
+      return type + '.bs.' + this.bsComponentName;
+    })
+    return events.join(' ');
   }
 
-
-  private normalizedOptions: NzbPopupOptions;
-
-  protected runBsFunc(func: string): void {
-    super.runBsFunc(this.elementRef.nativeElement, func);
-  }
-
-
-  protected getEventTypes(): string[] {
-    const types = super.getEventTypes();
-    types.push('inserted');
-    return types;
-  }
 
   private normalizeOptions() {
-    const options: NzbPopupOptions = {};
+    const appOptions: NzbPopupOptions = new NzbPopupOptions()
     let inputOptions = this.getInputOptions();
     let defaultOptions = this.defaultOptions;
     if (! inputOptions) {
@@ -76,87 +89,12 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
     if (! defaultOptions) {
       defaultOptions = {};
     }
-    if (typeof inputOptions.animation === 'boolean'){
-      options.animation = inputOptions.animation;
-    } else {
-      if (typeof defaultOptions.animation === 'boolean'){
-        options.animation = defaultOptions.animation;
-      }
-    }
-    if (typeof inputOptions.animateOnDestroy === 'boolean'){
-      options.animateOnDestroy = inputOptions.animateOnDestroy;
-    } else {
-      if (typeof defaultOptions.animateOnDestroy === 'boolean'){
-        options.animateOnDestroy = defaultOptions.animateOnDestroy;
-      }
-    }
-    if (inputOptions.container) {
-      options.container = inputOptions.container
-    } else {
-      if (defaultOptions.container) {
-        options.container = defaultOptions.container
-      }
-    }
-    if (inputOptions.delay) {
-      options.delay = inputOptions.delay
-    } else {
-      if (defaultOptions.delay) {
-        options.delay = defaultOptions.delay
-      }
-    }
-    if (typeof inputOptions.html === 'boolean'){
-      options.html = inputOptions.html;
-    } else {
-      if (typeof defaultOptions.html === 'boolean'){
-        options.html = defaultOptions.html;
-      }
-    }
-    if (inputOptions.placement) {
-      options.placement = inputOptions.placement
-    } else {
-      if (defaultOptions.placement) {
-        options.placement = defaultOptions.placement
-      }
-    }
 
-    if (typeof inputOptions.template === 'string'){
-      options.template = inputOptions.template;
-    } else {
-      if (typeof defaultOptions.template === 'string'){
-        options.template = defaultOptions.template;
-      }
-    }
-
-    if (typeof inputOptions.trigger === 'string'){
-      options.trigger = inputOptions.trigger;
-    } else {
-      if (typeof defaultOptions.trigger === 'string'){
-        options.trigger = defaultOptions.trigger;
-      }
-    }
-
-    if (inputOptions.offset) {
-      options.offset = inputOptions.offset
-    } else {
-      if (defaultOptions.offset) {
-        options.offset = defaultOptions.offset
-      }
-    }
-
-    if (inputOptions.fallbackPlacement) {
-      options.fallbackPlacement = inputOptions.fallbackPlacement
-    } else {
-      if (defaultOptions.fallbackPlacement) {
-        options.fallbackPlacement = defaultOptions.fallbackPlacement
-      }
-    }
-    this.normalizedOptions = options;
-    return Object.assign({}, this.normalizedOptions);
+    return Object.assign({}, appOptions, defaultOptions, inputOptions);
   }
 
   private initPopup() {
     const $el = jQuery(this.elementRef.nativeElement);
-    const eventNames = this.getEventNames().join(' ');
     const factory = this.cfr.resolveComponentFactory(NzbDynamicContentComponent);
     const inputTitle = this.getInputTitleTemplate();
     const inputContentTemplate = this.getInputContentTemplate();
@@ -183,7 +121,14 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
       bsConfig.content = this.contentComponentRef.location.nativeElement;
       bsConfig.html = true;
     }
-    this.initBootsrapListeners($el)
+    this.ngZone.runOutsideAngular(() => {
+      $el.on(this.getEventNames(), (event: Event) => {
+        this.ngZone.run(() => {
+          this.eventsSubject.next(event);
+          this.statusSubject.next(event.type);
+        })
+      })
+    })
     $el[this.bsComponentName](bsConfig);
     this.statusSubject.next('hidden');
   }
@@ -216,7 +161,7 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
       }
       this.ngZone.runOutsideAngular(() => {
 
-        if (this.statusSubject.value === 'shown'  && this.normalizedOptions.animateOnDestroy) {
+        if (this.statusSubject.value === 'shown'  && this.normalizeOptions().animateOnDestroy) {
           $el.one('hidden.bs.' + this.bsComponentName, () => {
             reallyDispose();
             this.ngZone.run( () => {});
@@ -232,19 +177,19 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
   }
 
   toggle(): void {
-    this.runBsFunc('toggle');
+    jQuery(this.elementRef.nativeElement)[this.bsComponentName]('toggle');
   }
   show(): void {
-    this.runBsFunc('show');
+    jQuery(this.elementRef.nativeElement)[this.bsComponentName]('show');
   }
   hide(): void {
-    this.runBsFunc( 'hide');
+    jQuery(this.elementRef.nativeElement)[this.bsComponentName]( 'hide');
   }
 
 
   enable() {
     this.ngZone.runOutsideAngular(() => {
-      this.runBsFunc('enable');
+      jQuery(this.elementRef.nativeElement)[this.bsComponentName]('enable');
       this.ngZone.run(() => {
         this.enabledSubject.next(true);
       });
@@ -253,7 +198,7 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
 
   disable() {
     this.ngZone.runOutsideAngular(() => {
-    this.runBsFunc('disable');
+      jQuery(this.elementRef.nativeElement)[this.bsComponentName]('disable');
       this.ngZone.run(() => {
         this.enabledSubject.next(false);
       });
@@ -263,28 +208,13 @@ export abstract class NzbAbstractPopup extends NzbAbstractBootstrap implements A
   toggleEnabled() {
     const enabledNext = ! this.enabledSubject.value;
     this.ngZone.runOutsideAngular(() => {
-      this.runBsFunc('toggleEnabled');
+      jQuery(this.elementRef.nativeElement)[this.bsComponentName]('toggleEnabled');
       this.ngZone.run(() => {
         this.enabledSubject.next(enabledNext);
       });
     });
   }
   update() {
-    this.runBsFunc('update');
+    jQuery(this.elementRef.nativeElement)[this.bsComponentName]('update');
   }
-
-
-
-
-
-
-
-  get enabled(): boolean {
-    return this.enabledSubject.value;
-  }
-
-  get boostrapComponentData(): any {
-    return jQuery(this.elementRef.nativeElement).data('bs.' + this.bsComponentName);
-  }
-
 }

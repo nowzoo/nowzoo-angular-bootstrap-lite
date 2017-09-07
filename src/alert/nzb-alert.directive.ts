@@ -2,9 +2,9 @@ import {
   Directive,
   Renderer2,
   ElementRef,
-  TemplateRef,
   NgZone,
-  AfterViewInit
+  AfterViewInit,
+  Input
 } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -19,10 +19,11 @@ declare let jQuery: any;
 
 })
 export class NzbAlertDirective implements AfterViewInit {
-
-  private bsComponentName: string = 'alert';
+  @Input() initiallyOpen: boolean = true;
   private eventsSubject: Subject<Event> = new Subject();
   private statusSubject: BehaviorSubject<string> = new BehaviorSubject('uninitialized');
+  private $placeholder: any;
+  private $el: any;
 
   get events(): Observable<Event> {
     return this.eventsSubject.asObservable();
@@ -34,28 +35,69 @@ export class NzbAlertDirective implements AfterViewInit {
 
   constructor (
     private elementRef: ElementRef,
-    private templateRef: TemplateRef<any>,
     private renderer: Renderer2,
-    private ngZone: NgZone,
+    private ngZone: NgZone
   ) {  }
 
   ngAfterViewInit() {
     setTimeout(() => {
-      const $el = jQuery(this.elementRef.nativeElement);
-      $el.on('close.bs.alert closed.bs.alert', (event: Event) => {
-        this.eventsSubject.next(event);
-        this.statusSubject.next(event.type);
-      })
-      $el.alert();
-      this.statusSubject.next('shown');
+      const comment = this.renderer.createComment('alert placeholder');
+      this.$el = jQuery(this.elementRef.nativeElement);
+      this.$placeholder = jQuery(comment);
+      this.$el.before(this.$placeholder);
+      if (this.initiallyOpen) {
+        this.open();
+      } else {
+        this.close();
+      }
     });
 
   }
+  open() {
+    this.ngZone.runOutsideAngular(() => {
+      this.$placeholder.after(this.$el);
+      this.statusSubject.next('opening');
+      this.$el.one('close.bs.alert', (event: Event) => {
+        this.ngZone.run(() =>{
+          this.eventsSubject.next(event);
+          this.statusSubject.next('closing');
+        });
+      });
+      this.$el.one('closed.bs.alert', (event: Event) => {
+        this.ngZone.run(() =>{
+          this.statusSubject.next('closed');
+        });
+      });
 
-  hide(): void {
-    const $el = jQuery(this.elementRef.nativeElement);
-    $el.alert('hide');
+
+      this.$el.alert();
+
+      this.ngZone.run(() => {
+        if (! this.$el.hasClass('fade')){
+          this.statusSubject.next('open');
+          return;
+        }
+        this.$el.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', (event: Event) => {
+          this.ngZone.run(() =>{
+            this.statusSubject.next('open');
+          });
+        });
+        setTimeout(() => {
+          this.$el.addClass('show')
+        }, 100)
+
+      });
+    });
   }
-
-
+  close() {
+    if ('uninitialized' === this.statusSubject.value){
+      this.$el.remove();
+      this.statusSubject.next('closed');
+      return;
+    }
+    if ('open' !== this.statusSubject.value){
+      return;
+    }
+    jQuery(this.elementRef.nativeElement).alert('close');
+  }
 }

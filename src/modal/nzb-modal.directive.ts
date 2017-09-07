@@ -27,6 +27,15 @@ export class NzbModalDirective  implements  OnDestroy {
   private eventsSubject: Subject<Event> = new Subject();
   private statusSubject: BehaviorSubject<string> = new BehaviorSubject('uninitialized');
   private componentRef: ComponentRef<NzbDynamicContentComponent>;
+
+  get status(): Observable<string> {
+    return this.statusSubject.asObservable();
+  }
+
+  get events(): Observable<Event> {
+    return this.eventsSubject.asObservable();
+  }
+  
   constructor(
     private ngZone: NgZone,
     private templateRef: TemplateRef<any>,
@@ -96,12 +105,6 @@ export class NzbModalDirective  implements  OnDestroy {
     jQuery('.modal', this.componentRef.location.nativeElement).modal('handleUpdate');
   }
 
-  get status(): Observable<string> {
-    return this.statusSubject.asObservable();
-  }
 
-  get events(): Observable<Event> {
-    return this.eventsSubject.asObservable();
-  }
 
 }

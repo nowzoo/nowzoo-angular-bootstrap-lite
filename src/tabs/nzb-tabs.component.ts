@@ -7,10 +7,12 @@ import {
   ContentChildren,
   EventEmitter,
   Renderer2,
-  QueryList
+  QueryList,
+  NgZone
 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/takeUntil';
 declare const jQuery: any;
@@ -27,6 +29,7 @@ function getRandomId() {
 
 @Component({
   selector: 'nzb-tabs',
+  exportAs: 'nzbTabs',
   template: `<ng-content></ng-content>`
 })
 export class NzbTabsComponent implements AfterContentInit, OnInit {
@@ -37,12 +40,28 @@ export class NzbTabsComponent implements AfterContentInit, OnInit {
   @ContentChildren(NzbTabPaneDirective) nzbTabPaneDirectives: QueryList<NzbTabPaneDirective>;
 
   private ngUnsubscribe: EventEmitter<any> = new EventEmitter();
-  private tabs: Map<string, NzbTabData> = new Map();
+  private tabsMap: Map<string, NzbTabData> = new Map();
 
-  activeTab: BehaviorSubject<NzbTabData|null> = new BehaviorSubject(null);
+
+
+  private tabsSubject: BehaviorSubject<NzbTabData[]> = new BehaviorSubject([]);
+  get tabs(): Observable<NzbTabData[]> {
+    return this.tabsSubject.asObservable();
+  }
+  private activeTabSubject: BehaviorSubject<NzbTabData|null> = new BehaviorSubject(null);
+  get activeTab(): Observable<NzbTabData|null> {
+    return this.activeTabSubject.asObservable();
+  }
+
+  private eventsSubject: Subject<Event> = new Subject();
+  get events(): Observable<Event> {
+    return this.eventsSubject.asObservable();
+  }
+
   constructor(
     private elementRef: ElementRef,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private ngZone: NgZone
   ) { }
 
 
@@ -50,27 +69,40 @@ export class NzbTabsComponent implements AfterContentInit, OnInit {
     const tabs: NzbTabData[] = [];
     const ids: string[] = [];
     let activeId: string|null = null;
-    this.tabs.clear();
-    jQuery(this.elementRef.nativeElement).on('show.bs.tab shown.bs.tab hide.bs.tab hidden.bs.tab', (event:Event) => {
-      const id = jQuery(event.target).attr('nzbTab');
-      const data: NzbTabData|null = this.tabs.get(id) || null;
-      if (data) {
-        data.status = event.type;
-        switch(event.type) {
-          case 'hidden':
-            data.visible = false;
-            break;
-          case 'hide':
-            data.active = false;
-            break;
-          case 'show':
-            data.active = true;
-            data.visible = true;
-            this.activeTab.next(data);
-            break;
-        }
-      }
+    let activeTab;
+    this.tabsMap.clear();
+    this.ngZone.runOutsideAngular(() => {
+      jQuery(this.elementRef.nativeElement).on('show.bs.tab shown.bs.tab hide.bs.tab hidden.bs.tab', (event:Event) => {
+
+        this.ngZone.run(() => {
+          const id = jQuery(event.target).attr('nzbTab');
+          const data: NzbTabData|null = this.tabsMap.get(id) || null;
+          const tabs: NzbTabData[] = [];
+          if (data) {
+            data.status = event.type;
+            switch(event.type) {
+              case 'hidden':
+                data.visible = false;
+                break;
+              case 'hide':
+                data.active = false;
+                break;
+              case 'show':
+                data.active = true;
+                data.visible = true;
+                this.activeTabSubject.next(data);
+                break;
+            }
+          }
+          this.tabsMap.forEach((entry: NzbTabData) => {
+            tabs.push(entry);
+          })
+          this.tabsSubject.next(tabs);
+          this.eventsSubject.next(event);
+        })
+      })
     })
+
 
     this.nzbTabDirectives.forEach((tab: NzbTabDirective) => {
       const tabData = new NzbTabData(tab);
@@ -79,7 +111,7 @@ export class NzbTabsComponent implements AfterContentInit, OnInit {
             ids.push(tab.id);
             tabData.pane = pane;
             tabs.push(tabData);
-            this.tabs.set(tab.id, tabData);
+            this.tabsMap.set(tab.id, tabData);
           }
       });
     });
@@ -122,6 +154,7 @@ export class NzbTabsComponent implements AfterContentInit, OnInit {
       }
       if (activeId === tab.id) {
         this.renderer.addClass(tab.pane.el, 'active');
+        this.renderer.addClass(tab.tab.el, 'active');
         if (this.animation){
           this.renderer.addClass(tab.pane.el, 'show');
         }
@@ -134,12 +167,13 @@ export class NzbTabsComponent implements AfterContentInit, OnInit {
       this.renderer.setAttribute(tab.tab.el, 'data-toggle', 'tab');
 
       if (activeId === tab.id) {
-        jQuery(tab.tab.el).tab('show');
-      } else {
-        jQuery(tab.tab.el).tab();
+        activeTab = tab;
       }
     })
-
+    if (activeTab) {
+      this.activeTabSubject.next(activeTab);
+    }
+    this.tabsSubject.next(tabs);
 
   }
 
@@ -160,7 +194,11 @@ export class NzbTabsComponent implements AfterContentInit, OnInit {
 
   }
 
-
-
+  show(id: string): void {
+    const tab: any = this.tabsMap.get(id);
+    if (tab) {
+      jQuery(tab.tab.el).tab('show');
+    }
+  }
 
 }

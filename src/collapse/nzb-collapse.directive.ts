@@ -1,62 +1,73 @@
 import {
   Directive,
-  AfterViewInit,
-  OnDestroy,
+  NgZone,
   ElementRef,
-  NgZone
+  AfterViewInit,
+  OnDestroy
 } from '@angular/core';
 
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+
 declare const jQuery: any;
-
-import { NzbAbstractBootstrap } from '../common/nzb-abstract-bootstrap.class';
-
 
 @Directive({
   selector: '[nzbCollapse]',
   exportAs: 'nzbCollapse'
 })
-export class NzbCollapseDirective extends NzbAbstractBootstrap  implements AfterViewInit, OnDestroy {
+export class NzbCollapseDirective implements AfterViewInit, OnDestroy {
 
-  protected bsComponentName: string = 'collapse';
+  private eventsSubject: Subject<Event> = new Subject();
+  private statusSubject: BehaviorSubject<string> = new BehaviorSubject('uninitialized');
+
+  get events(): Observable<Event> {
+    return this.eventsSubject.asObservable();
+  }
+
+  get status(): Observable<string> {
+    return this.statusSubject.asObservable();
+  }
+
   constructor(
     private elementRef: ElementRef,
-    ngZone: NgZone
-  ) {
-    super(ngZone);
-  }
+    private ngZone: NgZone
+  ) { }
 
   ngAfterViewInit() {
     setTimeout(() => {
       const $el = jQuery(this.elementRef.nativeElement);
-      this.initBootsrapListeners($el);
+      const shown = $el.data('toggle') === true;
+
       this.ngZone.runOutsideAngular(() => {
-        $el.addClass('collapse');
-        $el.collapse({toggle: $el.data('toggle')});
+        $el.on('show.bs.collapse shown.bs.collapse hide.bs.collapse hidden.bs.collapse', (event: Event) => {
+          this.ngZone.run(() => {
+            this.eventsSubject.next(event);
+            this.statusSubject.next(event.type);
+          })
+        })
+        $el.collapse();
+        this.statusSubject.next(shown ? 'shown' : 'hidden');
       })
     })
   }
 
   ngOnDestroy() {
     setTimeout(() => {
-      this.destroyBootsrapListeners(jQuery(this.elementRef.nativeElement));
-    })
-
-  }
-
-  protected runBsFunc(f: string) {
-    return super.runBsFunc(jQuery(this.elementRef.nativeElement), f);
+      const $el = jQuery(this.elementRef.nativeElement);
+      $el.off('show.bs.collapse shown.bs.collapse hide.bs.collapse hidden.bs.collapse');
+    });
   }
 
   toggle() {
-    this.runBsFunc('toggle')
+    jQuery(this.elementRef.nativeElement).collapse('toggle')
   }
 
   show() {
-    this.runBsFunc('show')
+    jQuery(this.elementRef.nativeElement).collapse('show')
   }
 
   hide() {
-    this.runBsFunc('hide')
+   jQuery(this.elementRef.nativeElement).collapse('hide')
   }
-
 }
