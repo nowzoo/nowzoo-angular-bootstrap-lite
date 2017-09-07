@@ -1,4 +1,4 @@
-# nzb
+# nowzoo-angular-bootstrap-lite (nzb)
 
 This library is an Angular 4+ wrapper for  Bootstrap 4 Beta.
 
@@ -11,13 +11,12 @@ This library is an Angular 4+ wrapper for  Bootstrap 4 Beta.
 Bootstrap works. Angular works. This library attempts to wrap the Bootstrap API as simply and as consistently as possible.
 
 ## What's included
+ - Alerts
  - Modals
  - Popovers
  - Tooltips
  - Tabs (tabs, pills, list groups)
  - Collapse
- - Alerts
- - Buttons
  - Carousels
  - Dropdowns
 
@@ -25,7 +24,7 @@ Bootstrap works. Angular works. This library attempts to wrap the Bootstrap API 
 
 Install the library.
 ```bash
-npm i --save nowzoo-nzb
+npm i --save nowzoo-angular-bootstrap-lite
 ```
 Add the jQuery, Popper and Bootstrap scripts and the Bootstrap css to your build. For an Angular CLI project, add them in `angular-cli.json`...
 ```json
