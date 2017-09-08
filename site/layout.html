@@ -56,13 +56,13 @@
       <%= contents %>
 
     </div>
+    <%
+    jsFiles.forEach(file => {
+      %>
+      <script type="text/javascript" src="/demos/<%= file %>"></script>
+      <%
+    })
+    %>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script type="text/javascript" src="https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/inline.5dba3ab151952804d1c4.bundle.js"></script>
-    <script type="text/javascript" src="https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/polyfills.f77454f386e1728adda2.bundle.js"></script>
-    <script type="text/javascript" src="https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/scripts.028ef4b1f5280b4afc3c.bundle.js"></script>
-    <script type="text/javascript" src="https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/vendor.a8b7eb7fd294167aa469.bundle.js"></script>
-    <script type="text/javascript" src="https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/main.a1bff1dd957f840b334a.bundle.js"></script>
   </body>
 </html>
