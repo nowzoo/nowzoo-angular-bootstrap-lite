@@ -59,9 +59,11 @@
       
     <script type="text/javascript">
     jQuery(document).ready(function($){
-      var g = '<span class="sr-only"> (current)</span>'
-      console.log(location);
-      $('#topNavCollapse .nav-item .nav-link[href="' + location.pathname + '"]').parent('.nav-item').addClass('active');
+      var span = '<span class="sr-only"> (current)</span>';
+      var loc = location.pathname.replace(/^\//, '').replace(/\/$/, '').split('/');
+      var top = '/' + loc.slice(0, 2).join('/') + '/'
+      console.log(top);
+      $('#topNavCollapse .nav-item .nav-link[href="' + top + '"]').parent('.nav-item').addClass('active');
     })
     </script>
   </body>
