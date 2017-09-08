@@ -15,23 +15,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">nzb</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <nav id="topNav" class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/nowzoo-angular-bootstrap-lite/">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavCollapse" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="topNavCollapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/nowzoo-angular-bootstrap-lite/">Home</a>
           </li>
+
+
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown link
+            <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/alerts/" id="alertsMenuToggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Alerts
             </a>
-            <div class="dropdown-menu" aria-labelledby="alertsMenu">
-              <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/alerts">Documentation</a>
-              <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/alerts/demo">Demos</a>
+            <div class="dropdown-menu" aria-labelledby="alertsMenuToggle">
+              <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/alerts/">Documentation</a>
+              <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/alerts/demo/">Demos</a>
             </div>
           </li>
         </ul>
@@ -49,20 +51,7 @@
 
       
           <app-root></app-root>
-          <script type="text/javascript">
-          var demo = 'alerts';
-          </script>
           
-            <script type="text/javascript" src="/demos/inline.57e58394a11c00fd9cd5.bundle.js"></script>
-            
-            <script type="text/javascript" src="/demos/polyfills.f77454f386e1728adda2.bundle.js"></script>
-            
-            <script type="text/javascript" src="/demos/scripts.e51c87e71e02d1e3e5d9.bundle.js"></script>
-            
-            <script type="text/javascript" src="/demos/vendor.ee3afd5e0df6ecff9622.bundle.js"></script>
-            
-            <script type="text/javascript" src="/demos/main.d7c5f70dc5e47a0dd9c9.bundle.js"></script>
-            
 
     </div>
     
@@ -82,7 +71,9 @@
         
     <script type="text/javascript">
     jQuery(document).ready(function($){
+      var g = '<span class="sr-only"> (current)</span>'
       console.log(location);
+      $('#topNavCollapse .nav-item .nav-link[href="' + location.pathName + '"]').parent('.nav-item').addClass('active');
     })
     </script>
   </body>
