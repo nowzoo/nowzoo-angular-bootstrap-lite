@@ -11,17 +11,31 @@ var rimraf = require('rimraf');
 var glob = require('glob');
 const shell = require('shelljs');
 const chalk = require('chalk');
-const lodashCompiler = _.template(fs.readFileSync('./site/layout.html', 'utf8'));
+const lodashCompiler = _.template(fs.readFileSync('./docs-src/layout.html', 'utf8'));
 
 
-shell.echo(`Start building demos...`);
-shell.rm(`-Rf`, `docs/*`);
-shell.cd('demos');
-shell.exec('ng build -aot --target=production --base-href /nowzoo-angular-bootstrap-lite/demos --deploy-url https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/demos --output-path ../docs/demos')
-shell.cd(__dirname);
-shell.echo(`Demos built.`);
+// shell.echo(`Start building demos...`);
+// shell.rm(`-Rf`, `docs/*`);
+// shell.cd('docs-src/demo-app');
+// shell.exec('ng build -aot --target=production  --output-path ../../docs/demos')
+// shell.cd(__dirname);
+// shell.echo(`Demos built.`);
 
-gulp.src('./site/**/*.md')
+var jsGlob = glob.sync('./docs/demos/*.js');
+var jsFiles = [];
+var jsNames = ['inline', 'polyfills', 'scripts', 'vendor', 'main'];
+jsNames.forEach(name => {
+
+  jsGlob.forEach(p => {
+    var normalized = path.basename(p).split('.')[0];
+    if (normalized === name) {
+      jsFiles.push(path.basename(p));
+    }
+  })
+})
+//console.log(jsFiles)
+
+gulp.src('./docs-src/pages/**/*.md')
 
   .pipe(frontMatter())
   .pipe(through.obj(function (file, enc, cb) {
@@ -35,7 +49,7 @@ gulp.src('./site/**/*.md')
     }
   }))
   .pipe(through.obj(function (file, enc, cb) {
-    let data = Object.assign({}, file.data, {contents: file.contents.toString()});
+    let data = Object.assign({}, file.data, {contents: file.contents.toString(), jsFiles: jsFiles});
     let page = lodashCompiler(data);
     file.contents = new Buffer(page);
     cb(null, file);

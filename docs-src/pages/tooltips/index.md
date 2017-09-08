@@ -1,3 +1,7 @@
+---
+title: Tooltips
+---
+
 - `NzbTooltipDirective` [code](https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/tooltip/nzb-tooltip.directive.ts)
 - `selector: '[nzbTooltip]'`
 - `exportAs: 'nzbTooltip'`
