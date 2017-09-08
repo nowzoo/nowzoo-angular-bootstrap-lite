@@ -59,19 +59,18 @@ export class AppModule { }
 
 ## Alerts
 
-[Examples](https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/alerts)
+- `NzbAlertDirective` [code](https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/alert/nzb-alert.directive.ts)
+- `selector: '[nzbAlert]'`
+- `exportAs: 'nzbAlert'`
+- [Examples](https://nowzoo.github.io/nowzoo-angular-bootstrap-lite/alerts)
 
-Use the `nzbAlert` selector in native Bootstrap alert markup.  This creates an instance of `NzbAlertDirective`, with an API that closely follows the native Bootstrap implementation. Notes:
+Use the `nzbAlert` selector with native Bootstrap alert markup.  This creates an instance of `NzbAlertDirective`, with an API that closely follows the native Bootstrap implementation. Notes:
 
 - Bootstrap removes the alert markup when the modal is closed. The library does not change this behavior,
 but it does provide an `open` method that reinserts the original markup into the DOM &mdash; showing the alert again.
 - Relatedly, you can hide the alert when it is instantiated using the `initiallyOpen` input.
 
-
-Directive:  `NzbAlertDirective` [code](https://github.com/nowzoo/nowzoo-angular-bootstrap-lite/blob/master/src/alert/nzb-alert.directive.ts)
- | selector: `[nzbAlert]` | exportAs: `nzbAlert`
-
-### Usage
+### Alerts Usage
 
 ```html
 <div nzbAlert #alert1="nzbAlert" class="alert alert-warning alert-dismissible fade" role="alert">
@@ -94,19 +93,19 @@ export class SomeComponent implements AfterViewInit {
 }
 ```
 
-### Options
+### `NzbAlertDirective` Options
 
 - `initiallyOpen: boolean = true` Whether to show the alert initially. Use `[initiallyOpen]="false"` to hide the alert.
 - Use the contextual classes (e.g. `alert-warning`) as you would normally.
 - Add the `fade` class to enable animation.
 - Add the `alert-dismissable` class if you include a close button.
 
-### Methods
+### `NzbAlertDirective` Methods
 
 - `close(): void` A wrapper around the native method. Within the modal, you can use `data-dismiss="alert"` as well. Note that Bootstrap removes the markup from the DOM when the alert is closed; we do not change this behavior.
 - `open(): void` Reinserts the alert markup (if necessary) and shows the alert.
 
-### Properties
+### `NzbAlertDirective` Properties
 
 - `status: Observable<string>` One of:
   - 'uninitialized'
