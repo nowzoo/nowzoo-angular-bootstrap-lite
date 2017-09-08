@@ -32,17 +32,28 @@
           <li class="nav-item">
             <a class="nav-link" href="/nowzoo-angular-bootstrap-lite/">Home</a>
           </li>
-
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/alerts/" id="alertsMenuToggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Alerts
-            </a>
-            <div class="dropdown-menu" aria-labelledby="alertsMenuToggle">
-              <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/alerts/">Documentation</a>
-              <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/alerts/demo/">Demos</a>
-            </div>
-          </li>
+          <%
+          topNav.forEach(title => {
+            var href = '/nowzoo-angular-bootstrap-lite/' + title.toLowerCase() + '/';
+            %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="<%= href %>" id="navMenuToggle<%= title %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= title %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navMenuToggle<%= title %>">
+                <a class="dropdown-item" href="<%= href %>">Documentation</a>
+                <a class="dropdown-item" href="<%= href %>demo/">Demos</a>
+              </div>
+            </li>
+            <%
+          })
+          %>
+        </ul>
+        <ul class="navbar-nav mr-auto">
+          <a title="View code on GitHub" class="nav-link" href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span class="sr-only">View code on GitHub</span>
+          </a>
         </ul>
       </div>
     </nav>
@@ -90,9 +101,10 @@
     jQuery(document).ready(function($){
       var span = '<span class="sr-only"> (current)</span>';
       var loc = location.pathname.replace(/^\//, '').replace(/\/$/, '').split('/');
-      var top = '/' + loc.slice(0, 2).join('/') + '/'
-      console.log(top);
-      $('#topNavCollapse .nav-item .nav-link[href="' + top + '"]').parent('.nav-item').addClass('active');
+      var top = '/' + loc.slice(0, 2).join('/') + '/';
+      var link =   $('#topNavCollapse .nav-item .nav-link[href="' + top + '"]');
+      link.parent('.nav-item').addClass('active');
+      link.appendChild(span);
     })
     </script>
   </body>

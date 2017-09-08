@@ -25,17 +25,93 @@
           <li class="nav-item">
             <a class="nav-link" href="/nowzoo-angular-bootstrap-lite/">Home</a>
           </li>
-
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/alerts/" id="alertsMenuToggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Alerts
-            </a>
-            <div class="dropdown-menu" aria-labelledby="alertsMenuToggle">
-              <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/alerts/">Documentation</a>
-              <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/alerts/demo/">Demos</a>
-            </div>
-          </li>
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/alerts/" id="navMenuToggleAlerts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Alerts
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navMenuToggleAlerts">
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/alerts/">Documentation</a>
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/alerts/demo/">Demos</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/carousels/" id="navMenuToggleCarousels" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Carousels
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navMenuToggleCarousels">
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/carousels/">Documentation</a>
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/carousels/demo/">Demos</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/collapse/" id="navMenuToggleCollapse" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Collapse
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navMenuToggleCollapse">
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/collapse/">Documentation</a>
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/collapse/demo/">Demos</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/dropdowns/" id="navMenuToggleDropdowns" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdowns
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navMenuToggleDropdowns">
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/dropdowns/">Documentation</a>
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/dropdowns/demo/">Demos</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/modals/" id="navMenuToggleModals" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Modals
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navMenuToggleModals">
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/modals/">Documentation</a>
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/modals/demo/">Demos</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/popovers/" id="navMenuTogglePopovers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Popovers
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navMenuTogglePopovers">
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/popovers/">Documentation</a>
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/popovers/demo/">Demos</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/tabs/" id="navMenuToggleTabs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tabs
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navMenuToggleTabs">
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/tabs/">Documentation</a>
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/tabs/demo/">Demos</a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/nowzoo-angular-bootstrap-lite/tooltips/" id="navMenuToggleTooltips" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tooltips
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navMenuToggleTooltips">
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/tooltips/">Documentation</a>
+                <a class="dropdown-item" href="/nowzoo-angular-bootstrap-lite/tooltips/demo/">Demos</a>
+              </div>
+            </li>
+            
+        </ul>
+        <ul class="navbar-nav mr-auto">
+          <a title="View code on GitHub" class="nav-link" href="https://github.com/nowzoo/nowzoo-angular-bootstrap-lite">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span class="sr-only">View code on GitHub</span>
+          </a>
         </ul>
       </div>
     </nav>
@@ -61,9 +137,10 @@
     jQuery(document).ready(function($){
       var span = '<span class="sr-only"> (current)</span>';
       var loc = location.pathname.replace(/^\//, '').replace(/\/$/, '').split('/');
-      var top = '/' + loc.slice(0, 2).join('/') + '/'
-      console.log(top);
-      $('#topNavCollapse .nav-item .nav-link[href="' + top + '"]').parent('.nav-item').addClass('active');
+      var top = '/' + loc.slice(0, 2).join('/') + '/';
+      var link =   $('#topNavCollapse .nav-item .nav-link[href="' + top + '"]');
+      link.parent('.nav-item').addClass('active');
+      link.appendChild(span);
     })
     </script>
   </body>

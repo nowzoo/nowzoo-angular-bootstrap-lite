@@ -24,6 +24,8 @@ const lodashCompiler = _.template(fs.readFileSync('./docs-src/layout.html', 'utf
 var jsGlob = glob.sync('./docs/demos/*.js');
 var jsFiles = [];
 var jsNames = ['inline', 'polyfills', 'scripts', 'vendor', 'main'];
+
+const topNav = ['Alerts', 'Carousels', 'Collapse', 'Dropdowns', 'Modals', 'Popovers', 'Tabs', 'Tooltips']
 jsNames.forEach(name => {
 
   jsGlob.forEach(p => {
@@ -49,7 +51,7 @@ gulp.src('./docs-src/pages/**/*.md')
     }
   }))
   .pipe(through.obj(function (file, enc, cb) {
-    let data = Object.assign({}, file.data, {contents: file.contents.toString(), jsFiles: jsFiles});
+    let data = Object.assign({}, file.data, {contents: file.contents.toString(), jsFiles: jsFiles, topNav: topNav});
     let page = lodashCompiler(data);
     file.contents = new Buffer(page);
     cb(null, file);
