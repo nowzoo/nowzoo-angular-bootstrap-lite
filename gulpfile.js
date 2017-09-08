@@ -28,33 +28,7 @@ gulp.task('site', () => {
   })
   console.log(jsFiles)
 
-  gulp.src('./site/**/*.md')
-
-    .pipe(frontMatter())
-    .pipe(through.obj(function (file, enc, cb) {
-      file.data = Object.assign({}, file.frontMatter);
-      file.contents = file._contents;
-      cb(null, file);
-    }))
-    .pipe(marked({
-      highlight: function(code) {
-        return highlight.highlightAuto(code).value;
-      }
-    }))
-    .pipe(through.obj(function (file, enc, cb) {
-      let data = Object.assign({}, file.data, {contents: file.contents.toString(), jsFiles: jsFiles});
-      let page = lodashCompiler(data);
-      file.contents = new Buffer(page);
-      cb(null, file);
-    }))
-    .pipe(rename(function (p) {
-      if ('index' !== p.basename) {
-        p.dirname = path.join(p.dirname, p.basename);
-        p.basename = 'index';
-      }
-
-    }))
-    .pipe(gulp.dest('./docs/'));
+  
 })
 
     // .pipe(gulp.dest('./site/html/'))

@@ -1,3 +1,0 @@
-<div><app-root></app-root>
-
-</div>
